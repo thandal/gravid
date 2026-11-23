@@ -10,7 +10,7 @@ SWAP=set('RAJ DECJ PMRA PMDEC PX POSEPOCH F0 F1 F2 F3 PEPOCH BINARY PB PBDOT A1 
 def lines(p):return [l for l in p.read_text().splitlines() if l.split() and not l.startswith('#')]
 def pars(ls):return {l.split()[0]:l.split()[1] for l in ls if len(l.split())>=2}
 results={}
-for name in ['J0437-4715','J1231-1411']:
+for name in ['J0437-4715']:
  wd=OUT/name;wd.mkdir(exist_ok=True);rows=[]
  for p in sorted((BASE/'extracted'/name).rglob('*.tim')):
   for l in lines(p):
@@ -21,15 +21,11 @@ for name in ['J0437-4715','J1231-1411']:
     if 60088.625<=t<=60703+17/24:rows.append(l)
  tim=wd/'o4ab.tim';tim.write_text('FORMAT 1\n'+'\n'.join(rows)+'\n');ids=np.array([l.split()[0] for l in rows])
  release=ROOT/'results/timing/j0437_external_validation/meerkat/partim'/f'{name}.par'
- if name=='J1231-1411':release=ROOT/'results/timing/binary_screen_20261016/J1231-1411/input.par'
- if name=='J0437-4715':
-  adopted=ROOT/'gravid/resources/j0437_de440_search.par';published=ROOT/'data/J0437-4715_reardon2024_dr3.par'
-  model={k:lines(p) for k,p in [('adopted',adopted),('published',published)]}
-  pub=lines(published);pb=next(l.split() for l in pub if l.startswith('PB '));t0=next(l.split() for l in pub if l.startswith('T0 '))
-  for key,parts in [('PB',pb),('T0',t0)]:
-   model[key+'_plus_1sigma']=[f'{key} {Decimal(parts[1])+Decimal(parts[3])}' if l.split()[0]==key else l for l in pub]
- else:
-  adopted=ROOT/'results/timing/o4ab_exclusion_audit/j1231_profiles/M0.3_S0.95/native.par';model={'adopted_grid_anchor':lines(adopted),'release':lines(release)}
+ adopted=ROOT/'gravid/resources/j0437_de440_search.par';published=ROOT/'data/J0437-4715_reardon2024_dr3.par'
+ model={k:lines(p) for k,p in [('adopted',adopted),('published',published)]}
+ pub=lines(published);pb=next(l.split() for l in pub if l.startswith('PB '));t0=next(l.split() for l in pub if l.startswith('T0 '))
+ for key,parts in [('PB',pb),('T0',t0)]:
+  model[key+'_plus_1sigma']=[f'{key} {Decimal(parts[1])+Decimal(parts[3])}' if l.split()[0]==key else l for l in pub]
  # Both comparisons use the fixed release DM/FD/instrument prescription; no retuning to portal TOAs.
  nuisance=[l for l in lines(release) if l.split()[0] not in SWAP and l.split()[0] not in ['START','FINISH','NITS','NTOA','CHI2R','TRES','CLK']]
  results[name]={}

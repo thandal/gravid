@@ -4,7 +4,7 @@ Replaces SyntheticDemodulator once a heterodyned series is in hand. cwinpy does
 the expensive broadband->narrowband heterodyne ONCE per pulsar-detector; the
 `HeterodynedCWSimulator.model(newpar, updateSSB=True, updateBSB=True)` re-phases
 that cached series for ANY orbit with no raw-data round trip -- which is what
-makes per-node marginalisation cheap (REPORT.md sec. 7).
+makes evaluating many trial orbits cheap.
 
 Validated against cwinpy 1.5.0: `HeterodynedCWSimulator` lives in `cwinpy.signal`;
 `.model(newpar=..., updateSSB=True, updateBSB=True, freqfactor=2.0)` returns the

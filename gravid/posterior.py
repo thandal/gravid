@@ -1,11 +1,11 @@
-"""Orbital-parameter posterior and the node sets used to marginalise over it.
+"""Orbital-parameter posterior and node sets (trial orbits) placed across it.
 
-This is the genuinely new piece of the contribution: instead of evaluating the
-detection statistic at a single central ephemeris (and excluding the target when
-the worst-case orbital error spoils a full-T_obs coherent demodulation), we place
-nodes across the orbital posterior and combine.
+A search can evaluate its statistic at several trial orbits spread over the
+timing uncertainty instead of one.  ``nodes_metric`` places as many as the
+phase metric calls for; for PSR J0437-4715 with its full ten-parameter
+covariance that is one, at the fitted orbit.
 
-Three node strategies are provided, cheapest first:
+Three further node strategies are provided, cheapest first:
   * unscented   : 2n+1 sigma points (n=5 -> 11 evals). Captures mean+covariance
                   exactly for a Gaussian; the default fast estimator.
   * gauss_hermite: tensor-product Gauss-Hermite, k^n nodes. Higher accuracy,
@@ -144,8 +144,8 @@ def nodes_metric(posterior: OrbitalPosterior, g_z, mu_max=0.2, z_range=3.0,
     # the signs never actually flipped; what varies across BLAS kernel
     # families is the LAST BITS of the metric/eigenvectors (~1e-15 relative),
     # which moves node coordinates infinitesimally but never reorders them.
-    # That byte-level jitter is handled at merge time by a numeric grid
-    # comparison (gpu_search.merge_shards), not here.
+    # Anything that merges results from several machines must therefore
+    # compare node grids numerically, not byte for byte.
     for i in range(V.shape[1]):
         k = int(np.argmax(np.abs(V[:, i])))
         if V[k, i] < 0.0:

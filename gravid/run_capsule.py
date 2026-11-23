@@ -28,7 +28,7 @@ SOURCE_GLOBS = ("gravid/**/*.py", "scripts/**/*.py", "scripts/**/*.C", "compute/
 # posterior, and phase plan a run must execute); the environment that
 # actually executed a shard is attested separately by the WORKER at run time
 # (worker_attestation) — a controller-built capsule must never masquerade as
-# an execution-environment record (Codex capsule review, finding 1).
+# an execution-environment record.
 IDENTITY_FIELDS = ("source_bundle_sha256", "git_commit", "dirty_patch_sha256",
                    "builder_image", "builder_environment_lock_sha256",
                    "builder_environment", "builder_invocation",
@@ -159,9 +159,10 @@ def build_capsule(repo_root, builder_invocation, posterior_path=None,
         "git_commit": commit,
         "dirty_patch_sha256": dirty_sha,
         # Builder context, honestly labeled: this is where the CAPSULE was
-        # made, never where a shard ran.
+        # made, never where a shard ran.  The machine's name is left out so
+        # that a published record does not carry it.
         "builder_image": (os.environ.get("GRAVID_IMAGE_DIGEST")
-                          or f"uncontainerized:{platform.node()}"),
+                          or "uncontainerized"),
         "builder_environment_lock_sha256": lock_sha,
         "builder_environment": environment,
         "builder_invocation": list(builder_invocation),
@@ -187,8 +188,7 @@ def verify_capsule_dict(capsule, origin="capsule"):
     Verifies the self-declared digest AND that the embedded input_hashes
     reproduce the digested chunk_manifest_sha256 — the hashes ride outside
     the identity fields for size, so without this recomputation a recorded
-    input hash could be edited while the capsule SHA stayed valid (Codex
-    capsule review, finding 4).
+    input hash could be edited while the capsule SHA stayed valid.
     """
     expected = capsule.get("capsule_sha256")
     actual = capsule_digest(capsule)
@@ -221,9 +221,8 @@ def verify_shard_capsule(capsule_json_str, expected_sha):
 
     The standalone capsule_sha256 string and the capsule_json payload are
     separate npz members; consumers must never trust the JSON without
-    proving it reproduces the declared digest (Codex capsule review,
-    finding 4: a forged capsule_json was accepted while the declared SHA
-    stayed unchanged).
+    proving it reproduces the declared digest (otherwise a forged
+    capsule_json would be accepted while the declared SHA stayed unchanged).
     """
     capsule = verify_capsule_dict(json.loads(capsule_json_str),
                                   origin="shard capsule_json")
@@ -278,9 +277,8 @@ def require_equal_capsules(labels_and_digests, allow_missing=False):
         if allow_missing:
             return None
         raise ValueError(
-            "capsule-less shard set refused: only legacy clean-search "
-            "products may opt in explicitly (B3SF_ALLOW_NO_CAPSULE=1 / "
-            "--allow-uncapsuled)")
+            "capsule-less shard set refused: only products that predate "
+            "capsules may opt in explicitly (allow_missing=True)")
     if None in digests or len(digests) != 1:
         detail = ", ".join(f"{label}={digest or 'MISSING'}"
                            for label, digest in rows)

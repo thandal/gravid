@@ -46,8 +46,8 @@ from gravid.orbital_metric import covariance_sha256
 from gravid.cw_phase_cache import PhaseCache
 from gravid.j0437_model import SEARCH_PAR, KEYS, binary_mean, apply_binary, load_covariance, waveform_metric
 
-import pint.logging  # quiet PINT if pulled in transitively
-try:
+try:  # quiet PINT if it is installed; the search itself does not need it
+    import pint.logging
     pint.logging.setup(level="ERROR")
 except Exception:
     pass
@@ -96,8 +96,8 @@ class MultiDatasetDemodulator:
     2F = 2 |sum_i <d_i, m_i>_w|^2 / sum_i <m_i, m_i>_w, weight w_i = 1/var_i
     (per-chunk empirical variance -- studentization). The sum runs over every
     chunk of every detector: a single complex amplitude coherent across the run.
-    Node templates are the SAME for every data realization, so `precompute_nodes`
-    caches them once and injection recovery is then just dot products.
+    With ``--noise-weights running-median`` the per-sample weights come from
+    ``gravid.noise_weights`` instead.
     """
 
     def __init__(self, files, base_par, studentize=True, search_par=SEARCH_PAR,
@@ -135,6 +135,7 @@ class MultiDatasetDemodulator:
             times = np.concatenate([s[1] for s in subs])
             data = np.concatenate([s[2] for s in subs])
             invvar = np.concatenate([np.full(s[1].size, s[3]) for s in subs])
+            n_files = len(subs)
             subs.clear()                    # release the per-file copies
             file_variance_snr = float(np.sum(invvar)**2
                                       / np.sum(invvar**2 * np.abs(data)**2))
@@ -150,9 +151,8 @@ class MultiDatasetDemodulator:
             cache = PhaseCache(base, det, times[0], times[-1])
             self.chunks.append(dict(det=det, times=times, data=data, sim=sim, phase_cache=cache,
                                     invvar=invvar, gps=int(times[0]),
-                                    n=data.size, n_sub=len(subs)))
+                                    n=data.size, n_sub=n_files))
         self.n_samp = int(sum(c["n"] for c in self.chunks))
-        self._node_templates = None
 
     def _par_for(self, theta, freq_offset=0.0):
         """`freq_offset` is in GW Hz — the band the data, the filter passband
@@ -188,33 +188,6 @@ class MultiDatasetDemodulator:
             Y += np.sum(iv * np.conj(m) * d)
             NORM += np.sum(iv * np.abs(m) ** 2)
         return 2.0 * (abs(Y) ** 2) / NORM if NORM > 0 else 0.0
-
-    # ---- fast path: cache node templates once, reuse across data realizations
-    def precompute_nodes(self, nodes):
-        """Store per-node, per-chunk templates + norms so later recoveries are
-        pure dot products. Memory: sum_nodes n_samp complex ~ manage node count."""
-        tmpl = []
-        for theta in nodes:
-            par = self._par_for(theta)
-            per = []
-            norm = 0.0
-            for c in self.chunks:
-                m = self._model(c, par)
-                per.append(m)
-                norm += c["invvar"] * np.sum(np.abs(m) ** 2)
-            tmpl.append(dict(m=per, norm=norm))
-        self._node_templates = tmpl
-        return self
-
-    def two_F_nodes_cached(self, data_list):
-        """2F at every cached node against the given per-chunk data list."""
-        out = np.empty(len(self._node_templates))
-        for j, t in enumerate(self._node_templates):
-            Y = 0.0 + 0.0j
-            for k, c in enumerate(self.chunks):
-                Y += c["invvar"] * np.sum(np.conj(t["m"][k]) * data_list[k])
-            out[j] = 2.0 * (abs(Y) ** 2) / t["norm"] if t["norm"] > 0 else 0.0
-        return out
 
 
 def _build_posterior_and_metric(demod, cov_scale=1.0):

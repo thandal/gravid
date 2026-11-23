@@ -78,9 +78,35 @@ Scripts and saved files are under `scripts/timing/` unless a full path is given.
 | Fits to the two halves of the timing data | `supporting_checks/analyze_j0437_halves.py` | `supporting_checks/j0437_free_halves.json` |
 | Withheld year: 24% more scatter than predicted | `withheld_year/predictive_linear.py` | `withheld_year/heldout_linear.json`, key `chi2_per_toa` (1.53; its square root is 1.24) and `binary_derivative_subspace` |
 
-The saved files let every number above be read directly. Rerunning the
-scripts needs TEMPO2 and the radio arrival times; see Data below. Their
-outputs go under `results/timing/`, which is not in the repository.
+The saved files let every number above be read directly.
+
+Given TEMPO2 and the data below, these can be rerun from this repository:
+Table 1 (next section); the refit, its covariance and the independent QR
+solve (`scripts/reproduce_j0437_covariance.py --verify-design` and
+`reproduce_j0437_full_binary_covariance.py`); the search model; the two
+orbital-model checks (`validate_j0437_full_model.py`,
+`validate_j0437_uncertainty.py`, which also need the reduced strain); and
+the Pulsar Portal check. Bulk outputs go under `results/`, outside version
+control. A script that writes one of the saved files above replaces it, and
+`git diff` then shows what changed. Give
+`reproduce_j0437_full_binary_covariance.py` another `--out` path: by default
+it replaces the covariance file the searches are tied to, without that
+file's `independent_verification` entry.
+
+The other rows cannot be rerun from here. Each needs intermediate files that
+no script in this repository produces, so the script is a record of the
+calculation and the saved file is what the article uses.
+
+| Script | Needs |
+|---|---|
+| `withheld_year/predictive_linear.py` | an export of the fit's design matrix and priors from TEMPO2 (`solver.*` files) |
+| `supporting_checks/analyze_j0437_halves.py` | the two half-data refits |
+| `orbital_offset_fit/epoch_orbit_fit.py`, `review_epoch_fit.py` | a merged parameter file for each release (`replace_all.par`) |
+| `supporting_checks/audit_external_prediction.py` | residuals of the Table 1 models from an earlier run, saved under other names |
+
+The `independent_verification` entry in
+`gravid/resources/j0437_de440_binary_covariance.json` needs the same export
+of the design matrix.
 
 ### Regenerating Table 1 from the releases
 
@@ -92,7 +118,7 @@ python scripts/timing/later_radio_observations/summarize.py --native-rerun
 
 The last step builds the 14 timing models (seven per release), evaluates
 their residuals with TEMPO2 without fitting anything, and prints the table.
-It reproduces the saved values to nine significant figures. `acquire.py`
+It reproduces the saved values to the precision shown in Table 1. `acquire.py`
 rewrites `download_manifest.json` with the checksums of what it fetched, so
 `git diff` shows whether any upstream file has changed.
 
@@ -106,8 +132,26 @@ None of the input data is in this repository.
 | MeerKAT 4.5-year release | `https://docs.datacentral.org.au/documents/52/partim.tar.gz` | `scripts/timing/orbital_offset_fit/acquire.py` downloads it; `download_manifest.json` beside it lists the SHA-256 of every downloaded file |
 | InPTA DR2 | `github.com/inpta/InPTA.DR2` and `github.com/inpta/InPTA.DR2.NA`, at the revisions named in `acquire.py` | same script and list |
 | Observatory clock corrections | `github.com/ipta/pulsar-clock-corrections` | same list; the upstream files change over time |
-| Pulsar Portal arrival times for the O4b check | `https://pulsars.org.au/download/J0437-4715/toas`, downloaded 16 October 2026 | 1,765,503 bytes, SHA-256 `7f632f47d40691a4067670c60693092d8f36b2777e773b01437033d340e1b13c` |
+| Pulsar Portal arrival times for the O4b check | `https://pulsars.org.au/download/J0437-4715/toas`, downloaded 16 October 2026; needs a Portal account | 1,765,503 bytes, SHA-256 `7f632f47d40691a4067670c60693092d8f36b2777e773b01437033d340e1b13c` |
 | LIGO O4a strain | GWOSC O4a release at 4 kHz, channels `H1:GWOSC-4KHZ_R1_STRAIN` and `L1:GWOSC-4KHZ_R1_STRAIN` | see below |
+
+### Pulsar Portal check
+
+The check reads its inputs from `results/timing/portal_arrival_times/`:
+
+- `extracted/J0437-4715/`: the Portal archive, unpacked;
+- `clock/`: TEMPO2's clock files (`.conda/share/tempo2/clock/`) without
+  `mk2utc.clk`, plus `mk2utc_observatory.clk`, `tai2tt_bipm2024.clk` and
+  `gps2utc.clk` from `github.com/ipta/pulsar-clock-corrections`, folder
+  `T2runtime/clock`. The bundled MeerKAT clock file ends before O4b does.
+
+It also uses the MeerKAT release's parameter file fetched by `acquire.py` and
+the PPTA parameter file saved as for Table 1.
+
+```bash
+python scripts/timing/portal_arrival_times/validate.py
+python scripts/timing/portal_arrival_times/summarize.py   # stops if TEMPO2 fell back on another clock
+```
 
 ### Reduced strain
 

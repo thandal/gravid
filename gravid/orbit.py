@@ -90,13 +90,10 @@ def bsb_delay(t, pb, x, e, om, t0, fixed_iters: int | None = None):
     barycentric time t has phase 2*pi*f_gw*(t + bsb(t)). Everything that
     models or demodulates a signal must use this, not R.
 
-    Pinned externally, twice: `bsb` equals lalpulsar's own binary delay to
-    ~3 ms over J2145's orbit, and a CW injected into
-    raw strain with THIS convention is recovered at unit coherence through the
-    cwinpy-validated heterodyne, while the opposite sign decoheres completely
-    . The sign matters: for months of coherent
-    integration a flipped orbital delay does not merely dephase the template,
-    it DOUBLES the modulation it was supposed to remove.
+    This is the sign convention of lalpulsar's own binary delay.  The sign
+    matters: for months of coherent integration a flipped orbital delay does
+    not merely dephase the template, it DOUBLES the modulation it was
+    supposed to remove.
     """
     return -roemer_delay(t, pb, x, e, om, t0, fixed_iters=fixed_iters)
 

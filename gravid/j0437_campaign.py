@@ -95,8 +95,14 @@ def freeze_run(output, plan, covariance, repo_root):
             archive.addfile(info, io.BytesIO(content))
     if sha256_file(source) != capsule["source_bundle_sha256"]:
         raise ValueError("source snapshot differs from run capsule")
-    patch = subprocess.run(["git", "diff", "HEAD", "--binary"], cwd=repo_root,
-                           capture_output=True, check=True).stdout
-    Path(str(output)+".patch").write_bytes(patch)
+    # Outside a git checkout there is no diff to save; the record then holds
+    # no commit and no patch digest (run_capsule.git_identity).
+    try:
+        patch = subprocess.run(["git", "diff", "HEAD", "--binary"], cwd=repo_root,
+                               capture_output=True, check=True).stdout
+    except (OSError, subprocess.CalledProcessError):
+        patch = None
+    if patch is not None:
+        Path(str(output)+".patch").write_bytes(patch)
     Path(str(output)+".capsule.json").write_text(json.dumps(capsule, indent=2)+"\n")
     return capsule

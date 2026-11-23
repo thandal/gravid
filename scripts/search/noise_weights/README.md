@@ -97,6 +97,7 @@ installed.
 ```bash
 OUT=results/j0437_search
 SCAN=results/timing/noise_weights
+mkdir -p "$SCAN"
 # fixed orientation: under 6.5 GB, about 30 minutes
 python scripts/j0437_upper_limit.py --stage upperlimit --nproc 1 --n-offsets 40 \
     --n-inj 200 --noise-weights running-median --out $OUT/result.json

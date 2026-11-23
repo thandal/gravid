@@ -294,7 +294,7 @@ def main():
     parser.add_argument("--limit-files", type=int, default=0,
                         help="smoke test: first N files per detector")
     parser.add_argument("--scan", default=None,
-                        help="optional .npy path for a dense frequency scan")
+                        help="optional .npz path for a dense frequency scan")
     parser.add_argument("--scan-window", type=float, nargs=2,
                         default=[1368195280.5, 1389455057.5])
     args = parser.parse_args()

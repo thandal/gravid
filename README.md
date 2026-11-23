@@ -33,9 +33,13 @@ Python 3.10 or later.
 
 ```bash
 pip install -e ".[dev]"            # library and tests
-pip install -e ".[dev,cwinpy]"     # also what the strain searches need
+pip install -e ".[dev,cwinpy]"     # also what the strain searches and timing checks need
 pytest
 ```
+
+The `cwinpy` extra builds one of its dependencies (`lintegrate`) from source.
+That needs the GSL library and its `gsl-config` tool on the `PATH`, for example
+from the conda-forge package `gsl`.
 
 The timing scripts also need TEMPO2. They expect it in a conda environment
 at `.conda/` in the repository root.

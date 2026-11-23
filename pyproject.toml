@@ -12,9 +12,10 @@ license-files = ["LICENSE"]
 dependencies = ["numpy>=1.24", "scipy>=1.10"]
 
 [project.optional-dependencies]
-# Needed to read the reduced strain and run the searches.
-cwinpy = ["cwinpy>=1.5", "lalsuite", "h5py"]
-dev = ["pytest>=7", "matplotlib>=3.5"]
+# Needed to read the reduced strain and run the searches; PINT is used by the
+# timing-model scripts.
+cwinpy = ["cwinpy>=1.5", "lalsuite", "h5py", "pint-pulsar"]
+dev = ["pytest>=7", "matplotlib>=3.7"]
 
 [tool.setuptools.packages.find]
 include = ["gravid*"]

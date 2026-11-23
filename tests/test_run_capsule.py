@@ -51,7 +51,7 @@ def test_capsule_digest_excludes_timestamp_and_detects_tampering(tmp_path):
 def test_load_capsule_detects_edited_input_hash(tmp_path):
     # input_hashes ride outside the digested identity fields for size; the
     # loader must recompute the manifest digest so an edited entry cannot
-    # hide behind a still-valid capsule SHA (Codex finding 4).
+    # hide behind a still-valid capsule SHA.
     capsule = build_capsule(_tree(tmp_path), ["prog"],
                             input_hashes={"a.npz": "aa", "b.npz": "bb"})
     capsule["input_hashes"]["a.npz"] = "ee"
@@ -99,7 +99,7 @@ def test_chunk_manifest_digest_is_order_independent():
 
 
 def test_require_equal_capsules_fails_closed():
-    # Capsule-less sets need an explicit legacy opt-in (Codex finding 5).
+    # Capsule-less sets need an explicit opt-in.
     with pytest.raises(ValueError, match="capsule-less"):
         require_equal_capsules([("s0", None), ("s1", None)])
     assert require_equal_capsules([("s0", None), ("s1", None)],

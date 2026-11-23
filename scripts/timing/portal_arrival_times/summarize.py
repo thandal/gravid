@@ -4,7 +4,7 @@ import json,hashlib
 import numpy as np
 ROOT=Path(__file__).resolve().parents[3];BASE=ROOT/'results/timing/portal_arrival_times';W=BASE/'validation'
 d=json.loads((W/'results.json').read_text());checks={}
-for name,label in [('J0437-4715','adopted'),('J1231-1411','adopted_grid_anchor')]:
+for name,label in [('J0437-4715','adopted')]:
  ep=np.loadtxt(W/name/(label+'_O4b_epochs.txt'));p={l.split()[0]:l.split()[1] for l in (W/name/(label+'.par')).read_text().splitlines() if len(l.split())>1};t=ep[:,0]
  phase=np.remainder((t-float(p.get('TASC',p.get('T0'))))/float(p['PB']),1);gaps=np.diff(np.r_[np.sort(phase),np.sort(phase)[0]+1])
  checks[name]={'O4b_epochs':len(t),'largest_time_gap_days':float(np.diff(np.sort(t)).max()),'largest_sampled_orbital_phase_gap_cycles':float(gaps.max()),'O4b_sampled_loss_percent':100*d[name][label]['O4b']['raw_equal_epoch_power_loss'],'O4ab_sampled_loss_percent':100*d[name][label]['O4ab']['raw_equal_epoch_power_loss']}

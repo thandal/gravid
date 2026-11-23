@@ -4,19 +4,22 @@ Nathaniel Fairfield
 
 ## Abstract
 
-One orbital template suffices for a coherent search for continuous
-gravitational waves from PSR J0437−4715 over 246.1 days. Although the
-published period and periastron epoch have appreciable uncertainties,
-radio timing tightly constrains the pulsar's longitude in its nearly
-circular orbit. Across the orbits tested from the joint timing covariance,
-the largest fractional power loss is $3.73\times10^{-8}$, well below our
-20% tolerance. Later MeerKAT and InPTA pulse arrival times independently
-test the extrapolation. With spin and orbit held fixed, the loss at the
-radio observing times is below 0.008%. A search of LIGO O4a strain at twice
-the rotation frequency finds no significant excess. Using the same orbit,
-we recover 95% of injected sources at $h_0=3.46\times10^{-26}$ with an
-assumed linear polarization and $1.60\times10^{-26}$ when we fit both
-polarizations.
+We searched LIGO O4a data spanning 246.1 days for continuous gravitational
+waves from PSR J0437−4715 at twice its rotation frequency, using one
+orbital template. Radio timing tightly constrains the pulsar's longitude
+in its nearly circular orbit even though the orbital period and epoch of
+periastron are individually uncertain. Increasing the published period by
+one standard deviation (16 ms) costs 78% of the coherent power at the
+later MeerKAT observing times and 71% at those of the Indian Pulsar
+Timing Array. When we also increase the rate of periastron advance by
+the amount predicted for that period shift, the loss falls below 0.008%
+in both datasets. Across the orbits tested from the joint timing
+covariance, the largest fractional power loss at the sampled detector
+times was $3.73\times10^{-8}$, well below our 20% tolerance. The strain
+search found no significant excess. Using the same orbit, a filter that
+assumed one linear polarization recovered 95% of injected signals at
+$h_0=3.46\times10^{-26}$. Fitting both polarizations gave 95% recovery at
+$h_0=1.60\times10^{-26}$.
 
 ## 1. How accurately must we know the orbit?
 
@@ -337,8 +340,8 @@ Under `scripts/search/noise_weights/`, `summarize.py`
 reproduces Table 2 from the saved filter outputs. For the primary filter,
 the original `result.json` gives $3.59\times10^{-26}$ by interpolating on
 a 16-point amplitude grid. Table 2 uses the individual threshold crossings.
-The reduced strain and full validation files are held in the project's
-nonpublic archive.
+The reduced strain is in a [public folder](https://drive.google.com/drive/folders/1GZsjyQHLniwpRwuOSjeJ_90WFVWtmRWF);
+the repository gives its checksum. The bulk validation outputs are not public.
 
 ## Acknowledgments
 

@@ -25,8 +25,39 @@ python summarize.py
 python plot_results.py
 ```
 
-Rerunning the searches needs the reduced strain (102 files, 393 MB).
-TODO: where the reduced strain is deposited, and how it was made from the GWOSC release.
+Rerunning the searches needs the reduced strain; see Data below.
+
+### What the two saved search outputs are
+
+`result.json` and `f_statistic.json` in `results/j0437_search/` are
+byte-for-byte what the two searches wrote on 20 November 2026. They were
+written before this code was published, under the project's working name
+"gravfold" and into a folder named `results/j0437_search_rerun_20261120/`;
+both names appear inside the files. The code in this repository is the code
+that ran, with names changed and comments edited. The searches have not been
+rerun from this repository.
+
+`result.json` carries a record of the run under `run_capsule`. What can be
+checked from here:
+
+```python
+import hashlib, json
+from pathlib import Path
+from gravid.run_capsule import capsule_digest, chunk_manifest_digest
+
+sha = lambda path: hashlib.sha256(Path(path).read_bytes()).hexdigest()
+result = json.loads(Path("results/j0437_search/result.json").read_text())
+record = result["run_capsule"]
+assert capsule_digest(record) == record["capsule_sha256"]
+assert chunk_manifest_digest(record["input_hashes"]) == record["chunk_manifest_sha256"]
+assert sha("gravid/resources/j0437_de440_search.par") == result["search_par_sha256"]
+assert sha("gravid/resources/j0437_de440_binary_covariance.json") == result["covariance_sha256"]
+```
+
+`record["input_hashes"]` holds the SHA-256 of each of the 102 reduced strain
+files. The record's digests of the source tree, the commit and the
+uncommitted changes refer to the unpublished working repository and cannot
+be checked from here.
 
 ## Sections 1 and 2: timing
 
@@ -48,6 +79,67 @@ Scripts and saved files are under `scripts/timing/` unless a full path is given.
 | Withheld year: 24% more scatter than predicted | `withheld_year/predictive_linear.py` | `withheld_year/heldout_linear.json`, key `chi2_per_toa` (1.53; its square root is 1.24) and `binary_derivative_subspace` |
 
 The saved files let every number above be read directly. Rerunning the
-scripts needs TEMPO2 and the radio arrival times from the cited releases;
-their outputs go under `results/timing/`, which is not in the repository.
-TODO: download steps for the radio data, and where the count of 11,637 arrival times is saved.
+scripts needs TEMPO2 and the radio arrival times; see Data below. Their
+outputs go under `results/timing/`, which is not in the repository.
+
+### Regenerating Table 1 from the releases
+
+```bash
+python scripts/timing/orbital_offset_fit/acquire.py        # MeerKAT and InPTA files, clock files
+# save the PPTA collection's parameter file as data/J0437-4715_reardon2024_dr3.par
+python scripts/timing/later_radio_observations/summarize.py --native-rerun
+```
+
+The last step builds the 14 timing models (seven per release), evaluates
+their residuals with TEMPO2 without fitting anything, and prints the table.
+It reproduces the saved values to nine significant figures. `acquire.py`
+rewrites `download_manifest.json` with the checksums of what it fetched, so
+`git diff` shows whether any upstream file has changed.
+
+## Data
+
+None of the input data is in this repository.
+
+| Data | Source | What fixes the exact files |
+|---|---|---|
+| PPTA arrival times for J0437 (11,637), parameter file and clock files | CSIRO data collection, doi:10.25919/20rx-5f63 | `scripts/reproduce_j0437_covariance.py` holds the SHA-256 of the parameter and arrival-time files (`PAR_SHA256`, `TIM_SHA256`) and refuses any others |
+| MeerKAT 4.5-year release | `https://docs.datacentral.org.au/documents/52/partim.tar.gz` | `scripts/timing/orbital_offset_fit/acquire.py` downloads it; `download_manifest.json` beside it lists the SHA-256 of every downloaded file |
+| InPTA DR2 | `github.com/inpta/InPTA.DR2` and `github.com/inpta/InPTA.DR2.NA`, at the revisions named in `acquire.py` | same script and list |
+| Observatory clock corrections | `github.com/ipta/pulsar-clock-corrections` | same list; the upstream files change over time |
+| Pulsar Portal arrival times for the O4b check | `https://pulsars.org.au/download/J0437-4715/toas`, downloaded 16 October 2026 | 1,765,503 bytes, SHA-256 `7f632f47d40691a4067670c60693092d8f36b2777e773b01437033d340e1b13c` |
+| LIGO O4a strain | GWOSC O4a release at 4 kHz, channels `H1:GWOSC-4KHZ_R1_STRAIN` and `L1:GWOSC-4KHZ_R1_STRAIN` | see below |
+
+### Reduced strain
+
+The searches read 102 files of reduced strain (412 MB, 26,366,991 one-second
+samples), one per detector per five days, from `results/campaign_het_v2/`.
+They were made from the GWOSC O4a release, GPS 1368195220 to 1389456018:
+
+1. Times with data were taken from the GWOSC timeline (flags `H1_DATA` and
+   `L1_DATA`).
+2. Strain for those times was downloaded at 4 kHz with gwpy's
+   `TimeSeries.fetch_open_data`.
+3. CWInPy 1.5.0 heterodyned it in pieces of 432,000 s with these settings:
+   stride 3,600 s; ninth-order low-pass filter at 0.25 Hz; output at 1 Hz;
+   60 s cropped from both ends of every segment; Solar-system and binary
+   barycentring; twice the rotation frequency; interpolation step 60 s. The
+   parameter file for this step, `base_cwinpy.par`, uses DE440 and the ELL1
+   binary model. The searches then apply the phase difference to the T2
+   model.
+
+All 102 files were made with the same settings. Each file stores them,
+together with the parameter file and its list of segments. The SHA-256 of
+every file is in `results/j0437_search/result.json` under `input_identity`,
+`input_hashes`.
+
+The files are in one archive, `j0437_o4a_reduced_strain.tar` (412 MB), in
+this public folder:
+
+https://drive.google.com/drive/folders/1GZsjyQHLniwpRwuOSjeJ_90WFVWtmRWF
+
+Its SHA-256 is `935b116a91a0832a41e39b91b51e4ffb2c547753fc0544d2b7834568449ee2f5`.
+Unpack it at the repository root with `tar -xf j0437_o4a_reduced_strain.tar`;
+the files land in `results/campaign_het_v2/`. The archive also holds
+`base_cwinpy.par`, the checksum record the search reads and a list of
+per-file checksums. The files are derived from the GWOSC release and are
+under the same CC BY 4.0 licence.

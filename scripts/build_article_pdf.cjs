@@ -127,6 +127,7 @@ function buildConfiguration(manifest, stagingDirectory) {
     );
   }
   sections["markdown-pdf"].outputDirectory = stagingDirectory;
+  sections["markdown-pdf"].headerTemplate = "<div></div>";
   if (process.env.MARKDOWN_PDF_CHROME) {
     const chrome = path.resolve(process.env.MARKDOWN_PDF_CHROME);
     if (!fs.existsSync(chrome)) {

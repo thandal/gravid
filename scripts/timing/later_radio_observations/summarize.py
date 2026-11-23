@@ -1,10 +1,26 @@
-"""Reassemble the article's test on later radio observations, without the
+"""Table 1: the article's test on later radio observations, without the
 fitted covariance.
 
-Optionally rerun the native TEMPO2 residual evaluator, which has no fit call.
-The radio releases' propagation/instrument terms are retained in the saved
-hybrid par files. They are NOT independent predictions of those nuisance terms.
+With ``--native-rerun`` the script starts from the downloaded releases: it
+builds the 14 timing models (seven per release), evaluates their residuals
+with TEMPO2 (no fit is run), and computes the table.  It needs:
+
+  * the MeerKAT and InPTA files fetched by
+    ``scripts/timing/orbital_offset_fit/acquire.py``;
+  * the published PPTA parameter file, saved as
+    ``data/J0437-4715_reardon2024_dr3.par``;
+  * TEMPO2 in a conda environment at ``.conda/`` in the repository root.
+
+Each model keeps the release's own propagation and instrument terms
+(dispersion, frequency-dependent terms, jumps) and takes spin, astrometry and
+orbit from the model under test.  Those retained terms are NOT independent
+predictions.
+
+Without the flag the script reads residuals saved by an earlier run from
+``results/timing/first_principles/``.  Where such files exist, a rerun is
+also compared against them.
 """
+from decimal import Decimal
 from pathlib import Path
 import argparse, hashlib, json, math, os, subprocess
 import numpy as np
@@ -25,8 +41,54 @@ LABELS = {
     'T0_with_OM': '{site}_control_T0_p1s_OM_partner',
 }
 
+# Parameters taken from the model under test; everything else in a release's
+# parameter file is kept.
+SWAP = set('RAJ DECJ PMRA PMDEC PX POSEPOCH F0 F1 F2 F3 PEPOCH BINARY PB PBDOT A1 XDOT T0 OM ECC OMDOT M2 KIN KOM SINI '
+           'TASC EPS1 EPS2 EPHEM UNITS PLANET_SHAPIRO'.split())
+RELEASE_PAR = {'meerkat': 'meerkat/partim/J0437-4715.par', 'inpta': 'inpta/J0437-4715/J0437-4715.DMX.par'}
+
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+def lines_of(path):
+    return {l.split()[0]: l for l in path.read_text().splitlines() if l.split() and not l.startswith('#')}
+
+def build_models(directory, published_par, search_par, release_pars):
+    """Write the 14 timing models of Table 1 into ``directory``.
+
+    ``release_pars`` maps 'meerkat' and 'inpta' to each release's parameter
+    file.  The four shifted models start from the published parameters and
+    use their quoted one-sigma errors; the partner shifts follow the two
+    longitude relations in the article.
+    """
+    pub = lines_of(published_par)
+    def val(key): return Decimal(pub[key].split()[1])
+    def sig(key): return Decimal(pub[key].split()[3])
+    PBd, sPB, sT0 = val('PB'), sig('PB'), sig('T0')
+    dOMDOT = 2*Decimal(math.pi)*sPB/PBd**2 * Decimal(180/math.pi) * Decimal('365.25')   # deg/yr
+    dOM = 2*Decimal(math.pi)*sT0/PBd * Decimal(180/math.pi)                                # deg
+    def perturbed(changes):
+        out = dict(pub)
+        for k, d in changes.items():
+            f = out[k].split(); f[1] = str(Decimal(f[1]) + d); out[k] = ' '.join(f)
+        return out
+    models = {
+        'S_{site}_published_DR3': pub,
+        'S_{site}_search_template_model_(TDB)': lines_of(search_par),
+        '{site}_control_PB_p1_sigma': perturbed({'PB': sPB}),
+        '{site}_control_PB_p1s_OMDOT_partner': perturbed({'PB': sPB, 'OMDOT': dOMDOT}),
+        '{site}_control_T0_p1_sigma': perturbed({'T0': sT0}),
+        '{site}_control_T0_p1s_OM_partner': perturbed({'T0': sT0, 'OM': dOM}),
+    }
+    directory.mkdir(parents=True, exist_ok=True)
+    for site, release_par in release_pars.items():
+        release = [l for l in Path(release_par).read_text().splitlines() if l.split()]
+        kept = [l for l in release if l.split()[0] not in SWAP]
+        for pattern, model in models.items():
+            taken = [model[k] for k in model if k in SWAP and k != 'PLANET_SHAPIRO']
+            (directory/(pattern.format(site=site)+'.par')).write_text('\n'.join(kept + taken + ['PLANET_SHAPIRO N']) + '\n')
+        own = [l for l in release if l.split()[0] != 'PLANET_SHAPIRO']
+        (directory/f'F_{site}_release_own_fit_(uses_O4a_data).par').write_text('\n'.join(own + ['PLANET_SHAPIRO N']) + '\n')
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
@@ -54,8 +116,12 @@ def main():
         limits[str(loss)] = {'GW_phase_amplitude_rad': amp, 'sinusoidal_delay_amplitude_ms': amp/(2*math.pi*fgw)*1000}
     manifest = {str(par.relative_to(ROOT)): sha(par)}
     native_errors = {}
+    if not args.native_rerun and not SRC.is_dir():
+        parser.error(f'no saved residuals in {SRC.relative_to(ROOT)}; run with --native-rerun')
     if args.native_rerun:
         args.native_dir.mkdir(parents=True, exist_ok=True)
+        build_models(args.native_dir, par, ROOT/'gravid/resources/j0437_de440_search.par',
+                     {site: EXT/name for site, name in RELEASE_PAR.items()})
         helper = args.native_dir / 'evaluate'
         cpp = ROOT / 'scripts/timing/orbital_offset_fit/evaluate_timing.C'
         subprocess.run(['g++', '-O2', '-I'+str(ROOT/'.conda/include'), str(cpp),
@@ -74,23 +140,32 @@ def main():
         results[site] = {}
         for label, pattern in LABELS.items():
             stem = pattern.format(site=site)
-            p = SRC/(stem+'.par'); saved = SRC/(stem+'.res')
-            manifest[str(p.relative_to(ROOT))] = sha(p)
-            manifest[str(saved.relative_to(ROOT))] = sha(saved)
-            data = np.loadtxt(saved)
+            saved = SRC/(stem+'.res')
+            if args.native_rerun:
+                p = args.native_dir/(stem+'.par')
+                manifest['model built for this run: '+stem+'.par'] = sha(p)
+                if (SRC/(stem+'.par')).is_file():
+                    assert p.read_bytes() == (SRC/(stem+'.par')).read_bytes(), stem
+            else:
+                p = SRC/(stem+'.par')
+                manifest[str(p.relative_to(ROOT))] = sha(p)
+            if saved.is_file():
+                manifest[str(saved.relative_to(ROOT))] = sha(saved)
+                data = np.loadtxt(saved)
             if args.native_rerun:
                 fresh = args.native_dir/(stem+'.res')
                 completed = subprocess.run([str(helper), str(p), str(tim), str(EXT/'clock'), str(fresh)],
                     env=dict(os.environ, TEMPO2=str(ROOT/'.conda/share/tempo2')), capture_output=True, text=True, check=True)
                 fresh.with_suffix('.log').write_text(completed.stdout+completed.stderr)
                 new = np.loadtxt(fresh)
-                assert new.shape == data.shape
-                assert np.array_equal(new[:,0], data[:,0])
-                # Compare after removing the unobservable common phase origin.
-                delta = new[:,2]-data[:,2]; delta -= delta.mean()
-                err = float(np.max(abs(delta)))
-                assert err < 1e-9, (site, label, err)
-                native_errors[site+'/'+label] = err
+                if saved.is_file():
+                    assert new.shape == data.shape
+                    assert np.array_equal(new[:,0], data[:,0])
+                    # Compare after removing the unobservable common phase origin.
+                    delta = new[:,2]-data[:,2]; delta -= delta.mean()
+                    err = float(np.max(abs(delta)))
+                    assert err < 1e-9, (site, label, err)
+                    native_errors[site+'/'+label] = err
                 data = new
             assert len(data) == len(ids)
             mask = (data[:,0] >= 60088.625) & (data[:,0] <= 60325.65554976852)

@@ -7,7 +7,7 @@ import numpy as np
 
 ROOT = Path(__file__).absolute().parents[3]
 sys.path.insert(0, str(ROOT))
-from gravfold.j0437_campaign import load_chunk  # noqa: E402
+from gravid.j0437_campaign import load_chunk  # noqa: E402
 
 HERE = Path(__file__).absolute().parent
 BULK = ROOT / "results/timing/noise_weights"

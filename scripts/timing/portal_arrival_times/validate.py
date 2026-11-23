@@ -23,7 +23,7 @@ for name in ['J0437-4715','J1231-1411']:
  release=ROOT/'results/timing/j0437_external_validation/meerkat/partim'/f'{name}.par'
  if name=='J1231-1411':release=ROOT/'results/timing/binary_screen_20261016/J1231-1411/input.par'
  if name=='J0437-4715':
-  adopted=ROOT/'gravfold/resources/j0437_de440_search.par';published=ROOT/'data/J0437-4715_reardon2024_dr3.par'
+  adopted=ROOT/'gravid/resources/j0437_de440_search.par';published=ROOT/'data/J0437-4715_reardon2024_dr3.par'
   model={k:lines(p) for k,p in [('adopted',adopted),('published',published)]}
   pub=lines(published);pb=next(l.split() for l in pub if l.startswith('PB '));t0=next(l.split() for l in pub if l.startswith('T0 '))
   for key,parts in [('PB',pb),('T0',t0)]:

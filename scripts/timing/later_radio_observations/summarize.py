@@ -31,7 +31,7 @@ def sha(path):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--native-rerun', action='store_true')
-    parser.add_argument('--native-dir', type=Path, default=Path('/tmp/gravfold_later_radio_observations'))
+    parser.add_argument('--native-dir', type=Path, default=Path('/tmp/gravid_later_radio_observations'))
     args = parser.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
     values, errors = {}, {}

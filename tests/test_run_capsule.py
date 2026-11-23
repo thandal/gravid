@@ -3,7 +3,7 @@ import os
 
 import pytest
 
-from gravfold.run_capsule import (build_capsule, capsule_digest,
+from gravid.run_capsule import (build_capsule, capsule_digest,
                                   chunk_manifest_digest, load_capsule,
                                   require_equal_capsules,
                                   shard_capsule_fields, source_bundle_sha256,
@@ -11,9 +11,9 @@ from gravfold.run_capsule import (build_capsule, capsule_digest,
 
 
 def _tree(tmp_path):
-    (tmp_path / "gravfold").mkdir()
+    (tmp_path / "gravid").mkdir()
     (tmp_path / "scripts").mkdir()
-    (tmp_path / "gravfold" / "a.py").write_text("x = 1\n")
+    (tmp_path / "gravid" / "a.py").write_text("x = 1\n")
     (tmp_path / "scripts" / "b.py").write_text("y = 2\n")
     return tmp_path
 
@@ -22,10 +22,10 @@ def test_source_bundle_is_deterministic_and_mtime_invariant(tmp_path):
     root = _tree(tmp_path)
     first, count = source_bundle_sha256(root)
     assert count == 2
-    os.utime(root / "gravfold" / "a.py", (0, 0))
+    os.utime(root / "gravid" / "a.py", (0, 0))
     again, _ = source_bundle_sha256(root)
     assert again == first
-    (root / "gravfold" / "a.py").write_text("x = 3\n")
+    (root / "gravid" / "a.py").write_text("x = 3\n")
     changed, _ = source_bundle_sha256(root)
     assert changed != first
 

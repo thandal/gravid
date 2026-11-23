@@ -1,5 +1,5 @@
 import numpy as np
-from gravfold.posterior import OrbitalPosterior
+from gravid.posterior import OrbitalPosterior
 
 MEAN = np.array([5.0 * 86400.0, 3.3, 1e-5, 0.0, 3.0e6])
 COV = np.diag([0.05, 2e-4, 1e-6, 0.05, 2.0]) ** 2

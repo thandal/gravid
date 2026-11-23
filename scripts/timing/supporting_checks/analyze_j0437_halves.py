@@ -5,9 +5,9 @@ root=Path.cwd();sys.path.insert(0,str(root))
 from scripts.timing import build_j0437_search_model as builder
 builder.KEYS.update(["F2","A1DOT","XDOT"])
 build=builder.build
-from gravfold.j0437_model import SEARCH_PAR,COVARIANCE,KEYS,binary_mean,apply_binary,waveform_metric
-from gravfold.j0437_campaign import load_chunk
-from gravfold.cwinpy_adapter import _ensure_template_amplitude
+from gravid.j0437_model import SEARCH_PAR,COVARIANCE,KEYS,binary_mean,apply_binary,waveform_metric
+from gravid.j0437_campaign import load_chunk
+from gravid.cwinpy_adapter import _ensure_template_amplitude
 from cwinpy.parfile import PulsarParameters
 from cwinpy.signal import HeterodynedCWSimulator
 import pint.logging

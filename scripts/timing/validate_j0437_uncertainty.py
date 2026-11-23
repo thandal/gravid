@@ -30,9 +30,9 @@ def main():
     from pint.models import get_model
     from cwinpy.parfile import PulsarParameters
     from cwinpy.signal import HeterodynedCWSimulator
-    from gravfold.j0437_model import SEARCH_PAR,COVARIANCE,KEYS,load_covariance,binary_mean,apply_binary
-    from gravfold.cwinpy_adapter import _ensure_template_amplitude
-    from gravfold.j0437_campaign import load_chunk
+    from gravid.j0437_model import SEARCH_PAR,COVARIANCE,KEYS,load_covariance,binary_mean,apply_binary
+    from gravid.cwinpy_adapter import _ensure_template_amplitude
+    from gravid.j0437_campaign import load_chunk
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--quick',action='store_true')
     ap.add_argument('--work-dir',type=Path,default=ROOT/'results/timing/article1_triple_check')

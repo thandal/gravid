@@ -10,7 +10,7 @@ import json
 import numpy as np
 
 from _common import BULK, HERE
-from gravfold.upper_limit import heterodyne_statistic_response
+from gravid.upper_limit import heterodyne_statistic_response
 
 H, L = np.load(BULK / "scan_H1.npz"), np.load(BULK / "scan_L1.npz")
 assert int(H["n_fft"]) == int(L["n_fft"]) and float(H["start"]) == float(L["start"])

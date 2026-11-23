@@ -1,5 +1,5 @@
 import numpy as np
-from gravfold.orbit import kepler_solve, roemer_delay
+from gravid.orbit import kepler_solve, roemer_delay
 
 
 def test_kepler_circular():

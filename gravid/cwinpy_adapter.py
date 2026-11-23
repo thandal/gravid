@@ -8,7 +8,7 @@ makes per-node marginalisation cheap (REPORT.md sec. 7).
 
 Validated against cwinpy 1.5.0: `HeterodynedCWSimulator` lives in `cwinpy.signal`;
 `.model(newpar=..., updateSSB=True, updateBSB=True, freqfactor=2.0)` returns the
-complex heterodyned signal template. cwinpy is NOT needed to import gravfold.
+complex heterodyned signal template. cwinpy is NOT needed to import gravid.
 """
 from __future__ import annotations
 from dataclasses import dataclass
@@ -34,7 +34,7 @@ def theta_from_par(par):
     """Extract the canonical orbit theta=(pb[s], x[ls], e, om[rad], t0[s]) from a
     cwinpy PulsarParameters, using cwinpy's OWN (exact) epochs and units.
 
-    Critically this does NOT go through gravfold.ephemeris.parse_par: that uses an
+    Critically this does NOT go through gravid.ephemeris.parse_par: that uses an
     approximate leap-second-free MJD->GPS which is offset ~tens of seconds from
     cwinpy's exact TASC/T0, enough to decorrelate the matched filter at ~350 Hz.
     Always seed the cwinpy-path posterior from this, not from parse_par.
@@ -119,7 +119,7 @@ class CwinpyDemodulator:
     @property
     def central_theta(self):
         """Canonical orbit (pb, x, e, om, t0) from cwinpy's exact par -- seed the
-        posterior from THIS (not gravfold.ephemeris.parse_par; see theta_from_par)."""
+        posterior from THIS (not gravid.ephemeris.parse_par; see theta_from_par)."""
         return theta_from_par(self._base)
 
     def __call__(self, theta) -> DemodResult:

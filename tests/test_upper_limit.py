@@ -1,6 +1,6 @@
 import numpy as np
 
-from gravfold.upper_limit import (binned_isotonic_efficiency,
+from gravid.upper_limit import (binned_isotonic_efficiency,
                                    bootstrap_crossing, efficiency_crossing,
                                    heterodyne_statistic_response,
                                    linear_grid_crossing,

@@ -25,7 +25,7 @@ TCB_TO_TDB = 0.9999999844948022
 ORBITAL_ORDER = ("PB", "A1", "ECC", "OM", "T0")
 UNMATCHED_JUMPS = {1, 2, 4, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 56}
 CLOCK_FILES = ("pks2gps.clk", "gps2utc.clk", "utc2tai.clk", "tai2tt_bipm2020.clk", "leap.sec")
-REFERENCE = HERE / "gravfold/resources/j0437_reardon2024_covariance.json"
+REFERENCE = HERE / "gravid/resources/j0437_reardon2024_covariance.json"
 # TEMPO2 internal orbital covariance units: day, light-s, 1, radian, day.
 CANONICAL_SCALE = np.array([86400*TCB_TO_TDB, TCB_TO_TDB, 1, 1, 86400*TCB_TO_TDB])
 

@@ -9,8 +9,8 @@ from pathlib import Path
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
-SEARCH_PAR = ROOT / "gravfold/resources/j0437_de440_search.par"
-COVARIANCE = ROOT / "gravfold/resources/j0437_de440_binary_covariance.json"
+SEARCH_PAR = ROOT / "gravid/resources/j0437_de440_search.par"
+COVARIANCE = ROOT / "gravid/resources/j0437_de440_binary_covariance.json"
 KEYS = ("PB", "A1", "ECC", "OM", "T0", "PBDOT", "OMDOT", "KIN", "KOM", "M2")
 UNITS = ("s", "light-s", "1", "rad", "s", "1e-12", "deg/yr", "rad", "rad", "solar_mass")
 

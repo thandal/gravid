@@ -66,8 +66,8 @@ def build(source, covariance):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", type=Path, default=ROOT / "scripts/timing/qr_solve/fit.par")
-    parser.add_argument("--covariance", type=Path, default=ROOT / "gravfold/resources/j0437_de440_binary_covariance.json")
-    parser.add_argument("--out", type=Path, default=ROOT / "gravfold/resources/j0437_de440_search.par")
+    parser.add_argument("--covariance", type=Path, default=ROOT / "gravid/resources/j0437_de440_binary_covariance.json")
+    parser.add_argument("--out", type=Path, default=ROOT / "gravid/resources/j0437_de440_search.par")
     args = parser.parse_args()
     pint.logging.setup(level="ERROR")
     output, metadata = build(args.source, args.covariance)

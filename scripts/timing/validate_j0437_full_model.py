@@ -10,8 +10,8 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
-from gravfold.j0437_model import SEARCH_PAR, COVARIANCE, KEYS, apply_binary, binary_mean, load_covariance, waveform_metric
-from gravfold.orbital_metric import covariance_sha256
+from gravid.j0437_model import SEARCH_PAR, COVARIANCE, KEYS, apply_binary, binary_mean, load_covariance, waveform_metric
+from gravid.orbital_metric import covariance_sha256
 
 
 def main():
@@ -21,10 +21,10 @@ def main():
     import lalpulsar
     import pint.logging
     from pint.models import get_model
-    from gravfold.j0437_campaign import load_chunk
+    from gravid.j0437_campaign import load_chunk
     from cwinpy.parfile import PulsarParameters
     from cwinpy.signal import HeterodynedCWSimulator
-    from gravfold.cwinpy_adapter import _ensure_template_amplitude
+    from gravid.cwinpy_adapter import _ensure_template_amplitude
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--out", type=Path, default=ROOT / "results/j0437_de440_qr/model_validation.json")
     args = ap.parse_args()

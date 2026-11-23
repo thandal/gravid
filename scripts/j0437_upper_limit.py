@@ -14,7 +14,7 @@ computes:
     conversion to ellipticity, sensitivity depth and spin-down ratio.
 
 Sample weights are chosen with ``--noise-weights``; see
-``gravfold/noise_weights.py``.
+``gravid/noise_weights.py``.
 
 Stages (``--stage``):
   measure    load everything, report the template count and time per template.
@@ -28,7 +28,7 @@ import os, sys, glob, json, time, argparse, re
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import numpy as np
 
-from gravfold.upper_limit import (heterodyne_statistic_response,
+from gravid.upper_limit import (heterodyne_statistic_response,
                                   linear_grid_crossing,
                                   paired_grid_bootstrap_crossing)
 
@@ -41,10 +41,10 @@ HETDIR = os.path.join(HERE, "results", "campaign_het_v2")
 BASE_PAR = os.path.join(HERE, "results", "campaign_het_v2", "base_cwinpy.par")
 OUTDIR = os.path.join(HERE, "results", "j0437_de440_qr")
 COVARIANCE_ARTIFACT = os.path.join(
-    HERE, "gravfold", "resources", "j0437_de440_binary_covariance.json")
-from gravfold.orbital_metric import covariance_sha256
-from gravfold.cw_phase_cache import PhaseCache
-from gravfold.j0437_model import SEARCH_PAR, KEYS, binary_mean, apply_binary, load_covariance, waveform_metric
+    HERE, "gravid", "resources", "j0437_de440_binary_covariance.json")
+from gravid.orbital_metric import covariance_sha256
+from gravid.cw_phase_cache import PhaseCache
+from gravid.j0437_model import SEARCH_PAR, KEYS, binary_mean, apply_binary, load_covariance, waveform_metric
 
 import pint.logging  # quiet PINT if pulled in transitively
 try:
@@ -78,11 +78,11 @@ _PDOT_KIN = _MU**2 * (DIST_PC * PC) * _P / C                # Shklovskii
 FDOT = -(_PDOT_OBS - _PDOT_KIN) * F_SPIN**2                 # INTRINSIC [Hz/s]
 
 
-from gravfold.j0437_campaign import load_chunk as _load_chunk, verify_selection
+from gravid.j0437_campaign import load_chunk as _load_chunk, verify_selection
 
 # How samples are weighted.  "file-variance" uses one plain variance per
 # five-day file and drops no samples.  "running-median"
-# uses gravfold.noise_weights: the transient before each stride end dropped,
+# uses gravid.noise_weights: the transient before each stride end dropped,
 # a running-median noise estimate, samples above a power cut dropped, and the
 # filter's equivalent noise bandwidth, so that 2F is chi-squared with two
 # degrees of freedom in Gaussian noise.
@@ -104,7 +104,7 @@ class MultiDatasetDemodulator:
                  noise_weights=None):
         from cwinpy.parfile import PulsarParameters
         from cwinpy.signal import HeterodynedCWSimulator
-        from gravfold.cwinpy_adapter import (
+        from gravid.cwinpy_adapter import (
             _ensure_template_amplitude, _apply_orbit, theta_from_par)
         self._PP = PulsarParameters
         self._apply_orbit = apply_binary
@@ -139,7 +139,7 @@ class MultiDatasetDemodulator:
             file_variance_snr = float(np.sum(invvar)**2
                                       / np.sum(invvar**2 * np.abs(data)**2))
             if self.noise_weights == "running-median":
-                from gravfold.noise_weights import running_median_weights, PARAMETERS
+                from gravid.noise_weights import running_median_weights, PARAMETERS
                 invvar, summary = running_median_weights(times, data, **PARAMETERS)
                 summary["signal_to_noise_power_gain_over_file_variance"] = (
                     summary["signal_to_noise_power"] / file_variance_snr)
@@ -218,7 +218,7 @@ class MultiDatasetDemodulator:
 
 
 def _build_posterior_and_metric(demod, cov_scale=1.0):
-    from gravfold.posterior import OrbitalPosterior
+    from gravid.posterior import OrbitalPosterior
     from cwinpy.parfile import PulsarParameters
     cov, _ = load_covariance(COVARIANCE_ARTIFACT)
     post = OrbitalPosterior(demod.central_theta, cov * cov_scale, names=KEYS)
@@ -239,7 +239,7 @@ def _noise_record(demod):
     mode = getattr(demod, "noise_weights", NOISE_WEIGHTS)
     record = dict(mode=mode, per_detector=summary or {})
     if mode == "running-median":
-        from gravfold.noise_weights import PARAMETERS, equivalent_noise_bandwidth
+        from gravid.noise_weights import PARAMETERS, equivalent_noise_bandwidth
         record.update(parameters=dict(PARAMETERS),
                       equivalent_noise_bandwidth_hz=equivalent_noise_bandwidth())
         for det, s in (summary or {}).items():
@@ -270,7 +270,7 @@ def stage_measure(args, files):
     print(f"[measure] fixed-ephemeris 2F = {F0:.3f}  (per-node wall {dt:.2f}s)",
           flush=True)
     post, g, f_gw, win = _build_posterior_and_metric(demod)
-    from gravfold.posterior import nodes_metric
+    from gravid.posterior import nodes_metric
     pts, w, info = nodes_metric(post, g, mu_max=args.mu, max_nodes=args.max_nodes)
     n = info["n_nodes"]
     print(f"[measure] window {win[0]:.0f}-{win[1]:.0f} "
@@ -408,7 +408,7 @@ def stage_run(args, files):
     demod = MultiDatasetDemodulator(files, BASE_PAR, studentize=True)
     noise_record = _noise_record(demod)
     post, g, f_gw, win = _build_posterior_and_metric(demod)
-    from gravfold.posterior import nodes_metric
+    from gravid.posterior import nodes_metric
     nodes, w, info = nodes_metric(post, g, mu_max=args.mu, max_nodes=args.max_nodes)
     logw = np.log(np.clip(np.asarray(w, float), 1e-300, None))
     n_nodes = len(nodes); n_samp = demod.n_samp
@@ -457,7 +457,7 @@ def stage_run(args, files):
               rng.uniform(0, 2*np.pi)) for j in range(args.n_inj)]
     capsule = None
     if getattr(args, "input_identity", None) is not None:
-        from gravfold.j0437_campaign import freeze_run
+        from gravid.j0437_campaign import freeze_run
         plan = dict(input_identity=args.input_identity,
                     search_par_sha256=covariance_sha256(SEARCH_PAR),
                     reference_par_sha256=covariance_sha256(BASE_PAR),
@@ -782,7 +782,7 @@ def main():
                     help="file-variance uses one plain variance per file; "
                          "running-median drops the transient before each "
                          "stride end and samples above a power cut, and uses "
-                         "a running noise estimate (gravfold/noise_weights.py)")
+                         "a running noise estimate (gravid/noise_weights.py)")
     ap.add_argument("--limit-chunks", type=int, default=0,
                     help="use only the first N chunks (fast dry run)")
     args = ap.parse_args()

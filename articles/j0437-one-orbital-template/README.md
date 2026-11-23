@@ -7,7 +7,7 @@
 
 | In the article | Computed by | Saved in |
 |---|---|---|
-| Sample counts, dropped fractions, noise weights | `gravfold/noise_weights.py` | `results/j0437_search/result.json`, key `noise_weights` |
+| Sample counts, dropped fractions, noise weights | `gravid/noise_weights.py` | `results/j0437_search/result.json`, key `noise_weights` |
 | Table 2, column 2𝒢 | `scripts/j0437_upper_limit.py` | `results/j0437_search/result.json` |
 | Table 2, column 2ℱ | `scripts/j0437_f_statistic.py` | `results/j0437_search/f_statistic.json` |
 | Table 2 as printed, and the power captured by each filter | `scripts/search/noise_weights/summarize.py` | `scripts/search/noise_weights/results/summary.json` |
@@ -34,7 +34,7 @@ Scripts and saved files are under `scripts/timing/` unless a full path is given.
 
 | In the article | Computed by | Saved in |
 |---|---|---|
-| Refit with TEMPO2, covariance of the ten binary parameters, search model | `reproduce_j0437_full_binary_covariance.py`, `build_j0437_search_model.py` | `gravfold/resources/j0437_de440_binary_covariance.json`, `gravfold/resources/j0437_de440_search.par`, `binary_model/covariance.tsv` |
+| Refit with TEMPO2, covariance of the ten binary parameters, search model | `reproduce_j0437_full_binary_covariance.py`, `build_j0437_search_model.py` | `gravid/resources/j0437_de440_binary_covariance.json`, `gravid/resources/j0437_de440_search.par`, `binary_model/covariance.tsv` |
 | Correlation 0.99999936 between the period and periastron advance | `validate_j0437_full_model.py` | `binary_model/model_validation.json`, key `PB_OMDOT_correlation` |
 | Eccentricity, signal frequency, the two error relations (within 0.002%), the 0.30-ms tolerance | `later_radio_observations/summarize.py` | `later_radio_observations/results/summary.json`, keys `eccentricity`, `frequency_Hz`, `degeneracy_ratios`, `sinusoidal_tolerances` |
 | Table 1, the numbers of observations, the residual scatter | same script | same file, key `predictions` |

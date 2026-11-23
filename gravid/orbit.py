@@ -6,7 +6,7 @@ signal caused by its orbital motion about the binary barycentre. It is the
 the five-vector resampling demodulator (Amicucci et al. 2025, arXiv:2503.07863,
 Eq. 12 — note their Einstein/Shapiro terms are the *solar* ones, not binary).
 
-Canonical orbital parameter vector throughout gravfold:
+Canonical orbital parameter vector throughout gravid:
     theta = (pb, x, e, om, t0)
         pb : orbital period            [seconds]
         x  : a_p sin(i) / c            [light-seconds]   (== TEMPO2 "A1")

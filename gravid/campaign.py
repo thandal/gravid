@@ -1,7 +1,7 @@
 """Integrity contract for the J0437 O4a heterodyne campaign.
 
 This module deliberately has no import-time dependency on h5py.  The normal
-gravfold package stays lightweight; product verification imports h5py only when
+gravid package stays lightweight; product verification imports h5py only when
 it is actually requested on a heterodyne/harvest machine.
 """
 from __future__ import annotations
@@ -246,19 +246,19 @@ def verify_product(
                     f"sample/segment mismatch: {sample_count} != {expected_samples}"
                 )
 
-            attested = bool(attrs.get("gravfold_acquisition_complete", False))
+            attested = bool(attrs.get("gravid_acquisition_complete", False))
             if attested:
                 for key, want in (
-                    ("gravfold_requested_start", gps_start),
-                    ("gravfold_requested_end", gps_end),
+                    ("gravid_requested_start", gps_start),
+                    ("gravid_requested_end", gps_end),
                 ):
                     if int(attrs.get(key, -1)) != want:
                         raise ProductVerificationError(f"invalid {key} attestation")
-                if "GravfoldAcquisitionSegments" not in h5:
+                if "GravidAcquisitionSegments" not in h5:
                     raise ProductVerificationError(
                         "coverage attested but acquisition segments are absent"
                     )
-                acquired = np.asarray(h5["GravfoldAcquisitionSegments"][:],
+                acquired = np.asarray(h5["GravidAcquisitionSegments"][:],
                                       dtype=float)
                 if (acquired.ndim != 2 or acquired.shape[1:] != (2,)
                         or len(acquired) != len(time_segments)

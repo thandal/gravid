@@ -9,7 +9,7 @@ import numpy as np
 from scipy.ndimage import median_filter
 
 from _common import HERE, LN2, files, load_chunk, segments
-from gravfold.noise_weights import equivalent_noise_bandwidth
+from gravid.noise_weights import equivalent_noise_bandwidth
 
 out = dict(predicted_hz=equivalent_noise_bandwidth())
 for det in ("H1", "L1"):

@@ -272,7 +272,7 @@ async function build(source, output) {
     fs.readFileSync(path.join(extensionRoot, "package.json"), "utf8"),
   );
   const stagingDirectory = fs.mkdtempSync(
-    path.join(os.tmpdir(), "gravfold-article-pdf-"),
+    path.join(os.tmpdir(), "gravid-article-pdf-"),
   );
   const outputDirectory = path.dirname(output);
   const temporaryOutput = path.join(
@@ -309,7 +309,7 @@ async function build(source, output) {
       subscriptions: [],
       extension: { packageJSON: manifest },
       globalStorageUri: Uri.file(
-        path.join(os.tmpdir(), "gravfold-markdown-pdf-cache"),
+        path.join(os.tmpdir(), "gravid-markdown-pdf-cache"),
       ),
     };
     extension.activate(context);

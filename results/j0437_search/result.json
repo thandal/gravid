@@ -7,11 +7,11 @@
   1389455057.5
  ],
  "run_capsule": {
-  "schema": "gravfold.run_capsule.v2",
+  "schema": "gravid.run_capsule.v2",
   "source_bundle_sha256": "9640312afe743edf652b79a986d7b4fb1c2e8273c6b0fd59f6393afa94cfb7ca",
   "source_bundle_file_count": 370,
   "source_bundle_globs": [
-   "gravfold/**/*.py",
+   "gravid/**/*.py",
    "scripts/**/*.py",
    "scripts/**/*.C",
    "compute/**/*.sh",
@@ -41,7 +41,7 @@
    "--noise-weights",
    "running-median",
    "--out",
-   "results/j0437_search_rerun_20261120/result.json"
+   "results/j0437_search/result.json"
   ],
   "phase": "j0437_de440_qr",
   "phase_plan_sha256": "eebf4e45b94fcfc5b193d516dcd13f8637de3491505a229a739a696abb03a078",
@@ -154,7 +154,7 @@
   },
   "capsule_sha256": "ab236d8b5802710a9d3ddc3baa4d6b8decaadf7c4361138c3e3328ee947ee54f"
  },
- "covariance_artifact": "gravfold/resources/j0437_de440_binary_covariance.json",
+ "covariance_artifact": "gravid/resources/j0437_de440_binary_covariance.json",
  "covariance_sha256": "667eeba8c587c4a0248994984082770c398dd13062975859bfa759c3e4d8e55e",
  "invocation": {
   "argv": [
@@ -169,7 +169,7 @@
    "--noise-weights",
    "running-median",
    "--out",
-   "results/j0437_search_rerun_20261120/result.json"
+   "results/j0437_search/result.json"
   ],
   "args": {
    "stage": "upperlimit",
@@ -179,7 +179,7 @@
    "n_inj": 200,
    "detect_threshold": null,
    "nproc": 1,
-   "out": "results/j0437_search_rerun_20261120/result.json",
+   "out": "results/j0437_search/result.json",
    "h0": null,
    "detectors": [
     "H1",

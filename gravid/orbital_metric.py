@@ -155,7 +155,7 @@ def window_metric(theta, cov, f_gw, t_start, t_end, n=2048, eps=1e-3):
     # (g ~ <d_i phi d_j phi> - <d_i phi><d_j phi>), so flipping the sign of
     # phi leaves it identically unchanged: node placement and every template
     # count are sign-invariant. The sign only matters where a signal is
-    # modelled or demodulated (gravfold.orbit.bsb_delay) — don't "unify" this.
+    # modelled or demodulated (gravid.orbit.bsb_delay) — don't "unify" this.
     for j in range(dim):
         d = L[:, j] * eps                       # step = eps * (1-sigma direction)
         phip = roemer_delay(t, *(theta + d))

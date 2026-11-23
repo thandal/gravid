@@ -8,7 +8,7 @@ per-call cost has the SAME structure as the real per-sample demodulation cost
 produces are meaningful for the compute plan. It needs no GW data, no cwinpy,
 and no LAL — so the whole marginalisation logic is testable in a sandbox.
 
-The real path is `gravfold.cwinpy_adapter.CwinpyDemodulator`.
+The real path is `gravid.cwinpy_adapter.CwinpyDemodulator`.
 """
 from __future__ import annotations
 from dataclasses import dataclass
@@ -30,7 +30,7 @@ class SyntheticDemodulator:
     data[t] models a heterodyned series where Earth motion and spin evolution
     have already been removed, leaving the binary-orbit phase modulation
     exp(+i 2*pi*f_gw*b(t)) with b = -R the pulsar-timing binary delay (see
-    gravfold.orbit.bsb_delay -- the sign a real signal carries; using +R here
+    gravid.orbit.bsb_delay -- the sign a real signal carries; using +R here
     would double the modulation on real data, invisibly to any self-consistent
     test). Demodulating with a trial orbit cancels that phase when (and only
     when) the trial matches truth; a wrong orbit decorrelates the sum, which is

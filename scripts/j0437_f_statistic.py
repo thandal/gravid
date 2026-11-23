@@ -80,7 +80,7 @@ def draws(post, n_inj):
 def run_detector(args):
     import resource
     from scripts import j0437_upper_limit as ul
-    from gravfold.posterior import OrbitalPosterior
+    from gravid.posterior import OrbitalPosterior
     from cwinpy.parfile import PulsarParameters
 
     ul.NOISE_WEIGHTS = "running-median"
@@ -195,7 +195,7 @@ def run_detector(args):
 
 def combine(args):
     from scipy.stats import chi2
-    from gravfold.upper_limit import (heterodyne_statistic_response,
+    from gravid.upper_limit import (heterodyne_statistic_response,
                                       linear_grid_crossing,
                                       paired_grid_bootstrap_crossing)
 

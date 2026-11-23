@@ -20,7 +20,7 @@ degyr = np.pi/180/(365.25*86400)
 PB_d = 5.7410463602832067856; T0_d = 54530.172210721427433; A1 = 3.3667146504782899253
 OM_rad = np.deg2rad(1.3568640571311364396); OMDOT_rpd = 0.015561777438539341396*degyr*86400
 PBDOT = 3.7326281719829273242e-12
-C = np.array(json.load(open(ROOT/'gravfold/resources/j0437_de440_binary_covariance.json'))['covariance_tcb_internal'])
+C = np.array(json.load(open(ROOT/'gravid/resources/j0437_de440_binary_covariance.json'))['covariance_tcb_internal'])
 EQ_KOM = -5.7965e-05; EQ_KIN = 2.5096e-06
 n_rpd = 2*np.pi/PB_d + OMDOT_rpd
 def ppta_sigma_longitude(t_mjd):

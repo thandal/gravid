@@ -1,4 +1,4 @@
-# gravfold
+# gravid
 
 Code and results for coherent continuous gravitational-wave searches of
 binary pulsars, published article by article.
@@ -18,7 +18,7 @@ saved file that holds it.
 | Path | Contents |
 |---|---|
 | `articles/` | one folder per article |
-| `gravfold/` | the Python library the analyses import |
+| `gravid/` | the Python library the analyses import |
 | `scripts/` | search scripts, and under `scripts/timing/` one folder per timing analysis with its code and small saved results |
 | `results/` | saved search outputs |
 | `tests/` | tests of the library |

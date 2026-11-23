@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this code or these results, please cite the article."
-title: "gravfold: orbital-template analysis and coherent continuous-wave search code for binary pulsars"
+title: "gravid: orbital-template analysis and coherent continuous-wave search code for binary pulsars"
 authors:
   - family-names: Fairfield
     given-names: Nathaniel

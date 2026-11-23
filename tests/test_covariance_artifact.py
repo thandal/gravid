@@ -3,7 +3,7 @@ import json
 import numpy as np
 import pytest
 
-from gravfold.orbital_metric import (EPOCH_GPS, J0437_FIT_COVARIANCE,
+from gravid.orbital_metric import (EPOCH_GPS, J0437_FIT_COVARIANCE,
                                      load_orbital_covariance, covariance_sha256,
                                      require_covariance_match)
 

@@ -29,11 +29,11 @@ def main():
     ap.add_argument("--tim", type=Path, default=ROOT / "results/timing/ppta_dr3_puzzle/csiro/dr3/J0437-4715.tim")
     ap.add_argument("--clocks", type=Path, default=ROOT / "results/timing/ppta_dr3_puzzle/csiro/clock")
     ap.add_argument("--work-dir", type=Path, default=ROOT / "results/j0437_full_timing_covariance")
-    ap.add_argument("--out", type=Path, default=ROOT / "gravfold/resources/j0437_de440_binary_covariance.json")
+    ap.add_argument("--out", type=Path, default=ROOT / "gravid/resources/j0437_de440_binary_covariance.json")
     ap.add_argument("--export-exists", action="store_true")
     ap.add_argument("--verify-snapshot", type=Path)
     args = ap.parse_args()
-    previous = json.loads((ROOT / "gravfold/resources/j0437_reardon2024_covariance.json").read_text())
+    previous = json.loads((ROOT / "gravid/resources/j0437_reardon2024_covariance.json").read_text())
     for path, key in ((args.par, "source_par_sha256"), (args.tim, "source_tim_sha256")):
         if sha(path) != previous["provenance"][key]:
             raise ValueError(f"input hash mismatch: {path}")

@@ -20,7 +20,7 @@ import sys
 import tarfile
 from pathlib import Path
 
-SOURCE_GLOBS = ("gravfold/**/*.py", "scripts/**/*.py", "scripts/**/*.C", "compute/**/*.sh",
+SOURCE_GLOBS = ("gravid/**/*.py", "scripts/**/*.py", "scripts/**/*.C", "compute/**/*.sh",
                 "pyproject.toml")
 # Fields hashed into the capsule digest; created_utc and the digest itself
 # are deliberately outside so rebuilding an identical run reproduces the
@@ -152,7 +152,7 @@ def build_capsule(repo_root, builder_invocation, posterior_path=None,
     if phase != "clean_search" and phase_plan_path is None:
         raise ValueError(f"phase {phase!r} requires a phase plan (jobs file)")
     capsule = {
-        "schema": "gravfold.run_capsule.v2",
+        "schema": "gravid.run_capsule.v2",
         "source_bundle_sha256": bundle_sha,
         "source_bundle_file_count": bundle_files,
         "source_bundle_globs": list(SOURCE_GLOBS),
@@ -160,7 +160,7 @@ def build_capsule(repo_root, builder_invocation, posterior_path=None,
         "dirty_patch_sha256": dirty_sha,
         # Builder context, honestly labeled: this is where the CAPSULE was
         # made, never where a shard ran.
-        "builder_image": (os.environ.get("GRAVFOLD_IMAGE_DIGEST")
+        "builder_image": (os.environ.get("GRAVID_IMAGE_DIGEST")
                           or f"uncontainerized:{platform.node()}"),
         "builder_environment_lock_sha256": lock_sha,
         "builder_environment": environment,
@@ -252,14 +252,14 @@ def worker_attestation(argv):
     """
     lock_sha, environment = environment_identity()
     return {
-        "schema": "gravfold.worker_attestation.v1",
+        "schema": "gravid.worker_attestation.v1",
         "environment_lock_sha256": lock_sha,
         "environment": environment,
-        "image_reference": (os.environ.get("GRAVFOLD_IMAGE_DIGEST")
+        "image_reference": (os.environ.get("GRAVID_IMAGE_DIGEST")
                             or f"uncontainerized:{platform.node()}"),
         # What the machine was launched to do.  A product can then say what kind of machine produced it rather
         # than leaving it to be inferred from which flags happened to be set.
-        "role": os.environ.get("GRAVFOLD_ROLE") or "unrecorded",
+        "role": os.environ.get("GRAVID_ROLE") or "unrecorded",
         "hostname": platform.node(),
         "search_invocation": list(argv),
     }

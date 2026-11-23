@@ -2,7 +2,7 @@
 import numpy as np
 import pytest
 
-from gravfold.noise_weights import (equivalent_noise_bandwidth,
+from gravid.noise_weights import (equivalent_noise_bandwidth,
                                     running_median_weights, segments,
                                     stride_end_mask)
 

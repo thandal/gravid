@@ -1,5 +1,5 @@
 import numpy as np
-from gravfold.orbital_metric import (whitened_reduced_metric,
+from gravid.orbital_metric import (whitened_reduced_metric,
                                      worst_case_mismatch, tobs_max)
 
 # eccentric test point (e=0.1): om is well-defined, so a diagonal covariance is

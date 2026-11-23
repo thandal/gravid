@@ -4,7 +4,7 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from gravfold.j0437_model import COVARIANCE, SEARCH_PAR, load_covariance
+from gravid.j0437_model import COVARIANCE, SEARCH_PAR, load_covariance
 
 
 def test_expanded_covariance_retains_period_advance_correlation():
@@ -13,7 +13,7 @@ def test_expanded_covariance_retains_period_advance_correlation():
     assert corr > .999999
     # Derived sidereal angular frequency includes both terms with opposite signs.
     # Fixing OMDOT destroys this cancellation even with the correct PB sigma.
-    from gravfold.ephemeris import parse_par
+    from gravid.ephemeris import parse_par
     pb = parse_par(SEARCH_PAR).params[0]
     gradient = np.zeros(10)
     gradient[0] = -2*np.pi/pb**2
@@ -27,7 +27,7 @@ def test_expanded_covariance_retains_period_advance_correlation():
 def test_lal_binary_coordinates_roundtrip_and_geometry():
     pytest.importorskip('cwinpy')
     from cwinpy.parfile import PulsarParameters
-    from gravfold.j0437_model import binary_mean, apply_binary, KEYS
+    from gravid.j0437_model import binary_mean, apply_binary, KEYS
     p = PulsarParameters(str(SEARCH_PAR))
     theta = binary_mean(p)
     q = apply_binary(PulsarParameters(str(SEARCH_PAR)), theta)
@@ -41,7 +41,7 @@ def test_lal_binary_coordinates_roundtrip_and_geometry():
 def test_campaign_loader_matches_cwinpy():
     pytest.importorskip('cwinpy')
     from cwinpy import HeterodynedData
-    from gravfold.j0437_campaign import load_chunk
+    from gravid.j0437_campaign import load_chunk
     paths = sorted(Path('results/campaign_het_v2').glob('het_*_g*.hdf5'))
     if not paths:
         pytest.skip('restored campaign unavailable')

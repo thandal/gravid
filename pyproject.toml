@@ -3,7 +3,7 @@ requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "gravfold"
+name = "gravid"
 version = "0.1.0"
 description = "Orbital-template analysis and coherent continuous-wave search code for binary pulsars"
 requires-python = ">=3.10"
@@ -17,10 +17,10 @@ cwinpy = ["cwinpy>=1.5", "lalsuite", "h5py"]
 dev = ["pytest>=7", "matplotlib>=3.5"]
 
 [tool.setuptools.packages.find]
-include = ["gravfold*"]
+include = ["gravid*"]
 
 [tool.setuptools.package-data]
-gravfold = ["resources/*.json", "resources/*.par"]
+gravid = ["resources/*.json", "resources/*.par"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

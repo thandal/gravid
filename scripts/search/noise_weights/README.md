@@ -28,7 +28,7 @@ Figure 1.
 
 ## The weights
 
-`gravfold/noise_weights.py` (tests in `tests/test_noise_weights.py`), selected
+`gravid/noise_weights.py` (tests in `tests/test_noise_weights.py`), selected
 with `scripts/j0437_upper_limit.py --noise-weights running-median`:
 
 - drop the 60 s before each stride end (3.1% of samples);

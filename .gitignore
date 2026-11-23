@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.conda/
+.venv*/
+build/
+dist/
+# Bulk outputs and downloaded data are not committed.
+results/timing/
+results/campaign_het_v2/
+data/

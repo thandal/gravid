@@ -1,0 +1,308 @@
+{
+  "frequency_Hz": 347.375891329873,
+  "eccentricity": 1.9180572248442703e-05,
+  "selection_MJD": [
+    60088.625,
+    60325.65554976852
+  ],
+  "degeneracy_ratios": {
+    "PB_over_OMDOT_partner": 1.0000142871943647,
+    "T0_over_OM_partner": 1.000000166567343
+  },
+  "sinusoidal_tolerances": {
+    "0.03": {
+      "GW_phase_amplitude_rad": 0.24634664830188785,
+      "sinusoidal_delay_amplitude_ms": 0.11286703473078483
+    },
+    "0.2": {
+      "GW_phase_amplitude_rad": 0.6587246492748179,
+      "sinusoidal_delay_amplitude_ms": 0.30180356980791595
+    }
+  },
+  "predictions": {
+    "meerkat": {
+      "published_parameters": {
+        "TOAs": 224,
+        "file_groups": 7,
+        "observing_days": 7,
+        "MJD_range": [
+          60089.544300927264,
+          60156.45684108239
+        ],
+        "residual_RMS_ns": 153.90727145083946,
+        "fractional_power_loss": 1.480241863527354e-07
+      },
+      "search_model": {
+        "TOAs": 224,
+        "file_groups": 7,
+        "observing_days": 7,
+        "MJD_range": [
+          60089.544300927264,
+          60156.45684108239
+        ],
+        "residual_RMS_ns": 152.99474449203012,
+        "fractional_power_loss": 1.466891046408847e-07
+      },
+      "release_fit": {
+        "TOAs": 224,
+        "file_groups": 7,
+        "observing_days": 7,
+        "MJD_range": [
+          60089.544300927264,
+          60156.45684108239
+        ],
+        "residual_RMS_ns": 147.70719952541813,
+        "fractional_power_loss": 1.3910423302121444e-07
+      },
+      "PB_only": {
+        "TOAs": 224,
+        "file_groups": 7,
+        "observing_days": 7,
+        "MJD_range": [
+          60089.544300927264,
+          60156.45684108239
+        ],
+        "residual_RMS_ns": 503099.90815662633,
+        "fractional_power_loss": 0.7805845943726512
+      },
+      "PB_with_OMDOT": {
+        "TOAs": 224,
+        "file_groups": 7,
+        "observing_days": 7,
+        "MJD_range": [
+          60089.544300927264,
+          60156.45684108239
+        ],
+        "residual_RMS_ns": 153.83516041749877,
+        "fractional_power_loss": 1.4791847358086585e-07
+      },
+      "T0_only": {
+        "TOAs": 224,
+        "file_groups": 7,
+        "observing_days": 7,
+        "MJD_range": [
+          60089.544300927264,
+          60156.45684108239
+        ],
+        "residual_RMS_ns": 551288.1366070551,
+        "fractional_power_loss": 0.8564366690486429
+      },
+      "T0_with_OM": {
+        "TOAs": 224,
+        "file_groups": 7,
+        "observing_days": 7,
+        "MJD_range": [
+          60089.544300927264,
+          60156.45684108239
+        ],
+        "residual_RMS_ns": 153.74129341077762,
+        "fractional_power_loss": 1.4778100065893085e-07
+      }
+    },
+    "inpta": {
+      "published_parameters": {
+        "TOAs": 2583,
+        "file_groups": 29,
+        "observing_days": 20,
+        "MJD_range": [
+          60092.25868072211,
+          60316.73882999831
+        ],
+        "residual_RMS_ns": 3024.0562330723674,
+        "fractional_power_loss": 7.657136493588457e-05
+      },
+      "search_model": {
+        "TOAs": 2583,
+        "file_groups": 29,
+        "observing_days": 20,
+        "MJD_range": [
+          60092.25868072211,
+          60316.73882999831
+        ],
+        "residual_RMS_ns": 3024.58045225711,
+        "fractional_power_loss": 7.658687365408312e-05
+      },
+      "release_fit": {
+        "TOAs": 2583,
+        "file_groups": 29,
+        "observing_days": 20,
+        "MJD_range": [
+          60092.25868072211,
+          60316.73882999831
+        ],
+        "residual_RMS_ns": 3191.787573375509,
+        "fractional_power_loss": 8.153749591988113e-05
+      },
+      "PB_only": {
+        "TOAs": 2583,
+        "file_groups": 29,
+        "observing_days": 20,
+        "MJD_range": [
+          60092.25868072211,
+          60316.73882999831
+        ],
+        "residual_RMS_ns": 479144.75224666233,
+        "fractional_power_loss": 0.7136525142790766
+      },
+      "PB_with_OMDOT": {
+        "TOAs": 2583,
+        "file_groups": 29,
+        "observing_days": 20,
+        "MJD_range": [
+          60092.25868072211,
+          60316.73882999831
+        ],
+        "residual_RMS_ns": 3023.4742989555393,
+        "fractional_power_loss": 7.655460115951751e-05
+      },
+      "T0_only": {
+        "TOAs": 2583,
+        "file_groups": 29,
+        "observing_days": 20,
+        "MJD_range": [
+          60092.25868072211,
+          60316.73882999831
+        ],
+        "residual_RMS_ns": 515296.1375899495,
+        "fractional_power_loss": 0.7724953834062135
+      },
+      "T0_with_OM": {
+        "TOAs": 2583,
+        "file_groups": 29,
+        "observing_days": 20,
+        "MJD_range": [
+          60092.25868072211,
+          60316.73882999831
+        ],
+        "residual_RMS_ns": 3023.49538532459,
+        "fractional_power_loss": 7.655520805838201e-05
+      }
+    }
+  },
+  "native_rerun": true,
+  "native_max_centered_residual_difference_s": {
+    "meerkat/published_parameters": 0.0,
+    "meerkat/search_model": 0.0,
+    "meerkat/release_fit": 0.0,
+    "meerkat/PB_only": 0.0,
+    "meerkat/PB_with_OMDOT": 0.0,
+    "meerkat/T0_only": 0.0,
+    "meerkat/T0_with_OM": 0.0,
+    "inpta/published_parameters": 0.0,
+    "inpta/search_model": 0.0,
+    "inpta/release_fit": 0.0,
+    "inpta/PB_only": 0.0,
+    "inpta/PB_with_OMDOT": 0.0,
+    "inpta/T0_only": 0.0,
+    "inpta/T0_with_OM": 0.0
+  },
+  "scope": "No spin, astrometric or orbital refit. Retains release propagation/instrument corrections, some estimated with O4a data. Inverse-variance channel averaging then equal file-group weights. Sparse radio-sampled coherence, not detector-weighted mismatch or a confidence bound.",
+  "input_sha256": {
+    "data/J0437-4715_reardon2024_dr3.par": "98ecbfc528f9c3b65446b364a74c95594bf73ec2fb4a30badbb68f66d8bb3cb9",
+    "scripts/timing/orbital_offset_fit/evaluate_timing.C": "99e6d7943ae0630f6bc5ae412a83806a4fe9156776b0d736bb0c1073a9da6dc2",
+    ".conda/lib/libtempo2.so": "5e00d44f1c6f75e17c012a165a3bc981e401c7b4b57aa961f3b906e8e442f52e",
+    "results/timing/j0437_external_validation/clock/ao2gps.clk": "41e37426cd251033d56271e59a1d70ea9bb356d1ed040e474ecb1cff9585ba7b",
+    "results/timing/j0437_external_validation/clock/ao2nist.clk": "0226f490a76a5ae604939b88efef6ef269749ce85dc764619b9d910485fef33c",
+    "results/timing/j0437_external_validation/clock/aus2utc.clk": "a2545f219771b512761b4975a0f17cda1ce16d71ebe4a95142fbaf0682dea3d2",
+    "results/timing/j0437_external_validation/clock/ced2gps.clk": "1035ffeab100b737a2492ff55f83b73f88265c4287dfe3b690b5b5ab25f300e2",
+    "results/timing/j0437_external_validation/clock/eff2gps.clk": "8d73168d713531c3ed7a1a3b14d16b100fd8bff8bd9512ff31b2feebd32bc424",
+    "results/timing/j0437_external_validation/clock/effix2gps.clk": "f38395c28760e497d11782b3b38a2f5782c68f7629d6b4f096bed7467a97f99d",
+    "results/timing/j0437_external_validation/clock/gb1402nist.clk": "25f1a04cdd80a5848f393d10fc1efab48fb95265396cd7a02aeddf165d2622a3",
+    "results/timing/j0437_external_validation/clock/gb8532nist.clk": "2fe7d2992a7a5f32edd5e363b224b6819114dae91e1d76f4af6fe6ff48b82757",
+    "results/timing/j0437_external_validation/clock/gbt2gps.clk": "92e1daa7d297e4bc0a29a40f01ddca65be52eba826d1b5a63ba8054167166d55",
+    "results/timing/j0437_external_validation/clock/gmrt2gps.clk": "a88c215d2881621ac10539f17b4e3ffd291ce221ea71b2040975e4e17e589033",
+    "results/timing/j0437_external_validation/clock/gps2gps_unso.clk": "0100302b6189b255e367e81e1d92306d5844c72564887e5b4a4b69bd0ab16c6d",
+    "results/timing/j0437_external_validation/clock/gps2gpst.clk": "cabd3334962915b75f2ee9275715171638578209e3aa9bcad5b08d409b0560c9",
+    "results/timing/j0437_external_validation/clock/gps2utc.clk": "2860e1213e29e9593c7c4321bac331770b40ec16413b4410811235ea0b78c29c",
+    "results/timing/j0437_external_validation/clock/gps_unso2utc.clk": "02b2d885ae029fb3de16c93c33680c477bef3a9486f21c97817415774e4e8537",
+    "results/timing/j0437_external_validation/clock/gpst2utc.clk": "58a309003d3f27a43f90ebe909370947a09ae44e622f760a356954b15bd4c74a",
+    "results/timing/j0437_external_validation/clock/hob2gps.clk": "0101592e48ade4226df486bc67118d3f2f98bbd174938770d7e4dc7ee9f301c9",
+    "results/timing/j0437_external_validation/clock/jb2gps.clk": "47b202ea91bdf4a56ce8b5fd19f0fc9a5362881994adef5554d77c6ca3d496f3",
+    "results/timing/j0437_external_validation/clock/jb422jb.clk": "178981b5201bdf3a9f3b9be5229c879e9684779442227030a1c0b087de9a6425",
+    "results/timing/j0437_external_validation/clock/jb422jbafb.clk": "1472b3f3952c1c6388084b19ee10ecf9bd9ee0f6d106080964ccd84b6090889d",
+    "results/timing/j0437_external_validation/clock/jbafb2gps.clk": "635dd3e5ecc9ab93193804736ca73283bb482e8ad695c5e0364482ceae575b2c",
+    "results/timing/j0437_external_validation/clock/jbafb2utc.clk": "4a3c614e10bece46ce971f80b1ef8e2d3509a4c7661ca1323f8546076de35829",
+    "results/timing/j0437_external_validation/clock/jbdfb2jb.clk": "40768a10bbce8f8b23565aa03fdbc32792ca90720ff8a8670d6c6d4b0e6fb621",
+    "results/timing/j0437_external_validation/clock/jbm42gps.clk": "ae09f33b75a520096d4fac2d378080ce11f3030ac85708303b27befdd68c6629",
+    "results/timing/j0437_external_validation/clock/jbmk22jb.clk": "ea6e8ff409ffd3977477781013720a983c2e0c5bf3c961969580ba8dbaa05d03",
+    "results/timing/j0437_external_validation/clock/jbmk2dfb2jbdfb.clk": "e0a7eaeb7de77861c2b4060f9aaf4af108154af2c88d5f65096a8f6a199cb93e",
+    "results/timing/j0437_external_validation/clock/jbmk2roach2jbroach.clk": "b43e3422b7c9e8b2694b3c5911432046120a4b1ba374fdb53e8025669dee0e97",
+    "results/timing/j0437_external_validation/clock/jbroach2jb.clk": "55e3f92250d228d24c26b25426fc1c4929e57eb8915ede604a0b2dc52ceea6ec",
+    "results/timing/j0437_external_validation/clock/leap2effix.clk": "d8a46bf592b5a43e40e6e8c1c9383892f8869d6b21bfdf612c846c37f388caba",
+    "results/timing/j0437_external_validation/clock/mk2utc.clk": "dc2721fd6e9278331ade27e3dd92ff6662721119840bfd3214e57c2f028fa43e",
+    "results/timing/j0437_external_validation/clock/mo2gps.clk": "a7ac099e09db6b79152b1da2071c056ff90ed9a17507333681ce56d80b0e245f",
+    "results/timing/j0437_external_validation/clock/ncy2gps.clk": "71083f79b36016297a1a80908658549dd88047629e278925053c1e7f73209800",
+    "results/timing/j0437_external_validation/clock/ncyobs2obspm.clk": "09988448c8e9303739f77651727416953f42bfd03996394de8b4f5326ee90715",
+    "results/timing/j0437_external_validation/clock/nist2tai.clk": "888baeb63e28377a4d9820e47ef2e2d6ebe5307fc7d62d9c9a9a7bcca78a2e41",
+    "results/timing/j0437_external_validation/clock/nist2tt_nist.clk": "b6455d27341e6c4d09ff4f6260bd91db3a6dd424716bc55f89e0bcc64e55247a",
+    "results/timing/j0437_external_validation/clock/nist2utc.clk": "a25ebc8f954f6f21f68948e6f84a2b79664496e6927e966a7b4b67c8de59ef46",
+    "results/timing/j0437_external_validation/clock/obspm2gps.clk": "c8022ba7ec5290a27253836cc14c060a1deb4d5b5de8fbdfcfea8b3bef43d5cf",
+    "results/timing/j0437_external_validation/clock/obspm2utc.clk": "7e58d72b7f452cf23b5dc23f9c0c767735ea0fddf91cef1bb8b057a8a338340e",
+    "results/timing/j0437_external_validation/clock/pks2aus.clk": "268511fe66a4d379d407bdb0a2b80e347f2f352fa2e36a41c0add3a564e66735",
+    "results/timing/j0437_external_validation/clock/pks2gps.clk": "444835a20696daaccaf535befb298d1ff16dfc2fa1e5734cd3e2630b7a2c0f97",
+    "results/timing/j0437_external_validation/clock/pks2tid.clk": "f64887e8c7ea5a9a538d6fbb64205006e2dd61f366dd903c93a2e806a3527d5e",
+    "results/timing/j0437_external_validation/clock/pks2tt_toasim.clk": "ec768e77d9219602a778eebf71c035a3dee4510622e258b7890970a090451f05",
+    "results/timing/j0437_external_validation/clock/ptb2tai.clk": "bd644439f9537611b2337248e00e2c16cf315732da43ca569107225ac039a15a",
+    "results/timing/j0437_external_validation/clock/srt2gps.clk": "1d60523d55e801aa4983e190e509cf7cd3dfd76ebf8550d60ac4f36edfd04777",
+    "results/timing/j0437_external_validation/clock/tai2tt_bipm01.clk": "a46df9fc4b0c1ed82aae205a92acf319ad09a6173a76a44cc1486dc9ceb0c214",
+    "results/timing/j0437_external_validation/clock/tai2tt_bipm05.clk": "741e6292d8f738a4e2605922a09f2599b8b687f421a6f1873ab933ab271a1a82",
+    "results/timing/j0437_external_validation/clock/tai2tt_bipm06.clk": "12b85d43646942c716af64379088b7796c6a704ca55f9ba06bef4b0a3b0c030b",
+    "results/timing/j0437_external_validation/clock/tai2tt_bipm2003.clk": "4cd68afc42b88e0b375d70c75a84409febac24ef6e77e6918635423d28b54894",
+    "results/timing/j0437_external_validation/clock/tai2tt_bipm2004.clk": "211e6514a3f10f839c19df73fa48f9ff0216e69e3c03b08ce8c8913c8a4e5240",
+    "results/timing/j0437_external_validation/clock/tai2tt_bipm2004ext.clk": "f951785a160a2b1bf9ff3c73f9e9503499738665c9a23a49e319b9b227b9b7d4",
+    "results/timing/j0437_external_validation/clock/tai2tt_bipm2010.clk": "ac9d5bbc493ba259d0519ce4818dda34a1f077a4cb48186a1f624058651ff161",
+    "results/timing/j0437_external_validation/clock/tai2tt_bipm2011.clk": "66682444379a4ffd938fd93f3219503f29fad0ab6e7392ddd2f94fea211d0cde",
+    "results/timing/j0437_external_validation/clock/tai2tt_bipm2012.clk": "65b9d84dafe26bef5205e7f1bb6c885804aefa826c202fd00787cfaf6459dfd3",
+    "results/timing/j0437_external_validation/clock/tai2tt_bipm2013.clk": "b87cf53a3e1ba5230056fd2a3b3341061b0f23c324fd0841faa1e9efd6984c6c",
+    "results/timing/j0437_external_validation/clock/tai2tt_bipm2014.clk": "830df3ccf2128b4f5ea9de81ba6f7f594ded18d7e9c6226bfee06de0941b52dc",
+    "results/timing/j0437_external_validation/clock/tai2tt_bipm2015.clk": "038dae3e947e86a4ae0ab079d109bedca5797152d3507fc632389e37df22d764",
+    "results/timing/j0437_external_validation/clock/tai2tt_bipm2016.clk": "587b24a9ff4dc87ece267b8f5e206eb14cb3652751950d110720ed702ddbc7a3",
+    "results/timing/j0437_external_validation/clock/tai2tt_bipm2017.clk": "b0154d6da6faac6b71e0e3131090b58abe6e96e0ff6618f9c745267a277c087e",
+    "results/timing/j0437_external_validation/clock/tai2tt_bipm2018.clk": "47869a659f5c77b7d22e51362d86d908f9a27a22bbf5375160735b7b2bf6dbca",
+    "results/timing/j0437_external_validation/clock/tai2tt_bipm2019.clk": "a7626d10fc51e68ace910373ecb425d8e30d714de47cb84feb6e9222e982271d",
+    "results/timing/j0437_external_validation/clock/tai2tt_bipm2020.clk": "5b77068b5fd5407c7349227e27a73400357ba60902659045866ea6cd5023be49",
+    "results/timing/j0437_external_validation/clock/tai2tt_bipm2021.clk": "14a85a50f4ae37a0202202f55a9c8ee5f10b36caec6cfdea4220115f151125f5",
+    "results/timing/j0437_external_validation/clock/tai2tt_bipm2022.clk": "3008fb0db51eea448aeb913dd9329c59aea76850a5adde1dddeeb972b3757f80",
+    "results/timing/j0437_external_validation/clock/tai2tt_bipm2023.clk": "f99dc4c467568d0fb01d6b076af36ed5add935e2593adf60e33611ebdd5f363d",
+    "results/timing/j0437_external_validation/clock/tai2tt_bipm92.clk": "299edb1b6a9166f5d7228979120e2190fccc3b0060d4c4c19738510930d74b05",
+    "results/timing/j0437_external_validation/clock/tai2tt_tai.clk": "46161bbb915b3b4fa4e910f327833795df3950410b18e01cd6118648dff8699a",
+    "results/timing/j0437_external_validation/clock/tid2nist.clk": "bfa0b852aa00203a950e099ef694eafe86a5750f4987f97014a6122f94226cf7",
+    "results/timing/j0437_external_validation/clock/utc2tai.clk": "cade8c0b65ad37682e8e265a10e7587454faf9c5a1d77009458daacf940847bf",
+    "results/timing/j0437_external_validation/clock/utc2ut1.clk": "eeec70d9ec426846e1d17a786187cda191f87a85421c3bd1de7d85b8712eb4b1",
+    "results/timing/j0437_external_validation/clock/vla2gps.clk": "fde7103aa67a3f8577c271e860ffb10806a0d19266df1d1cb1818af3a8d93103",
+    "results/timing/j0437_external_validation/clock/vla2nist.clk": "62ba0962620250c7c0df8a4a8df40ade041424cf67adc453db92b7a3668b76b6",
+    "results/timing/j0437_external_validation/clock/wsrt2gps.clk": "72f512aa3c5f26b434708ebdd1b62718145f52e77d7ac2cc03628203ec296319",
+    "results/timing/j0437_external_validation/meerkat/flattened.tim": "998f5a1e8c59246dba540d734ffd1d3608f74e5f6b52cb721aaaee8e56cb2b2d",
+    "results/timing/first_principles/S_meerkat_published_DR3.par": "175fd6c67246ac8efcf7775f3c49ad3fad93d3451acb155a7fb418982115957b",
+    "results/timing/first_principles/S_meerkat_published_DR3.res": "530fd61d961ef87f5aa06d8e6a43649dbbeeabc66f1f82166e4638fba17dedd2",
+    "results/timing/first_principles/S_meerkat_search_template_model_(TDB).par": "43fed8b469681d557cb6bc8a3552dc92c0e9a3e3f8d9abdfae43e0aa169d41e5",
+    "results/timing/first_principles/S_meerkat_search_template_model_(TDB).res": "d091342809fa9b6bf3f520775589a6bf1143edd3eec25ffa89a498c25e71b78a",
+    "results/timing/first_principles/F_meerkat_release_own_fit_(uses_O4a_data).par": "5629c8ee0bb95a622e606d0c1d836151bbc1aa554cba40582e024eb9ae3b9744",
+    "results/timing/first_principles/F_meerkat_release_own_fit_(uses_O4a_data).res": "7a1a6cbcfc1502fd8de477c15932c020c75f9b97ec49aed7011ab3a6833e05f7",
+    "results/timing/first_principles/meerkat_control_PB_p1_sigma.par": "92fb116913d4db20d889f931bbe5146c0e88382674e030f42d02ceb39303671b",
+    "results/timing/first_principles/meerkat_control_PB_p1_sigma.res": "543bb8b06d5186330ee98f9d5e41b96f60ebd56dc3828f45449431f0855f2b05",
+    "results/timing/first_principles/meerkat_control_PB_p1s_OMDOT_partner.par": "2e617ee82bd81bd31acacd74dfeaa43b7012b6fd6cb4380654859667ae72154c",
+    "results/timing/first_principles/meerkat_control_PB_p1s_OMDOT_partner.res": "6aac738d3ba4df8a41263e3c4022cde7e007bc30e7708d21bd17a102c2203be0",
+    "results/timing/first_principles/meerkat_control_T0_p1_sigma.par": "6000980c271642a2f079d73c3373a890dc1d9fcd8281ee42a256a3a5e8170f4c",
+    "results/timing/first_principles/meerkat_control_T0_p1_sigma.res": "ef28e9dbf0b752326d55608ce87925c96f049490cad440edbb49256345400868",
+    "results/timing/first_principles/meerkat_control_T0_p1s_OM_partner.par": "45d4948ff6517da11515af059dbe4563c5648d80ebceda432f2479953ddd4baf",
+    "results/timing/first_principles/meerkat_control_T0_p1s_OM_partner.res": "421e9dc943691fd5728fdac1dfe9ecc9ff7737e0168d4312a396db18278a13d9",
+    "results/timing/j0437_external_validation/inpta/flattened.tim": "abfb26e46e406ae454f88fa9e3c6aac1d6b5404cd1e1b77cc49e4c088e1eb99a",
+    "results/timing/first_principles/S_inpta_published_DR3.par": "936f25cb1867fc352fb9c6755341f8e4c68b05d96ccb53f1d9bfd616fb0213e7",
+    "results/timing/first_principles/S_inpta_published_DR3.res": "d7f79404f9c076cdb485de57b725ac24c0ec9ba17a14fb3a29bc369166c512fd",
+    "results/timing/first_principles/S_inpta_search_template_model_(TDB).par": "6bd3523d55cd23b7149bb6254401afca87ccb0eaeb0a9b9660ab67ece969029a",
+    "results/timing/first_principles/S_inpta_search_template_model_(TDB).res": "11bd1c78f4153984cfa938bebad78e951e9a64af969a271a5193397952f4df8f",
+    "results/timing/first_principles/F_inpta_release_own_fit_(uses_O4a_data).par": "e93d275345a367c82faecc0020fbda60f7c69b1d1462fcad370eb6aae8fa5a03",
+    "results/timing/first_principles/F_inpta_release_own_fit_(uses_O4a_data).res": "df224035ca43bd7eee7e05d027f682a1c3c0b889f1714dd4a6e856d396a81999",
+    "results/timing/first_principles/inpta_control_PB_p1_sigma.par": "6ecaa99040789f7838cea1527c32dace7e1db2e4e582cf9461b9c24d9c21c582",
+    "results/timing/first_principles/inpta_control_PB_p1_sigma.res": "f907a3f0a284d8100393335b65aab760ec81aeac20aa4b9714afdf5bb98c5264",
+    "results/timing/first_principles/inpta_control_PB_p1s_OMDOT_partner.par": "86b32cc5432a575b68442b111fb91b7f2c78f0c02797a08dbad7a2b7b7e2596c",
+    "results/timing/first_principles/inpta_control_PB_p1s_OMDOT_partner.res": "6bf8550c35ed68698b69d6efeb68499dc8f47aaa1c41fbacc729840a5c052136",
+    "results/timing/first_principles/inpta_control_T0_p1_sigma.par": "e094fe14ff4550c945f5b05836e2455a19daf8b4ae31182903172c1d2572f6ae",
+    "results/timing/first_principles/inpta_control_T0_p1_sigma.res": "4dbcea6a39de20051411dca58b39ba636da0f6ac6457af3bb384d7add2f738a4",
+    "results/timing/first_principles/inpta_control_T0_p1s_OM_partner.par": "0bc1a700a6a486bb995303fdd56392e6a25d23013f996417aad1bcfb9f8219e9",
+    "results/timing/first_principles/inpta_control_T0_p1s_OM_partner.res": "2089d9d55d2d44457e3e06c6dae7c207a5b2f9973dbec218d60672363d373e62",
+    "scripts/timing/supporting_checks/external_prediction_audit.json": "7ee0406ffdb8a5d97674d03998d7a5c30c846d1a2dbd768710fc6c43f4ed4e4a",
+    "scripts/timing/later_radio_observations/summarize.py": "154f631f5ad83e7106be1e75467f5ab6a4e666660b6406b596261048026c3ca9"
+  }
+}

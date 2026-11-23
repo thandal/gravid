@@ -1,0 +1,194 @@
+{
+  "meerkat_post": {
+    "published_weights": {
+      "longitude_delay_ns": -65.8516312368476,
+      "scaled_sigma_ns": 46.0417753143379,
+      "HC3_sigma_ns": 55.07622866624873,
+      "HAC_sigma_ns_by_epoch_lag": {
+        "1": 36.64404195844954,
+        "2": 32.432154166437606,
+        "4": 26.771535487651196
+      },
+      "leave_one_out_range_ns": [
+        -97.01470807581913,
+        -45.28740409955705
+      ],
+      "dof": 31
+    },
+    "equal_epoch_weights": {
+      "longitude_delay_ns": -72.23340817778515,
+      "scaled_sigma_ns": 46.245182248250174,
+      "HC3_sigma_ns": 48.65457893239864,
+      "HAC_sigma_ns_by_epoch_lag": {
+        "1": 34.02397666143343,
+        "2": 30.835892103288188,
+        "4": 25.181850278600105
+      },
+      "leave_one_out_range_ns": [
+        -96.60794502015948,
+        -55.972780314032086
+      ],
+      "dof": 31
+    }
+  },
+  "meerkat_o4a": {
+    "published_weights": {
+      "longitude_delay_ns": -73.53983588405146,
+      "scaled_sigma_ns": 77.51077974958552,
+      "HC3_sigma_ns": 198.9516540582637,
+      "HAC_sigma_ns_by_epoch_lag": {
+        "1": 71.62243404061392,
+        "2": 65.9165451199393,
+        "4": 67.53933735083633
+      },
+      "leave_one_out_range_ns": [
+        -114.13214286094097,
+        104.9993559390474
+      ],
+      "dof": 3
+    },
+    "equal_epoch_weights": {
+      "longitude_delay_ns": -63.16762544752237,
+      "scaled_sigma_ns": 71.77380435660672,
+      "HC3_sigma_ns": 194.7184038285518,
+      "HAC_sigma_ns_by_epoch_lag": {
+        "1": 67.6593281327323,
+        "2": 58.08631166453488,
+        "4": 59.87272870912305
+      },
+      "leave_one_out_range_ns": [
+        -104.85418271798396,
+        112.62580073924762
+      ],
+      "dof": 3
+    }
+  },
+  "meerkat_all": {
+    "published_weights": {
+      "longitude_delay_ns": -39.31325363781796,
+      "scaled_sigma_ns": 37.31077611961626,
+      "HC3_sigma_ns": 36.52217205673355,
+      "HAC_sigma_ns_by_epoch_lag": {
+        "1": 35.412991878482764,
+        "2": 32.44195542616972,
+        "4": 30.965106146472465
+      },
+      "leave_one_out_range_ns": [
+        -53.772341709756326,
+        -30.17780799160665
+      ],
+      "dof": 105
+    },
+    "equal_epoch_weights": {
+      "longitude_delay_ns": -31.084683082391205,
+      "scaled_sigma_ns": 37.284491641313224,
+      "HC3_sigma_ns": 36.011495038072226,
+      "HAC_sigma_ns_by_epoch_lag": {
+        "1": 35.54713945408499,
+        "2": 32.47135104792293,
+        "4": 30.35466630867542
+      },
+      "leave_one_out_range_ns": [
+        -48.348409215700386,
+        -23.820157219102153
+      ],
+      "dof": 105
+    }
+  },
+  "inpta_post": {
+    "published_weights": {
+      "longitude_delay_ns": -700.2058742179789,
+      "scaled_sigma_ns": 399.07826751268857,
+      "HC3_sigma_ns": 632.4444815210627,
+      "HAC_sigma_ns_by_epoch_lag": {
+        "1": 591.7945774340795,
+        "2": 596.4310523800362,
+        "4": 490.8143575481434
+      },
+      "leave_one_out_range_ns": [
+        -870.060251995033,
+        -275.996792351323
+      ],
+      "dof": 102
+    },
+    "equal_epoch_weights": {
+      "longitude_delay_ns": 353.6378321744061,
+      "scaled_sigma_ns": 585.0467730060155,
+      "HC3_sigma_ns": 490.67331436985165,
+      "HAC_sigma_ns_by_epoch_lag": {
+        "1": 517.3816565213396,
+        "2": 540.3879132705019,
+        "4": 527.1808301878351
+      },
+      "leave_one_out_range_ns": [
+        186.62763977071856,
+        504.9422134798497
+      ],
+      "dof": 102
+    }
+  },
+  "inpta_o4a": {
+    "published_weights": {
+      "longitude_delay_ns": -682.0276119722283,
+      "scaled_sigma_ns": 1012.9912657324506,
+      "HC3_sigma_ns": 1560.80437111031,
+      "HAC_sigma_ns_by_epoch_lag": {
+        "1": 1155.5979428419964,
+        "2": 1177.97496374958,
+        "4": 886.1442747634707
+      },
+      "leave_one_out_range_ns": [
+        -1274.538860899112,
+        490.57553850035083
+      ],
+      "dof": 26
+    },
+    "equal_epoch_weights": {
+      "longitude_delay_ns": 733.0030421525794,
+      "scaled_sigma_ns": 879.96213952749,
+      "HC3_sigma_ns": 1018.5905172814711,
+      "HAC_sigma_ns_by_epoch_lag": {
+        "1": 893.7024429420748,
+        "2": 890.599609207296,
+        "4": 724.082259043084
+      },
+      "leave_one_out_range_ns": [
+        70.74596623667588,
+        1143.0679717748146
+      ],
+      "dof": 26
+    }
+  },
+  "inpta_all": {
+    "published_weights": {
+      "longitude_delay_ns": -615.7541922080727,
+      "scaled_sigma_ns": 320.3954224424332,
+      "HC3_sigma_ns": 488.01595557285566,
+      "HAC_sigma_ns_by_epoch_lag": {
+        "1": 466.25564009107507,
+        "2": 471.75874665288575,
+        "4": 411.48342391968987
+      },
+      "leave_one_out_range_ns": [
+        -737.6153331240619,
+        -323.3934660397061
+      ],
+      "dof": 175
+    },
+    "equal_epoch_weights": {
+      "longitude_delay_ns": -251.3908210556931,
+      "scaled_sigma_ns": 480.52726379097135,
+      "HC3_sigma_ns": 458.68623432065937,
+      "HAC_sigma_ns_by_epoch_lag": {
+        "1": 506.80883374419716,
+        "2": 521.9693029099926,
+        "4": 546.8558110394977
+      },
+      "leave_one_out_range_ns": [
+        -361.0961626395045,
+        -55.74019983624079
+      ],
+      "dof": 175
+    }
+  }
+}

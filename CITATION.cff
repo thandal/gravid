@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this code or these results, please cite the article."
+title: "gravfold: orbital-template analysis and coherent continuous-wave search code for binary pulsars"
+authors:
+  - family-names: Fairfield
+    given-names: Nathaniel
+license: BSD-3-Clause
+preferred-citation:
+  type: article
+  title: "One orbital template for a coherent continuous-wave search of PSR J0437−4715"
+  authors:
+    - family-names: Fairfield
+      given-names: Nathaniel
+  year: 2026

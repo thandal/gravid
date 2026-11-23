@@ -1,0 +1,86 @@
+{
+  "white_scale": 1.0,
+  "prior_width": 1.0,
+  "binary_derivative_subspace": {
+    "rank": 10,
+    "squared_projection": 15.794532745774251,
+    "singular_values": [
+      0.6238239641306356,
+      0.49945693259554497,
+      0.4214869810488029,
+      0.3810093937751481,
+      0.20356192945555562,
+      0.17194800173970887,
+      0.029776251097806215,
+      0.007772081099321774,
+      0.006206848634597402,
+      9.637430301446253e-05
+    ],
+    "scope": "Diagnostic projection onto binary derivative shapes in held-out data; not a calibrated significance after predictive-noise failure."
+  },
+  "training_n": 10135,
+  "heldout_n": 1502,
+  "cut_mjd": 59280.15317295509,
+  "conditional_predictive_chi2": 2294.1413717919077,
+  "dof": 1502,
+  "chi2_per_toa": 1.527391059781563,
+  "upper_tail_probability": 3.7419857340267953e-36,
+  "whitened_mean": -0.11088903650292348,
+  "whitened_std": 1.2308918235836228,
+  "max_abs_whitened": 8.328701449783194,
+  "scope": "Forward prediction within exact linear timing/noise model; full-data noise hyperparameters and basis held fixed, not a fully independent predictive validation. All timing and noise coefficient uncertainty included. Cholesky residual order is chronological.",
+  "original_white_residual_rms": 9.992887530007907,
+  "source": "native-export exact solver snapshot",
+  "objective_difference_check": 2294.141371787213,
+  "training_augmented_sse": 12336.50274929796,
+  "full_augmented_sse": 14630.644121085174,
+  "largest_10_whitened_residuals_fraction": 0.13348879499711705,
+  "group_diagnostics": {
+    "UWL_PDFB4_20CM": {
+      "n": 4,
+      "marginal_predictive_chi2": 11.507014761345117,
+      "chi2_per_toa": 2.876753690336279
+    },
+    "UWL_sbA": {
+      "n": 119,
+      "marginal_predictive_chi2": 135.2627356997846,
+      "chi2_per_toa": 1.136661644536005
+    },
+    "UWL_sbB": {
+      "n": 184,
+      "marginal_predictive_chi2": 231.10559592481624,
+      "chi2_per_toa": 1.256008673504436
+    },
+    "UWL_sbC": {
+      "n": 207,
+      "marginal_predictive_chi2": 351.65048315214636,
+      "chi2_per_toa": 1.6987946045997409
+    },
+    "UWL_sbD": {
+      "n": 172,
+      "marginal_predictive_chi2": 219.25319204605893,
+      "chi2_per_toa": 1.2747278607329007
+    },
+    "UWL_sbE": {
+      "n": 215,
+      "marginal_predictive_chi2": 167.8757488561083,
+      "chi2_per_toa": 0.7808174365400385
+    },
+    "UWL_sbF": {
+      "n": 236,
+      "marginal_predictive_chi2": 399.00237108034804,
+      "chi2_per_toa": 1.6906880130523223
+    },
+    "UWL_sbG": {
+      "n": 176,
+      "marginal_predictive_chi2": 145.7507782464392,
+      "chi2_per_toa": 0.8281294218547682
+    },
+    "UWL_sbH": {
+      "n": 189,
+      "marginal_predictive_chi2": 128.10168468980203,
+      "chi2_per_toa": 0.677786691480434
+    }
+  },
+  "residuals_override": null
+}

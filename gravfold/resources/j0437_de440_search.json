@@ -1,0 +1,23 @@
+{
+  "source_fit_sha256": "2733ece81bcc7ebdec8c2e6d01e79552ff3889f0c1a8d9f148ef9355790af18c",
+  "covariance_sha256": "667eeba8c587c4a0248994984082770c398dd13062975859bfa759c3e4d8e55e",
+  "search_par_sha256": "80f0e96b22482e09f38664cdd176cc4f3af9a41bf7a1be4bf09ee5769f8a4421",
+  "pint_version": "1.1.8",
+  "binary_model": "T2",
+  "units": "TDB",
+  "retained_binary_terms": [
+    "PB",
+    "A1",
+    "ECC",
+    "OM",
+    "T0",
+    "PBDOT",
+    "OMDOT",
+    "M2",
+    "SINI",
+    "KIN",
+    "KOM"
+  ],
+  "geometry": "TEMPO2 IAU KIN/KOM; PINT DDK uses transformed angles internally",
+  "note": "No noise-hyperparameter refit or covariance rescaling."
+}

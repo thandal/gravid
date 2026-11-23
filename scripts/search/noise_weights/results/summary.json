@@ -1,0 +1,107 @@
+{
+ "inputs": {
+  "fixed_orientation": "results/j0437_search/result.json",
+  "f_statistic": "results/j0437_search/f_statistic.json"
+ },
+ "noise_weights": {
+  "parameters": {
+   "stride": 3600.0,
+   "crop": 60.0,
+   "stride_end_seconds": 60.0,
+   "median_seconds": 301,
+   "power_cut": 20.0,
+   "cut_margin_seconds": 2,
+   "min_segment_samples": 300
+  },
+  "equivalent_noise_bandwidth_hz": 0.4460724325226503,
+  "per_detector": {
+   "H1": {
+    "samples": 12955581,
+    "kept": 12525030,
+    "dropped_stride_ends": 397576,
+    "dropped_short_segments": 9090,
+    "dropped_above_power_cut": 23885,
+    "noise_power_per_unit_weight": 1.009778546906742,
+    "median_variance": 3.0584268441784284e-48,
+    "signal_to_noise_power": 3.89059620863417e+54,
+    "signal_to_noise_power_gain_over_file_variance": 22.454417132682945
+   },
+   "L1": {
+    "samples": 13411410,
+    "kept": 12953560,
+    "dropped_stride_ends": 409627,
+    "dropped_short_segments": 7444,
+    "dropped_above_power_cut": 40779,
+    "noise_power_per_unit_weight": 1.0376473734639693,
+    "median_variance": 3.843500918326978e-48,
+    "signal_to_noise_power": 2.9299066933301125e+54,
+    "signal_to_noise_power_gain_over_file_variance": 127.40817840924704
+   }
+  },
+  "samples_total": 26366991,
+  "samples_kept": 25478590
+ },
+ "fixed_orientation": {
+  "degrees_of_freedom": 2,
+  "target": 2.521968441617878,
+  "target_probability": 0.2833749856457828,
+  "controls_at_or_above_target": 11,
+  "control_mean": 2.280457566870152,
+  "control_ks_probability": 0.6478559352920894,
+  "loudest_control": 15.577012546241376,
+  "probability_of_a_louder_maximum": 0.01644556835131028,
+  "h0_95": {
+   "above_loudest_control": 3.464864504004917e-26,
+   "above_loudest_control_bootstrap_90pct": [
+    2.7294644502385086e-26,
+    3.979627784523644e-26
+   ],
+   "at_1pct_false_alarm": 2.5535882564653995e-26,
+   "at_1pct_false_alarm_expected_over_noise": 2.639517917462196e-26,
+   "above_observed_target": 1.4236614457852332e-26
+  }
+ },
+ "f_statistic": {
+  "degrees_of_freedom": 4,
+  "target": 9.846621008076621,
+  "target_probability": 0.04309212536658253,
+  "controls_at_or_above_target": 2,
+  "control_mean": 4.066128660003821,
+  "control_ks_probability": 0.7467559406538742,
+  "loudest_control": 16.89493136641083,
+  "probability_of_a_louder_maximum": 0.07791695486715189,
+  "h0_95": {
+   "above_loudest_control": 1.5968381615058135e-26,
+   "above_loudest_control_bootstrap_90pct": [
+    1.4918889860867575e-26,
+    1.717699230412773e-26
+   ],
+   "at_1pct_false_alarm": 1.4042830025021224e-26,
+   "at_1pct_false_alarm_expected_over_noise": 1.4190897390025132e-26,
+   "above_observed_target": 1.2046777132731683e-26
+  }
+ },
+ "fixed_orientation_search_as_reported": {
+  "h0_95": 3.5873367329641145e-26,
+  "interval": [
+   2.8052278710723756e-26,
+   4.387467910434082e-26
+  ],
+  "note": "first linear crossing on that search's 16-point amplitude grid"
+ },
+ "fixed_orientation_share_of_signal_power": {
+  "median": 0.4832110058088571,
+  "fifth_percentile": 0.1564612577239477
+ },
+ "power_lost_with_one_orbit": {
+  "maximum": 3.6834910677185917e-09,
+  "median": 3.417194305299631e-10
+ },
+ "spin_down_limit": 7.921780083898304e-27,
+ "published_lvk_o4a": {
+  "bayesian": 7.2e-27,
+  "f_statistic": 9e-27,
+  "five_n_vector": 5.8e-27,
+  "spin_down_limit": 7.95e-27
+ }
+}

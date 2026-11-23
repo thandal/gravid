@@ -1,0 +1,378 @@
+{
+  "J0437-4715": {
+    "adopted": {
+      "O4a": {
+        "n_toas": 607,
+        "n_epochs": 19,
+        "raw_equal_epoch_power_loss": 8.15566594780659e-06,
+        "raw_epoch_rms_us": 0.3279560251407575,
+        "equal_chromatic_projected_orbit": {
+          "sin_delay_us": -0.003505925013340913,
+          "cos_delay_us": -0.05636652293908806,
+          "HC3_sin_sigma_us": 0.04143311868411675,
+          "HC3_cos_sigma_us": 0.03646728645215876,
+          "post_regression_rms_us": 0.09202979195984838
+        },
+        "formal_chromatic_projected_orbit": {
+          "sin_delay_us": -0.0033849450892517873,
+          "cos_delay_us": -0.05557664166430475,
+          "HC3_sin_sigma_us": 0.0412357736807719,
+          "HC3_cos_sigma_us": 0.036609839789073756,
+          "post_regression_rms_us": 0.09203285527911029
+        }
+      },
+      "O4b": {
+        "n_toas": 543,
+        "n_epochs": 17,
+        "raw_equal_epoch_power_loss": 1.4147624268656678e-05,
+        "raw_epoch_rms_us": 0.5476778723562603,
+        "equal_chromatic_projected_orbit": {
+          "sin_delay_us": -0.08419695404294497,
+          "cos_delay_us": -0.16133898148013598,
+          "HC3_sin_sigma_us": 0.15884182840873678,
+          "HC3_cos_sigma_us": 0.10614254069729746,
+          "post_regression_rms_us": 0.21472774708493197
+        },
+        "formal_chromatic_projected_orbit": {
+          "sin_delay_us": -0.07880064078137305,
+          "cos_delay_us": -0.16250720733501559,
+          "HC3_sin_sigma_us": 0.15866723156726056,
+          "HC3_cos_sigma_us": 0.10683713650025488,
+          "post_regression_rms_us": 0.21482025617758624
+        }
+      },
+      "O4ab": {
+        "n_toas": 1150,
+        "n_epochs": 36,
+        "raw_equal_epoch_power_loss": 1.440385772866204e-05,
+        "raw_epoch_rms_us": 0.9570999082177702,
+        "equal_chromatic_projected_orbit": {
+          "sin_delay_us": -0.010890434314810007,
+          "cos_delay_us": -0.09708297665998691,
+          "HC3_sin_sigma_us": 0.06974042280279735,
+          "HC3_cos_sigma_us": 0.053838699584332045,
+          "post_regression_rms_us": 0.1926004769683465
+        },
+        "formal_chromatic_projected_orbit": {
+          "sin_delay_us": -0.007974057537807389,
+          "cos_delay_us": -0.09778913798477429,
+          "HC3_sin_sigma_us": 0.0696698856402321,
+          "HC3_cos_sigma_us": 0.05390805127636698,
+          "post_regression_rms_us": 0.19262744702824203
+        }
+      }
+    },
+    "published": {
+      "O4a": {
+        "n_toas": 607,
+        "n_epochs": 19,
+        "raw_equal_epoch_power_loss": 8.117443512700717e-06,
+        "raw_epoch_rms_us": 0.31554918243407953,
+        "equal_chromatic_projected_orbit": {
+          "sin_delay_us": -0.005780117570174165,
+          "cos_delay_us": -0.05167967803856442,
+          "HC3_sin_sigma_us": 0.04035157697771954,
+          "HC3_cos_sigma_us": 0.03559063492576859,
+          "post_regression_rms_us": 0.09072032866545372
+        },
+        "formal_chromatic_projected_orbit": {
+          "sin_delay_us": -0.0056980355521391015,
+          "cos_delay_us": -0.05092637845959833,
+          "HC3_sin_sigma_us": 0.04010912509028265,
+          "HC3_cos_sigma_us": 0.035659834411522845,
+          "post_regression_rms_us": 0.09072346019447669
+        }
+      },
+      "O4b": {
+        "n_toas": 543,
+        "n_epochs": 17,
+        "raw_equal_epoch_power_loss": 1.3912618089140238e-05,
+        "raw_epoch_rms_us": 0.5006963397676395,
+        "equal_chromatic_projected_orbit": {
+          "sin_delay_us": -0.08489573788395652,
+          "cos_delay_us": -0.15276119829084908,
+          "HC3_sin_sigma_us": 0.15883243150555182,
+          "HC3_cos_sigma_us": 0.10532511205660694,
+          "post_regression_rms_us": 0.21491834361643342
+        },
+        "formal_chromatic_projected_orbit": {
+          "sin_delay_us": -0.07944756939562744,
+          "cos_delay_us": -0.15399928079171119,
+          "HC3_sin_sigma_us": 0.1585767481614847,
+          "HC3_cos_sigma_us": 0.10593197294424957,
+          "post_regression_rms_us": 0.21501417747276153
+        }
+      },
+      "O4ab": {
+        "n_toas": 1150,
+        "n_epochs": 36,
+        "raw_equal_epoch_power_loss": 1.3400718207878803e-05,
+        "raw_epoch_rms_us": 0.8399536413536024,
+        "equal_chromatic_projected_orbit": {
+          "sin_delay_us": -0.007353890277144444,
+          "cos_delay_us": -0.08967681235721084,
+          "HC3_sin_sigma_us": 0.07027632746199243,
+          "HC3_cos_sigma_us": 0.055591626886352746,
+          "post_regression_rms_us": 0.2034048006206007
+        },
+        "formal_chromatic_projected_orbit": {
+          "sin_delay_us": -0.004294441852798419,
+          "cos_delay_us": -0.0907163337120398,
+          "HC3_sin_sigma_us": 0.07015194240057232,
+          "HC3_cos_sigma_us": 0.05546387325466877,
+          "post_regression_rms_us": 0.20343415019103522
+        }
+      }
+    },
+    "PB_plus_1sigma": {
+      "O4a": {
+        "n_toas": 607,
+        "n_epochs": 19,
+        "raw_equal_epoch_power_loss": 0.7215949253988924,
+        "raw_epoch_rms_us": 485.32999814989614,
+        "equal_chromatic_projected_orbit": {
+          "sin_delay_us": -1.452684976024241,
+          "cos_delay_us": 680.3570075875662,
+          "HC3_sin_sigma_us": 1.8957869261999238,
+          "HC3_cos_sigma_us": 3.059077692406014,
+          "post_regression_rms_us": 5.241734217565357
+        },
+        "formal_chromatic_projected_orbit": {
+          "sin_delay_us": -1.4634155540312774,
+          "cos_delay_us": 680.2998298421716,
+          "HC3_sin_sigma_us": 1.8998212668034633,
+          "HC3_cos_sigma_us": 3.1295333717023075,
+          "post_regression_rms_us": 5.242104673237331
+        }
+      },
+      "O4b": {
+        "n_toas": 543,
+        "n_epochs": 17,
+        "raw_equal_epoch_power_loss": 0.8251282207932373,
+        "raw_epoch_rms_us": 534.7600331582786,
+        "equal_chromatic_projected_orbit": {
+          "sin_delay_us": 1.084988099353267,
+          "cos_delay_us": 723.0364732749488,
+          "HC3_sin_sigma_us": 4.9025078452791835,
+          "HC3_cos_sigma_us": 5.33308840469776,
+          "post_regression_rms_us": 7.61980932737493
+        },
+        "formal_chromatic_projected_orbit": {
+          "sin_delay_us": 1.1056833282992506,
+          "cos_delay_us": 723.1252384001906,
+          "HC3_sin_sigma_us": 4.79316968908455,
+          "HC3_cos_sigma_us": 5.281425263293262,
+          "post_regression_rms_us": 7.6202360842741985
+        }
+      },
+      "O4ab": {
+        "n_toas": 1150,
+        "n_epochs": 36,
+        "raw_equal_epoch_power_loss": 0.7926537197182686,
+        "raw_epoch_rms_us": 521.0642807144256,
+        "equal_chromatic_projected_orbit": {
+          "sin_delay_us": 0.7945675722935632,
+          "cos_delay_us": 701.5612877702334,
+          "HC3_sin_sigma_us": 4.953822625547893,
+          "HC3_cos_sigma_us": 5.395376991634707,
+          "post_regression_rms_us": 16.52063512074165
+        },
+        "formal_chromatic_projected_orbit": {
+          "sin_delay_us": 0.8123442879957176,
+          "cos_delay_us": 701.5104896326383,
+          "HC3_sin_sigma_us": 4.927035392615489,
+          "HC3_cos_sigma_us": 5.421781305655577,
+          "post_regression_rms_us": 16.52088414148528
+        }
+      }
+    },
+    "T0_plus_1sigma": {
+      "O4a": {
+        "n_toas": 607,
+        "n_epochs": 19,
+        "raw_equal_epoch_power_loss": 0.7865468777433327,
+        "raw_epoch_rms_us": 528.3545138867393,
+        "equal_chromatic_projected_orbit": {
+          "sin_delay_us": -0.08709916896307494,
+          "cos_delay_us": 737.4861538719261,
+          "HC3_sin_sigma_us": 0.03743626521710782,
+          "HC3_cos_sigma_us": 0.03486617124542747,
+          "post_regression_rms_us": 0.0883239460416768
+        },
+        "formal_chromatic_projected_orbit": {
+          "sin_delay_us": -0.0870402923476501,
+          "cos_delay_us": 737.4867923993171,
+          "HC3_sin_sigma_us": 0.037247654466134275,
+          "HC3_cos_sigma_us": 0.035085539405644704,
+          "post_regression_rms_us": 0.08832647592413914
+        }
+      },
+      "O4b": {
+        "n_toas": 543,
+        "n_epochs": 17,
+        "raw_equal_epoch_power_loss": 0.8413023753577241,
+        "raw_epoch_rms_us": 545.7221977013644,
+        "equal_chromatic_projected_orbit": {
+          "sin_delay_us": -0.17508306365948065,
+          "cos_delay_us": 737.3948581624795,
+          "HC3_sin_sigma_us": 0.16540805348666662,
+          "HC3_cos_sigma_us": 0.10699464418981663,
+          "post_regression_rms_us": 0.2192956680653902
+        },
+        "formal_chromatic_projected_orbit": {
+          "sin_delay_us": -0.1694299071668934,
+          "cos_delay_us": 737.3936618639137,
+          "HC3_sin_sigma_us": 0.1654390244742589,
+          "HC3_cos_sigma_us": 0.10761782165098448,
+          "post_regression_rms_us": 0.2193943318999114
+        }
+      },
+      "O4ab": {
+        "n_toas": 1150,
+        "n_epochs": 36,
+        "raw_equal_epoch_power_loss": 0.8339788730782449,
+        "raw_epoch_rms_us": 548.2414429376178,
+        "equal_chromatic_projected_orbit": {
+          "sin_delay_us": -0.09121165666670582,
+          "cos_delay_us": 737.4540427407164,
+          "HC3_sin_sigma_us": 0.07191107927480332,
+          "HC3_cos_sigma_us": 0.056116923929094585,
+          "post_regression_rms_us": 0.20601323207457023
+        },
+        "formal_chromatic_projected_orbit": {
+          "sin_delay_us": -0.08806750943196616,
+          "cos_delay_us": 737.4529442866997,
+          "HC3_sin_sigma_us": 0.07183864656718188,
+          "HC3_cos_sigma_us": 0.055973612670364416,
+          "post_regression_rms_us": 0.2060444967623469
+        }
+      }
+    }
+  },
+  "J1231-1411": {
+    "adopted_grid_anchor": {
+      "O4a": {
+        "n_toas": 576,
+        "n_epochs": 18,
+        "raw_equal_epoch_power_loss": 0.0021354929844871195,
+        "raw_epoch_rms_us": 2.20202323569489,
+        "equal_chromatic_projected_orbit": {
+          "sin_delay_us": 3.1904824817464092,
+          "cos_delay_us": 5.879338793118567,
+          "HC3_sin_sigma_us": 6.695896955550479,
+          "HC3_cos_sigma_us": 7.258703459977921,
+          "post_regression_rms_us": 6.1921963559320305
+        },
+        "formal_chromatic_projected_orbit": {
+          "sin_delay_us": 1.0893377899095429,
+          "cos_delay_us": 0.8823304408032875,
+          "HC3_sin_sigma_us": 1.487772995616266,
+          "HC3_cos_sigma_us": 1.265572247653958,
+          "post_regression_rms_us": 7.573019606179156
+        }
+      },
+      "O4b": {
+        "n_toas": 544,
+        "n_epochs": 17,
+        "raw_equal_epoch_power_loss": 0.0008688194470357624,
+        "raw_epoch_rms_us": 1.7903854680533524,
+        "equal_chromatic_projected_orbit": {
+          "sin_delay_us": 0.17537846440885105,
+          "cos_delay_us": 0.24287245492508722,
+          "HC3_sin_sigma_us": 1.3012836757503243,
+          "HC3_cos_sigma_us": 1.2016995189846826,
+          "post_regression_rms_us": 2.560214046993075
+        },
+        "formal_chromatic_projected_orbit": {
+          "sin_delay_us": 0.5848565393873588,
+          "cos_delay_us": 1.1653910131158762,
+          "HC3_sin_sigma_us": 1.3201641871395609,
+          "HC3_cos_sigma_us": 0.9218923354524405,
+          "post_regression_rms_us": 2.6547105634399233
+        }
+      },
+      "O4ab": {
+        "n_toas": 1120,
+        "n_epochs": 35,
+        "raw_equal_epoch_power_loss": 0.0015203587799752505,
+        "raw_epoch_rms_us": 2.0127729681155486,
+        "equal_chromatic_projected_orbit": {
+          "sin_delay_us": 0.8689956078643855,
+          "cos_delay_us": 1.863355942072829,
+          "HC3_sin_sigma_us": 1.72188211625939,
+          "HC3_cos_sigma_us": 1.3460482118194022,
+          "post_regression_rms_us": 5.368957515671451
+        },
+        "formal_chromatic_projected_orbit": {
+          "sin_delay_us": 0.9466555055257069,
+          "cos_delay_us": 0.910835424164307,
+          "HC3_sin_sigma_us": 0.9334560886009939,
+          "HC3_cos_sigma_us": 0.5072931437632726,
+          "post_regression_rms_us": 5.717775108097603
+        }
+      }
+    },
+    "release": {
+      "O4a": {
+        "n_toas": 576,
+        "n_epochs": 18,
+        "raw_equal_epoch_power_loss": 0.002144046901510821,
+        "raw_epoch_rms_us": 2.3633928098216352,
+        "equal_chromatic_projected_orbit": {
+          "sin_delay_us": 3.3721681162522246,
+          "cos_delay_us": 6.298146046257378,
+          "HC3_sin_sigma_us": 6.569782342639939,
+          "HC3_cos_sigma_us": 7.158682742111422,
+          "post_regression_rms_us": 6.064783481686012
+        },
+        "formal_chromatic_projected_orbit": {
+          "sin_delay_us": 1.1521882077831658,
+          "cos_delay_us": 1.3868285672517007,
+          "HC3_sin_sigma_us": 1.4203913531689436,
+          "HC3_cos_sigma_us": 1.2313934764922594,
+          "post_regression_rms_us": 7.428019275395474
+        }
+      },
+      "O4b": {
+        "n_toas": 544,
+        "n_epochs": 17,
+        "raw_equal_epoch_power_loss": 0.0008630798452972099,
+        "raw_epoch_rms_us": 1.646688556826356,
+        "equal_chromatic_projected_orbit": {
+          "sin_delay_us": 0.06333711828418627,
+          "cos_delay_us": -0.2684292301591131,
+          "HC3_sin_sigma_us": 1.3187976436199116,
+          "HC3_cos_sigma_us": 1.239662811514328,
+          "post_regression_rms_us": 2.5895572938026725
+        },
+        "formal_chromatic_projected_orbit": {
+          "sin_delay_us": 0.9010217161572255,
+          "cos_delay_us": 0.46590959522429987,
+          "HC3_sin_sigma_us": 1.5589327604112377,
+          "HC3_cos_sigma_us": 0.847864358007005,
+          "post_regression_rms_us": 2.692078527872293
+        }
+      },
+      "O4ab": {
+        "n_toas": 1120,
+        "n_epochs": 35,
+        "raw_equal_epoch_power_loss": 0.0015226071615374037,
+        "raw_epoch_rms_us": 2.0602815562593997,
+        "equal_chromatic_projected_orbit": {
+          "sin_delay_us": 1.0283149984747821,
+          "cos_delay_us": 1.9110387649758405,
+          "HC3_sin_sigma_us": 1.7069699150447115,
+          "HC3_cos_sigma_us": 1.3376562459547892,
+          "post_regression_rms_us": 5.374031197484682
+        },
+        "formal_chromatic_projected_orbit": {
+          "sin_delay_us": 1.0415586166809676,
+          "cos_delay_us": 1.0288145346628337,
+          "HC3_sin_sigma_us": 0.7180282246684616,
+          "HC3_cos_sigma_us": 0.39117398106195533,
+          "post_regression_rms_us": 5.725537102256706
+        }
+      }
+    }
+  }
+}

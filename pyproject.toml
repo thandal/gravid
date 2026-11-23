@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gravfold"
+version = "0.1.0"
+description = "Orbital-template analysis and coherent continuous-wave search code for binary pulsars"
+requires-python = ">=3.10"
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+dependencies = ["numpy>=1.24", "scipy>=1.10"]
+
+[project.optional-dependencies]
+# Needed to read the reduced strain and run the searches.
+cwinpy = ["cwinpy>=1.5", "lalsuite", "h5py"]
+dev = ["pytest>=7", "matplotlib>=3.5"]
+
+[tool.setuptools.packages.find]
+include = ["gravfold*"]
+
+[tool.setuptools.package-data]
+gravfold = ["resources/*.json", "resources/*.par"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

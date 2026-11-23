@@ -1,0 +1,652 @@
+{
+ "median 61 s, power cut 9, margin 0 s": {
+  "H1": {
+   "kept": 12530683,
+   "gain_over_file_variance": 22.936949368477336,
+   "noise_power_per_unit_weight": 1.0176089875849925
+  },
+  "L1": {
+   "kept": 12968257,
+   "gain_over_file_variance": 133.7088360961336,
+   "noise_power_per_unit_weight": 1.0264237870011998
+  },
+  "both_gain_over_file_variance": 35.91550646067968
+ },
+ "median 61 s, power cut 9, margin 2 s": {
+  "H1": {
+   "kept": 12497859,
+   "gain_over_file_variance": 22.98943280834575,
+   "noise_power_per_unit_weight": 1.0126364766212275
+  },
+  "L1": {
+   "kept": 12908428,
+   "gain_over_file_variance": 134.13586462834468,
+   "noise_power_per_unit_weight": 1.0194884116652667
+  },
+  "both_gain_over_file_variance": 36.012130223970544
+ },
+ "median 61 s, power cut 12, margin 0 s": {
+  "H1": {
+   "kept": 12536735,
+   "gain_over_file_variance": 22.84317289403246,
+   "noise_power_per_unit_weight": 1.0223172966859395
+  },
+  "L1": {
+   "kept": 12980849,
+   "gain_over_file_variance": 132.904924986272,
+   "noise_power_per_unit_weight": 1.0334282895378326
+  },
+  "both_gain_over_file_variance": 35.73815264947135
+ },
+ "median 61 s, power cut 12, margin 2 s": {
+  "H1": {
+   "kept": 12520138,
+   "gain_over_file_variance": 22.88456812337593,
+   "noise_power_per_unit_weight": 1.0193446358927218
+  },
+  "L1": {
+   "kept": 12954951,
+   "gain_over_file_variance": 133.21924281669286,
+   "noise_power_per_unit_weight": 1.0295704703128807
+  },
+  "both_gain_over_file_variance": 35.81167610738886
+ },
+ "median 61 s, power cut 20, margin 0 s": {
+  "H1": {
+   "kept": 12540067,
+   "gain_over_file_variance": 22.778867857518836,
+   "noise_power_per_unit_weight": 1.025430455477383
+  },
+  "L1": {
+   "kept": 12987439,
+   "gain_over_file_variance": 132.36883536762983,
+   "noise_power_per_unit_weight": 1.0379569439654075
+  },
+  "both_gain_over_file_variance": 35.61830363015114
+ },
+ "median 61 s, power cut 20, margin 2 s": {
+  "H1": {
+   "kept": 12528574,
+   "gain_over_file_variance": 22.836626289233518,
+   "noise_power_per_unit_weight": 1.022117690440797
+  },
+  "L1": {
+   "kept": 12976898,
+   "gain_over_file_variance": 132.6420402317318,
+   "noise_power_per_unit_weight": 1.0352188274779146
+  },
+  "both_gain_over_file_variance": 35.70117305604679
+ },
+ "median 61 s, power cut 50, margin 0 s": {
+  "H1": {
+   "kept": 12543345,
+   "gain_over_file_variance": 22.650332661454417,
+   "noise_power_per_unit_weight": 1.0314536054984842
+  },
+  "L1": {
+   "kept": 12990827,
+   "gain_over_file_variance": 131.73022155868506,
+   "noise_power_per_unit_weight": 1.0431734820821212
+  },
+  "both_gain_over_file_variance": 35.43018147625625
+ },
+ "median 61 s, power cut 50, margin 2 s": {
+  "H1": {
+   "kept": 12535142,
+   "gain_over_file_variance": 22.767358180595995,
+   "noise_power_per_unit_weight": 1.025652951546879
+  },
+  "L1": {
+   "kept": 12985527,
+   "gain_over_file_variance": 132.1738829145497,
+   "noise_power_per_unit_weight": 1.039342666006714
+  },
+  "both_gain_over_file_variance": 35.58505238727758
+ },
+ "median 61 s, power cut inf, margin 0 s": {
+  "H1": {
+   "kept": 12548915,
+   "gain_over_file_variance": 19.441723427782442,
+   "noise_power_per_unit_weight": 1.2020560356032142
+  },
+  "L1": {
+   "kept": 12994339,
+   "gain_over_file_variance": 118.78669915683709,
+   "noise_power_per_unit_weight": 1.157072266862484
+  },
+  "both_gain_over_file_variance": 31.070910157762736
+ },
+ "median 61 s, power cut inf, margin 2 s": {
+  "H1": {
+   "kept": 12548915,
+   "gain_over_file_variance": 19.441723427782442,
+   "noise_power_per_unit_weight": 1.2020560356032142
+  },
+  "L1": {
+   "kept": 12994339,
+   "gain_over_file_variance": 118.78669915683709,
+   "noise_power_per_unit_weight": 1.157072266862484
+  },
+  "both_gain_over_file_variance": 31.070910157762736
+ },
+ "median 121 s, power cut 9, margin 0 s": {
+  "H1": {
+   "kept": 12530394,
+   "gain_over_file_variance": 22.722896263639743,
+   "noise_power_per_unit_weight": 1.0101991022585661
+  },
+  "L1": {
+   "kept": 12962304,
+   "gain_over_file_variance": 131.75082768726475,
+   "noise_power_per_unit_weight": 1.0215064977176218
+  },
+  "both_gain_over_file_variance": 35.49668833526668
+ },
+ "median 121 s, power cut 9, margin 2 s": {
+  "H1": {
+   "kept": 12499912,
+   "gain_over_file_variance": 22.77107443484104,
+   "noise_power_per_unit_weight": 1.0058238786293374
+  },
+  "L1": {
+   "kept": 12893333,
+   "gain_over_file_variance": 132.23914820780715,
+   "noise_power_per_unit_weight": 1.013970918472708
+  },
+  "both_gain_over_file_variance": 35.59695063720421
+ },
+ "median 121 s, power cut 12, margin 0 s": {
+  "H1": {
+   "kept": 12535842,
+   "gain_over_file_variance": 22.649761347240112,
+   "noise_power_per_unit_weight": 1.0138692483845118
+  },
+  "L1": {
+   "kept": 12976957,
+   "gain_over_file_variance": 130.94601040627492,
+   "noise_power_per_unit_weight": 1.028581303693468
+  },
+  "both_gain_over_file_variance": 35.33709901313814
+ },
+ "median 121 s, power cut 12, margin 2 s": {
+  "H1": {
+   "kept": 12519126,
+   "gain_over_file_variance": 22.69610075556884,
+   "noise_power_per_unit_weight": 1.010633929984826
+  },
+  "L1": {
+   "kept": 12944429,
+   "gain_over_file_variance": 131.3588264815045,
+   "noise_power_per_unit_weight": 1.023641364286609
+  },
+  "both_gain_over_file_variance": 35.426757935068395
+ },
+ "median 121 s, power cut 20, margin 0 s": {
+  "H1": {
+   "kept": 12539246,
+   "gain_over_file_variance": 22.583584878900318,
+   "noise_power_per_unit_weight": 1.01706995064061
+  },
+  "L1": {
+   "kept": 12985778,
+   "gain_over_file_variance": 130.2662053929104,
+   "noise_power_per_unit_weight": 1.0343823311407037
+  },
+  "both_gain_over_file_variance": 35.198360302680356
+ },
+ "median 121 s, power cut 20, margin 2 s": {
+  "H1": {
+   "kept": 12527218,
+   "gain_over_file_variance": 22.656794569226573,
+   "noise_power_per_unit_weight": 1.0129298188525877
+  },
+  "L1": {
+   "kept": 12972644,
+   "gain_over_file_variance": 130.65720015792814,
+   "noise_power_per_unit_weight": 1.0305028117354353
+  },
+  "both_gain_over_file_variance": 35.30870214595866
+ },
+ "median 121 s, power cut 50, margin 0 s": {
+  "H1": {
+   "kept": 12542884,
+   "gain_over_file_variance": 22.418835255611384,
+   "noise_power_per_unit_weight": 1.0248015381249045
+  },
+  "L1": {
+   "kept": 12990263,
+   "gain_over_file_variance": 129.40301949359102,
+   "noise_power_per_unit_weight": 1.0415356327536471
+  },
+  "both_gain_over_file_variance": 34.95198559747748
+ },
+ "median 121 s, power cut 50, margin 2 s": {
+  "H1": {
+   "kept": 12534445,
+   "gain_over_file_variance": 22.572947127130654,
+   "noise_power_per_unit_weight": 1.017205843122884
+  },
+  "L1": {
+   "kept": 12984371,
+   "gain_over_file_variance": 129.99392921180558,
+   "noise_power_per_unit_weight": 1.036388500698881
+  },
+  "both_gain_over_file_variance": 35.1565139333357
+ },
+ "median 121 s, power cut inf, margin 0 s": {
+  "H1": {
+   "kept": 12548915,
+   "gain_over_file_variance": 16.768481021766757,
+   "noise_power_per_unit_weight": 1.3706832257274282
+  },
+  "L1": {
+   "kept": 12994339,
+   "gain_over_file_variance": 99.49227566240742,
+   "noise_power_per_unit_weight": 1.355027914328366
+  },
+  "both_gain_over_file_variance": 26.460423105779324
+ },
+ "median 121 s, power cut inf, margin 2 s": {
+  "H1": {
+   "kept": 12548915,
+   "gain_over_file_variance": 16.768481021766757,
+   "noise_power_per_unit_weight": 1.3706832257274282
+  },
+  "L1": {
+   "kept": 12994339,
+   "gain_over_file_variance": 99.49227566240742,
+   "noise_power_per_unit_weight": 1.355027914328366
+  },
+  "both_gain_over_file_variance": 26.460423105779324
+ },
+ "median 301 s, power cut 9, margin 0 s": {
+  "H1": {
+   "kept": 12526640,
+   "gain_over_file_variance": 22.53090118221113,
+   "noise_power_per_unit_weight": 1.0065945156288172
+  },
+  "L1": {
+   "kept": 12938647,
+   "gain_over_file_variance": 129.14299651852085,
+   "noise_power_per_unit_weight": 1.0230548007047913
+  },
+  "both_gain_over_file_variance": 35.02044477995852
+ },
+ "median 301 s, power cut 9, margin 2 s": {
+  "H1": {
+   "kept": 12489825,
+   "gain_over_file_variance": 22.588607771476696,
+   "noise_power_per_unit_weight": 1.001617941530881
+  },
+  "L1": {
+   "kept": 12833772,
+   "gain_over_file_variance": 129.97744329009527,
+   "noise_power_per_unit_weight": 1.0109554015648279
+  },
+  "both_gain_over_file_variance": 35.17068390412584
+ },
+ "median 301 s, power cut 12, margin 0 s": {
+  "H1": {
+   "kept": 12533571,
+   "gain_over_file_variance": 22.452801380037222,
+   "noise_power_per_unit_weight": 1.0105308716119206
+  },
+  "L1": {
+   "kept": 12961304,
+   "gain_over_file_variance": 127.9658433649896,
+   "noise_power_per_unit_weight": 1.0336563973381017
+  },
+  "both_gain_over_file_variance": 34.81145072187464
+ },
+ "median 301 s, power cut 12, margin 2 s": {
+  "H1": {
+   "kept": 12512731,
+   "gain_over_file_variance": 22.512930079110966,
+   "noise_power_per_unit_weight": 1.006435166073886
+  },
+  "L1": {
+   "kept": 12903468,
+   "gain_over_file_variance": 128.78182830984838,
+   "noise_power_per_unit_weight": 1.0240979859178598
+  },
+  "both_gain_over_file_variance": 34.961924767942335
+ },
+ "median 301 s, power cut 20, margin 0 s": {
+  "H1": {
+   "kept": 12538345,
+   "gain_over_file_variance": 22.36608368236864,
+   "noise_power_per_unit_weight": 1.0147502298224929
+  },
+  "L1": {
+   "kept": 12978962,
+   "gain_over_file_variance": 126.62624534629656,
+   "noise_power_per_unit_weight": 1.0454740787843513
+  },
+  "both_gain_over_file_variance": 34.5747491542878
+ },
+ "median 301 s, power cut 20, margin 2 s": {
+  "H1": {
+   "kept": 12525030,
+   "gain_over_file_variance": 22.45441713268295,
+   "noise_power_per_unit_weight": 1.0097785469067422
+  },
+  "L1": {
+   "kept": 12953560,
+   "gain_over_file_variance": 127.40817840924709,
+   "noise_power_per_unit_weight": 1.037647373463969
+  },
+  "both_gain_over_file_variance": 34.74558432081748
+ },
+ "median 301 s, power cut 50, margin 0 s": {
+  "H1": {
+   "kept": 12542520,
+   "gain_over_file_variance": 22.17599660409914,
+   "noise_power_per_unit_weight": 1.023753154320966
+  },
+  "L1": {
+   "kept": 12988799,
+   "gain_over_file_variance": 125.00747630302679,
+   "noise_power_per_unit_weight": 1.059533288287371
+  },
+  "both_gain_over_file_variance": 34.21489656713583
+ },
+ "median 301 s, power cut 50, margin 2 s": {
+  "H1": {
+   "kept": 12533759,
+   "gain_over_file_variance": 22.352631235511275,
+   "noise_power_per_unit_weight": 1.0149884246737158
+  },
+  "L1": {
+   "kept": 12980498,
+   "gain_over_file_variance": 125.81253559767799,
+   "noise_power_per_unit_weight": 1.052192701816525
+  },
+  "both_gain_over_file_variance": 34.4641098178278
+ },
+ "median 301 s, power cut inf, margin 0 s": {
+  "H1": {
+   "kept": 12548915,
+   "gain_over_file_variance": 14.835983803592635,
+   "noise_power_per_unit_weight": 1.5309902976383238
+  },
+  "L1": {
+   "kept": 12994339,
+   "gain_over_file_variance": 84.035330141434,
+   "noise_power_per_unit_weight": 1.5766991783134692
+  },
+  "both_gain_over_file_variance": 22.939233515988256
+ },
+ "median 301 s, power cut inf, margin 2 s": {
+  "H1": {
+   "kept": 12548915,
+   "gain_over_file_variance": 14.835983803592635,
+   "noise_power_per_unit_weight": 1.5309902976383238
+  },
+  "L1": {
+   "kept": 12994339,
+   "gain_over_file_variance": 84.035330141434,
+   "noise_power_per_unit_weight": 1.5766991783134692
+  },
+  "both_gain_over_file_variance": 22.939233515988256
+ },
+ "median 601 s, power cut 9, margin 0 s": {
+  "H1": {
+   "kept": 12514772,
+   "gain_over_file_variance": 22.353622673545612,
+   "noise_power_per_unit_weight": 1.0075640526790688
+  },
+  "L1": {
+   "kept": 12898506,
+   "gain_over_file_variance": 126.52691168274893,
+   "noise_power_per_unit_weight": 1.0288565004639043
+  },
+  "both_gain_over_file_variance": 34.55596291480657
+ },
+ "median 601 s, power cut 9, margin 2 s": {
+  "H1": {
+   "kept": 12460092,
+   "gain_over_file_variance": 22.438062597979652,
+   "noise_power_per_unit_weight": 1.0006463834749215
+  },
+  "L1": {
+   "kept": 12742785,
+   "gain_over_file_variance": 127.79752022689526,
+   "noise_power_per_unit_weight": 1.010706175168057
+  },
+  "both_gain_over_file_variance": 34.78224513380511
+ },
+ "median 601 s, power cut 12, margin 0 s": {
+  "H1": {
+   "kept": 12526046,
+   "gain_over_file_variance": 22.244015150597843,
+   "noise_power_per_unit_weight": 1.0131422611626053
+  },
+  "L1": {
+   "kept": 12932877,
+   "gain_over_file_variance": 124.85080576437868,
+   "noise_power_per_unit_weight": 1.0444305769295534
+  },
+  "both_gain_over_file_variance": 34.25873319366433
+ },
+ "median 601 s, power cut 12, margin 2 s": {
+  "H1": {
+   "kept": 12492356,
+   "gain_over_file_variance": 22.336196818350086,
+   "noise_power_per_unit_weight": 1.0070534497314698
+  },
+  "L1": {
+   "kept": 12837543,
+   "gain_over_file_variance": 126.1729681275308,
+   "noise_power_per_unit_weight": 1.0287611010664803
+  },
+  "both_gain_over_file_variance": 34.49896572899938
+ },
+ "median 601 s, power cut 20, margin 0 s": {
+  "H1": {
+   "kept": 12535403,
+   "gain_over_file_variance": 22.109437250378633,
+   "noise_power_per_unit_weight": 1.0197873886531126
+  },
+  "L1": {
+   "kept": 12964328,
+   "gain_over_file_variance": 122.65839712167653,
+   "noise_power_per_unit_weight": 1.0646283117453583
+  },
+  "both_gain_over_file_variance": 33.87540898629379
+ },
+ "median 601 s, power cut 20, margin 2 s": {
+  "H1": {
+   "kept": 12516375,
+   "gain_over_file_variance": 22.223498558423433,
+   "noise_power_per_unit_weight": 1.0133504327975091
+  },
+  "L1": {
+   "kept": 12917467,
+   "gain_over_file_variance": 124.00633461116237,
+   "noise_power_per_unit_weight": 1.0507081161852594
+  },
+  "both_gain_over_file_variance": 34.13846658512454
+ },
+ "median 601 s, power cut 50, margin 0 s": {
+  "H1": {
+   "kept": 12542147,
+   "gain_over_file_variance": 21.868289278783006,
+   "noise_power_per_unit_weight": 1.0314371740759134
+  },
+  "L1": {
+   "kept": 12985275,
+   "gain_over_file_variance": 119.72573433040529,
+   "noise_power_per_unit_weight": 1.0917358148550935
+  },
+  "both_gain_over_file_variance": 33.30788152518696
+ },
+ "median 601 s, power cut 50, margin 2 s": {
+  "H1": {
+   "kept": 12532700,
+   "gain_over_file_variance": 22.056108738320013,
+   "noise_power_per_unit_weight": 1.0219302168046915
+  },
+  "L1": {
+   "kept": 12970595,
+   "gain_over_file_variance": 121.00101574421716,
+   "noise_power_per_unit_weight": 1.079356502594454
+  },
+  "both_gain_over_file_variance": 33.62484452520649
+ },
+ "median 601 s, power cut inf, margin 0 s": {
+  "H1": {
+   "kept": 12548915,
+   "gain_over_file_variance": 14.15825127094449,
+   "noise_power_per_unit_weight": 1.5939435971021214
+  },
+  "L1": {
+   "kept": 12994339,
+   "gain_over_file_variance": 76.84870810056928,
+   "noise_power_per_unit_weight": 1.7017684292730837
+  },
+  "both_gain_over_file_variance": 21.481107727050745
+ },
+ "median 601 s, power cut inf, margin 2 s": {
+  "H1": {
+   "kept": 12548915,
+   "gain_over_file_variance": 14.15825127094449,
+   "noise_power_per_unit_weight": 1.5939435971021214
+  },
+  "L1": {
+   "kept": 12994339,
+   "gain_over_file_variance": 76.84870810056928,
+   "noise_power_per_unit_weight": 1.7017684292730837
+  },
+  "both_gain_over_file_variance": 21.481107727050745
+ },
+ "median 1201 s, power cut 9, margin 0 s": {
+  "H1": {
+   "kept": 12495553,
+   "gain_over_file_variance": 22.08745147835336,
+   "noise_power_per_unit_weight": 1.0129484632416283
+  },
+  "L1": {
+   "kept": 12826304,
+   "gain_over_file_variance": 122.74831823444995,
+   "noise_power_per_unit_weight": 1.0423156779109288
+  },
+  "both_gain_over_file_variance": 33.875163702898305
+ },
+ "median 1201 s, power cut 9, margin 2 s": {
+  "H1": {
+   "kept": 12417431,
+   "gain_over_file_variance": 22.226774009239527,
+   "noise_power_per_unit_weight": 1.0020160985363542
+  },
+  "L1": {
+   "kept": 12597858,
+   "gain_over_file_variance": 124.75515761963233,
+   "noise_power_per_unit_weight": 1.0134687086728513
+  },
+  "both_gain_over_file_variance": 34.23900848472149
+ },
+ "median 1201 s, power cut 12, margin 0 s": {
+  "H1": {
+   "kept": 12512665,
+   "gain_over_file_variance": 21.91744332961121,
+   "noise_power_per_unit_weight": 1.0217829956892082
+  },
+  "L1": {
+   "kept": 12877540,
+   "gain_over_file_variance": 120.27955883718941,
+   "noise_power_per_unit_weight": 1.0664973739371244
+  },
+  "both_gain_over_file_variance": 33.42754886786625
+ },
+ "median 1201 s, power cut 12, margin 2 s": {
+  "H1": {
+   "kept": 12462310,
+   "gain_over_file_variance": 22.075258834658463,
+   "noise_power_per_unit_weight": 1.0114992745845497
+  },
+  "L1": {
+   "kept": 12727542,
+   "gain_over_file_variance": 122.46568000614272,
+   "noise_power_per_unit_weight": 1.0396043218260678
+  },
+  "both_gain_over_file_variance": 33.8318390464518
+ },
+ "median 1201 s, power cut 20, margin 0 s": {
+  "H1": {
+   "kept": 12528397,
+   "gain_over_file_variance": 21.67585994196466,
+   "noise_power_per_unit_weight": 1.0340643333984014
+  },
+  "L1": {
+   "kept": 12929431,
+   "gain_over_file_variance": 116.6915623030914,
+   "noise_power_per_unit_weight": 1.102061540468103
+  },
+  "both_gain_over_file_variance": 32.77627668400244
+ },
+ "median 1201 s, power cut 20, margin 2 s": {
+  "H1": {
+   "kept": 12499469,
+   "gain_over_file_variance": 21.866026075177164,
+   "noise_power_per_unit_weight": 1.023227179548476
+  },
+  "L1": {
+   "kept": 12849906,
+   "gain_over_file_variance": 119.0465531229038,
+   "noise_power_per_unit_weight": 1.0760024395282104
+  },
+  "both_gain_over_file_variance": 33.23210661714636
+ },
+ "median 1201 s, power cut 50, margin 0 s": {
+  "H1": {
+   "kept": 12540598,
+   "gain_over_file_variance": 21.259129769991375,
+   "noise_power_per_unit_weight": 1.0550912784378665
+  },
+  "L1": {
+   "kept": 12970490,
+   "gain_over_file_variance": 111.13221899180346,
+   "noise_power_per_unit_weight": 1.1594613084759766
+  },
+  "both_gain_over_file_variance": 31.720289124123447
+ },
+ "median 1201 s, power cut 50, margin 2 s": {
+  "H1": {
+   "kept": 12528101,
+   "gain_over_file_variance": 21.500983891666458,
+   "noise_power_per_unit_weight": 1.0423020532203442
+  },
+  "L1": {
+   "kept": 12938324,
+   "gain_over_file_variance": 113.73133804876885,
+   "noise_power_per_unit_weight": 1.1311236315337903
+  },
+  "both_gain_over_file_variance": 32.2547015978349
+ },
+ "median 1201 s, power cut inf, margin 0 s": {
+  "H1": {
+   "kept": 12548915,
+   "gain_over_file_variance": 13.762675139073373,
+   "noise_power_per_unit_weight": 1.6307851092730383
+  },
+  "L1": {
+   "kept": 12994339,
+   "gain_over_file_variance": 68.24381390227164,
+   "noise_power_per_unit_weight": 1.890420731660422
+  },
+  "both_gain_over_file_variance": 20.03870502985997
+ },
+ "median 1201 s, power cut inf, margin 2 s": {
+  "H1": {
+   "kept": 12548915,
+   "gain_over_file_variance": 13.762675139073373,
+   "noise_power_per_unit_weight": 1.6307851092730383
+  },
+  "L1": {
+   "kept": 12994339,
+   "gain_over_file_variance": 68.24381390227164,
+   "noise_power_per_unit_weight": 1.890420731660422
+  },
+  "both_gain_over_file_variance": 20.03870502985997
+ }
+}

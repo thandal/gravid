@@ -1,0 +1,148 @@
+{
+ "meerkat": {
+  "post": {
+   "n_toas": 1152,
+   "n_epochs": 36,
+   "weighted_mid_mjd": 59924.71630373184,
+   "tempo2_chi2r": 27.3673,
+   "fit_nuisance": [
+    "DM",
+    "DM1",
+    "F0",
+    "F1"
+   ],
+   "epoch_chi2r": 674.7334452969184,
+   "epoch_rms_us": 0.17385943418754454,
+   "median_epoch_nominal_err_ns": 7.296863886733465,
+   "dA1_ns": 125.77515354820552,
+   "dA1_sigma_ns": 45.64846404844846,
+   "dA1_sigma_ppta_ns": 32.17355014459896,
+   "dl_rad": -1.9559611690730122e-08,
+   "dl_sigma_ext_rad": 1.367557993303561e-08,
+   "dl_sigma_ppta_rad": 2.6216190855619988e-09,
+   "dl_z": -1.4046807334615172,
+   "dl_roemer_ns": -65.85163123684754,
+   "dl_sigma_roemer_ns": 46.0417753143379,
+   "gw_phase_amp_rad": -0.00014372955827177765
+  },
+  "o4a": {
+   "n_toas": 224,
+   "n_epochs": 7,
+   "weighted_mid_mjd": 60118.132379546296,
+   "tempo2_chi2r": 22.9285,
+   "fit_nuisance": [
+    "DM",
+    "F0"
+   ],
+   "epoch_chi2r": 488.36963398584,
+   "epoch_rms_us": 0.0963474721381688,
+   "median_epoch_nominal_err_ns": 7.104001633828525,
+   "dA1_ns": 213.81012149458303,
+   "dA1_sigma_ns": 105.51789845221735,
+   "dA1_sigma_ppta_ns": 32.17355014459896,
+   "dl_rad": -2.18432042862926e-08,
+   "dl_sigma_ext_rad": 2.3022675752628468e-08,
+   "dl_sigma_ppta_rad": 2.960016152632022e-09,
+   "dl_z": -0.9410233940219511,
+   "dl_roemer_ns": -73.53983588405148,
+   "dl_sigma_roemer_ns": 77.51077974958555,
+   "gw_phase_amp_rad": -0.00016051004247681175
+  },
+  "all": {
+   "n_toas": 3517,
+   "n_epochs": 110,
+   "weighted_mid_mjd": 59367.70891433423,
+   "tempo2_chi2r": 48.9882,
+   "fit_nuisance": [
+    "DM",
+    "DM1",
+    "DM2",
+    "F0",
+    "F1"
+   ],
+   "epoch_chi2r": 1432.859174760749,
+   "epoch_rms_us": 0.2676644042966914,
+   "median_epoch_nominal_err_ns": 7.357099459375206,
+   "dA1_ns": 36.39192070046493,
+   "dA1_sigma_ns": 38.44604101747585,
+   "dA1_sigma_ppta_ns": 32.17355014459896,
+   "dl_rad": -1.1677037735966613e-08,
+   "dl_sigma_ext_rad": 1.1082250908417369e-08,
+   "dl_sigma_ppta_rad": 1.7905644423253565e-09,
+   "dl_z": -1.0401807203225388,
+   "dl_roemer_ns": -39.31325401986664,
+   "dl_sigma_roemer_ns": 37.31077649364509,
+   "gw_phase_amp_rad": -8.580617561588774e-05
+  }
+ },
+ "inpta": {
+  "post": {
+   "n_toas": 8902,
+   "n_epochs": 107,
+   "weighted_mid_mjd": 60067.4742722587,
+   "tempo2_chi2r": 1.21147,
+   "fit_nuisance": [
+    "F0",
+    "F1"
+   ],
+   "epoch_chi2r": 66.61800561433891,
+   "epoch_rms_us": 2.730402117555721,
+   "median_epoch_nominal_err_ns": 416.2228052557016,
+   "dA1_ns": 264.77044521968423,
+   "dA1_sigma_ns": 449.44047122840504,
+   "dA1_sigma_ppta_ns": 32.17355014459896,
+   "dl_rad": -2.0797897604508582e-07,
+   "dl_sigma_ext_rad": 1.185364092154866e-07,
+   "dl_sigma_ppta_rad": 2.869029998211004e-09,
+   "dl_z": -1.754044050335658,
+   "dl_roemer_ns": -700.2058656424638,
+   "dl_sigma_roemer_ns": 399.0782655208685,
+   "gw_phase_amp_rad": -0.0015282883336044885
+  },
+  "o4a": {
+   "n_toas": 2706,
+   "n_epochs": 30,
+   "weighted_mid_mjd": 60200.39709055722,
+   "tempo2_chi2r": 1.67399,
+   "fit_nuisance": [
+    "F0"
+   ],
+   "epoch_chi2r": 114.68318495077922,
+   "epoch_rms_us": 2.8559885529622133,
+   "median_epoch_nominal_err_ns": 422.3840551531097,
+   "dA1_ns": -389.4176473225781,
+   "dA1_sigma_ns": 1092.5308847222636,
+   "dA1_sigma_ppta_ns": 32.17355014459896,
+   "dl_rad": -2.025795717125403e-07,
+   "dl_sigma_ext_rad": 3.0088420638456586e-07,
+   "dl_sigma_ppta_rad": 3.1112833290027996e-09,
+   "dl_z": -0.6732448491655914,
+   "dl_roemer_ns": -682.0276119722267,
+   "dl_sigma_roemer_ns": 1012.9912657324512,
+   "gw_phase_amp_rad": -0.0014886119835870039
+  },
+  "all": {
+   "n_toas": 13283,
+   "n_epochs": 180,
+   "weighted_mid_mjd": 59714.3067147961,
+   "tempo2_chi2r": 1.27835,
+   "fit_nuisance": [
+    "F0",
+    "F1"
+   ],
+   "epoch_chi2r": 60.146485014231494,
+   "epoch_rms_us": 2.8961335752092934,
+   "median_epoch_nominal_err_ns": 440.30861201199957,
+   "dA1_ns": 717.1040873148413,
+   "dA1_sigma_ns": 340.61861129267163,
+   "dA1_sigma_ppta_ns": 32.17355014459896,
+   "dl_rad": -1.8289467738000017e-07,
+   "dl_sigma_ext_rad": 9.516560069238522e-08,
+   "dl_sigma_ppta_rad": 2.2818351174513066e-09,
+   "dl_z": -1.9213047957424119,
+   "dl_roemer_ns": -615.7541898297469,
+   "dl_sigma_roemer_ns": 320.3954220726202,
+   "gw_phase_amp_rad": -0.00134396181303257
+  }
+ }
+}

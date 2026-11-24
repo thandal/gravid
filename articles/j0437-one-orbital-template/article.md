@@ -32,13 +32,25 @@ orbital period. The modern timing fit includes periastron advance and
 gives a 16-ms period uncertainty ([Dhurandhar & Vecchio 2001, Tables I and III](#ref-dhurandhar2001),
 [Reardon et al. 2024a](#ref-reardon2024a)).
 
-J0437−4715 was searched in O3 with a hidden Markov model and in O4a with
-the radio timing parameters held fixed. The subsequent LIGO–Virgo–KAGRA
-(LVK) O4ab narrowband search excluded it because of orbital uncertainty.
+The search of LIGO's third and fourth science runs (S3/S4) excluded J0437.
+Varying the timing parameters within their individual errors gave a phase
+drift above the $30^\circ$ cutoff. The authors cautioned that correlations
+could make this estimate too large. The S5 search used timing covariances
+and reported an upper limit for J0437. For binaries without a measured
+correlation matrix, it assumed perfect correlation between the time and
+longitude of periastron ([Abbott et al. 2007, §IV](#ref-abbott2007),
+[Abbott et al. 2010, §§2.2–3 and Table 1](#ref-abbott2010)).
+
+In O3, Vargas & Melatos searched J0437 over 60–500 Hz with a hidden
+Markov model. They held the period and projected semimajor axis fixed.
+A 55-s uncertainty in the time of passage through the ascending node led
+them to search 6 to 49 trial times across the band
+([Vargas & Melatos 2023, Tables I–II](#ref-vargas2023)). The
+LIGO–Virgo–KAGRA (LVK) O4a targeted search held the radio timing
+parameters fixed. The subsequent O4ab narrowband search excluded J0437 because of
+orbital uncertainty ([LVK 2025](#ref-lvk2025), [LVK 2026a](#ref-lvk2026a)).
 We test whether one orbit suffices at twice the rotation frequency
-(347.376 Hz) over 246.1 days, allowing up to 20% loss of coherent power
-([Vargas & Melatos 2023](#ref-vargas2023), [LVK 2025](#ref-lvk2025),
-[LVK 2026a](#ref-lvk2026a)).
+(347.376 Hz) over 246.1 days, allowing up to 20% loss of coherent power.
 
 We refit 11,637 Parkes Pulsar Timing Array (PPTA) pulse arrival times with
 TEMPO2, adopting the released observatory clocks and noise hyperparameters
@@ -83,8 +95,9 @@ $$
 \delta\omega_0\simeq\frac{2\pi}{P_b}\,\delta T_0.
 $$
 
-In the published solution the one-standard-deviation errors on $P_b$ and
-$T_0$ round to 16 ms and 17 s, respectively. Using the published precision,
+The second relation keeps the time of passage through the ascending node
+nearly fixed. In the published solution the one-standard-deviation errors
+on $P_b$ and $T_0$ round to 16 ms and 17 s, respectively. Using the published precision,
 each relation reproduces the published error on its partner to within 0.002%.
 Hobbs et al. measured a correlation of 0.99999998 between $T_0$ and
 $\omega_0$ in earlier J0437 data. Pitkin et al. assigned a correlation
@@ -105,8 +118,11 @@ dispersion, frequency-dependent and instrumental corrections, some of
 which were measured during O4a
 ([Miles et al. 2025](#ref-miles2025), [Rana et al. 2025](#ref-rana2025)).
 
-An arrival-time residual $r$ corresponds to a gravitational-wave phase
-error $2\pi f_{\rm GW}r$. We average the complex phases over frequency
+An earlier study used the Crab pulsar's radio ephemeris to simulate
+continuous waves and measure the loss of coherent power due to timing noise
+([Ashton et al. 2015](#ref-ashton2015)). For J0437 we convert each measured
+arrival-time residual $r$ to a gravitational-wave phase error
+$2\pi f_{\rm GW}r$. We average the complex phases over frequency
 channels within each observation file group, weighting by inverse timing
 variance. We then give the $N$ groups equal weight. The fraction of coherent
 power retained at the radio observing times is
@@ -419,6 +435,18 @@ Japan; National Research Foundation (NRF) and Ministry of Science and ICT
 Council (NSTC) in Taiwan.
 
 ## References
+
+<a id="ref-abbott2007"></a>
+
+Abbott, B., et al. (2007). [Upper limits on gravitational wave emission from 78 radio pulsars](https://doi.org/10.1103/PhysRevD.76.042001). *Physical Review D*, **76**, 042001.
+
+<a id="ref-abbott2010"></a>
+
+Abbott, B. P., et al. (2010). [Searches for gravitational waves from known pulsars with science run 5 LIGO data](https://doi.org/10.1088/0004-637X/713/1/671). *The Astrophysical Journal*, **713**, 671–685.
+
+<a id="ref-ashton2015"></a>
+
+Ashton, G., Jones, D. I., and Prix, R. (2015). [Effect of timing noise on targeted and narrow-band coherent searches for continuous gravitational waves from pulsars](https://doi.org/10.1103/PhysRevD.91.062009). *Physical Review D*, **91**, 062009.
 
 <a id="ref-bailes2016"></a>
 

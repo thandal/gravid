@@ -22,5 +22,6 @@ for site in ['meerkat','inpta']:
      cross=scores[k:].T@scores[:-k];meat+=(1-k/(lag+1))*(cross+cross.T)
     c=inv@meat@inv*len(t)/(len(t)-X.shape[1]);hac[str(lag)]=float(np.sqrt(max(0,c[-1,-1]))*1e9)
    rows[mode]={'longitude_delay_ns':beta[-1]*1e9,'scaled_sigma_ns':np.sqrt(cov[-1,-1])*1e9,'HC3_sigma_ns':np.sqrt(hc[-1,-1])*1e9,'HAC_sigma_ns_by_epoch_lag':hac,'leave_one_out_range_ns':[min(loo),max(loo)],'dof':len(t)-X.shape[1]}
+   rows[mode]['sine_HC3_sigma_ns'] = float(np.sqrt(hc[-2, -2]) * 1e9)
   out[site+'_'+sub]=rows
 print(json.dumps(out,indent=2));args.output.write_text(json.dumps(out,indent=2)+'\n')

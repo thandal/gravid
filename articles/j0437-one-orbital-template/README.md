@@ -1,4 +1,4 @@
-# One orbital template for a coherent continuous-wave search of PSR J0437−4715
+# Radio timing supports one orbital template for PSR J0437−4715 in LIGO O4a
 
 `article.md` is the text, `article.pdf` the typeset copy and
 `references.bib` its references. All paths below are from the repository root.
@@ -8,9 +8,11 @@
 | In the article | Computed by | Saved in |
 |---|---|---|
 | Sample counts, dropped fractions, noise weights | `gravid/noise_weights.py` | `results/j0437_search/result.json`, key `noise_weights` |
+| Synthetic-strain check of the ELL1-to-T2 phase correction | `scripts/search/check_rephasing.py` | Prints the fractional root-mean-square difference for each detector using six minutes of synthetic strain and the two archived timing models |
+| Effect of discarding block ends and changing noise weights | `scripts/search/noise_weights/compare_weight_choices.py` | `scripts/search/noise_weights/results/weight_choices.json`; the calculation and baseline are described in the noise-weights README |
 | Table 2, column 2𝒢 | `scripts/j0437_upper_limit.py` | `results/j0437_search/result.json` |
 | Table 2, column 2ℱ | `scripts/j0437_f_statistic.py` | `results/j0437_search/f_statistic.json` |
-| Table 2 as printed, and the power captured by each filter | `scripts/search/noise_weights/summarize.py` | `scripts/search/noise_weights/results/summary.json` |
+| Table 2 as printed, and the power captured by each filter, the loudest-control probability and recovery above the target | `scripts/search/noise_weights/summarize.py` | `scripts/search/noise_weights/results/summary.json` |
 | Scan of 7.2 million frequency bins | `combine_scan.py` in the same folder | `scripts/search/noise_weights/results/frequency_scan.json` |
 | Figure 1 | `plot_results.py` in the same folder | `figures/j0437_search_results.png` here |
 
@@ -83,8 +85,8 @@ Scripts and saved files are under `scripts/timing/` unless a full path is given.
 | Eccentricity, signal frequency, the two error relations (within 0.002%), the 0.30-ms tolerance | `later_radio_observations/summarize.py` | `later_radio_observations/results/summary.json`, keys `eccentricity`, `frequency_Hz`, `degeneracy_ratios`, `sinusoidal_tolerances` |
 | Table 1, the numbers of observations, the residual scatter | same script | same file, key `predictions` |
 | A separate dispersion correction each day preserves coherence | `supporting_checks/audit_external_prediction.py` | `supporting_checks/external_prediction_audit.json` |
-| Orbital offset from 36 later MeerKAT observations, −66 ± 46 ns | `orbital_offset_fit/epoch_orbit_fit.py` | `orbital_offset_fit/epoch_orbit_fit.json`, key `meerkat/post` |
-| Its robust standard error, 55 ns, and the InPTA result | `orbital_offset_fit/review_epoch_fit.py` | `orbital_offset_fit/orbital_fit_review.json` |
+| Sine and cosine coefficients from 36 later MeerKAT observations, +126 ± 46 and −66 ± 46 ns | `orbital_offset_fit/epoch_orbit_fit.py` | `orbital_offset_fit/epoch_orbit_fit.json`, key `meerkat/post` |
+| Robust standard errors of the sine and cosine coefficients, 61 and 55 ns, and the InPTA longitude result | `orbital_offset_fit/review_epoch_fit.py` | `orbital_offset_fit/orbital_fit_review.json` |
 | Pulsar Portal O4b check: 543 arrival times, 17 observations, loss 0.0014% | `portal_arrival_times/validate.py`, `summarize.py` | `portal_arrival_times/results.json`, key `J0437-4715/adopted/O4b` |
 | Largest loss 3.73e-8 over 256 draws and 1,024 corners; agreement of PINT, TEMPO2 and LALSuite delays | `validate_j0437_uncertainty.py` | `binary_model/uncertainty_crosscheck.json`, key `summary` |
 | Independent QR solve | `export_qr_covariance.C` | `qr_solve/independent_qr_check.json` |

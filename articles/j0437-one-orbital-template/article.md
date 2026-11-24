@@ -1,34 +1,36 @@
-# One orbital template for a coherent continuous-wave search of PSR J0437−4715
+# Radio timing supports one orbital template for PSR J0437−4715 in LIGO O4a
 
 Nathaniel Fairfield
 
 ## Abstract
 
-We searched LIGO O4a data spanning 246.1 days for continuous gravitational
-waves from PSR J0437−4715 at twice its rotation frequency, using one
-orbital template. Radio timing tightly constrains the pulsar's longitude
-in its nearly circular orbit even though the orbital period and epoch of
-periastron are individually uncertain. Increasing the published period by
-one standard deviation (16 ms) costs 78% of the coherent power at the
-later MeerKAT observing times and 71% at those of the Indian Pulsar
-Timing Array. When we also increase the rate of periastron advance by
-the amount predicted for that period shift, the loss falls below 0.008%
-in both datasets. Across the orbits tested from the joint timing
-covariance, the largest fractional power loss at the sampled detector
-times was $3.73\times10^{-8}$, well below our 20% tolerance. The strain
-search found no significant excess. Using the same orbit, a filter that
-assumed one linear polarization recovered 95% of injected signals at
-$h_0=3.46\times10^{-26}$. Fitting both polarizations gave 95% recovery at
-$h_0=1.60\times10^{-26}$.
+Earlier work predicted that one orbital template would suffice for
+PSR J0437−4715. We test that prediction at twice the pulsar's rotation
+frequency using a modern radio timing solution and 246.1 days of LIGO O4a
+data. Increasing the published orbital period by one standard
+deviation (16 ms) costs 78% of the coherent power at the later MeerKAT
+observing times and 71% at those of the Indian Pulsar Timing Array.
+Increasing the rate of periastron advance along with the period preserves
+the pulsar's orbital longitude and brings the loss below 0.008% in both
+datasets. Across the orbits tested from the joint timing covariance, the
+largest fractional power loss at the sampled detector times was
+$3.73\times10^{-8}$, well below our 20% tolerance. The strain search
+used the best-fit orbit throughout and found no significant excess. The strain amplitude for 95% recovery
+of simulated signals above the loudest control was $3.46\times10^{-26}$
+for a filter with one assumed linear polarization and $1.60\times10^{-26}$
+when fitting both polarizations.
 
 ## 1. How accurately must we know the orbit?
 
 A pulsar's motion around its companion changes the light-travel time to
 Earth. A coherent search corrects for that delay before adding the signal
 over many orbits. Each trial set of orbital parameters defines one template.
-How many are needed depends on how much signal power a plausible error in
-the delay would cost ([Dhurandhar & Vecchio 2001](#ref-dhurandhar2001),
-[Pitkin et al. 2017](#ref-pitkin2017)).
+Using a Keplerian orbit and 1995 catalogue parameters, Dhurandhar &
+Vecchio predicted that J0437 would need just one filter for a year at a
+3% maximum mismatch. Their catalogue gave a 1.04-ms uncertainty on the
+orbital period. The modern timing fit includes periastron advance and
+gives a 16-ms period uncertainty ([Dhurandhar & Vecchio 2001, Tables I and III](#ref-dhurandhar2001),
+[Reardon et al. 2024a](#ref-reardon2024a)).
 
 J0437−4715 was searched in O3 with a hidden Markov model and in O4a with
 the radio timing parameters held fixed. The subsequent LIGO–Virgo–KAGRA
@@ -84,9 +86,14 @@ $$
 In the published solution the one-standard-deviation errors on $P_b$ and
 $T_0$ round to 16 ms and 17 s, respectively. Using the published precision,
 each relation reproduces the published error on its partner to within 0.002%.
-Our joint fit measures a correlation of 0.99999936 between $P_b$ and
-$\dot\omega$. For the power calculation we retain the finite eccentricity
-and all ten binary parameters, including the longitude of the ascending node.
+Hobbs et al. measured a correlation of 0.99999998 between $T_0$ and
+$\omega_0$ in earlier J0437 data. Pitkin et al. assigned a correlation
+of 0.9999 to each of these two pairs in a simulation. Our fit to J0437
+gives 0.99999936 for $P_b$ and $\dot\omega$
+([Hobbs et al. 2006, Table 9](#ref-hobbs2006),
+[Pitkin et al. 2017, §4.1.1](#ref-pitkin2017)). For the power calculation
+we retain the finite eccentricity and all ten binary parameters, including
+the longitude of the ascending node.
 
 ### A test with later radio observations
 
@@ -94,8 +101,8 @@ The PPTA observations end more than a year before the strain data begin.
 We use the published PPTA parameters and our DE440 refit to predict later
 arrival times from MeerKAT and the Indian Pulsar Timing Array (InPTA).
 We keep spin, astrometry and orbit fixed. We retain each release's
-dispersion, frequency-dependent and instrumental corrections, some of which were measured during
-O4a
+dispersion, frequency-dependent and instrumental corrections, some of
+which were measured during O4a
 ([Miles et al. 2025](#ref-miles2025), [Rana et al. 2025](#ref-rana2025)).
 
 An arrival-time residual $r$ corresponds to a gravitational-wave phase
@@ -134,18 +141,21 @@ the published PPTA parameters and use their quoted marginal errors.*
 
 Moving either the period or epoch alone costs most of the power. In both
 datasets the predicted change in the second parameter restores coherence
-to the precision shown. This check uses only the published marginal errors
-and the longitude relations above.
+to the precision shown. We chose the four shifts from the published
+marginal errors and the longitude relations above, independently of our
+refitted covariance.
 
 Allowing a separate dispersion correction each day also preserves coherence.
 In a separate fit to the 36 post-PPTA MeerKAT observations, we allow for
-smooth spin and dispersion terms and measure sine and cosine residuals at
-the orbital period. The longitude offset corresponds to a delay of
-$-66\pm46$ ns (robust standard error 55 ns). InPTA gives a weaker result
-whose sign depends on the weights. MeerKAT ends early in O4a, so its
-precision applies only to those epochs. For scale, a sinusoidal delay error
-would need a 0.30-ms amplitude to lose 20% of the power under uniform
-orbital coverage ([MacKinnon & White 1985](#ref-mackinnon1985)).
+smooth spin and dispersion terms. The sine coefficient at the orbital
+period, which measures an offset in projected semimajor axis, is
+$+126\pm46$ ns. The cosine coefficient, which measures a longitude offset
+in light-travel time, is $-66\pm46$ ns. Their robust standard errors are
+61 and 55 ns, respectively ([MacKinnon & White 1985](#ref-mackinnon1985)).
+InPTA gives a less precise longitude offset whose sign depends on the
+weights. MeerKAT ends early in O4a, so its precision applies only to
+those epochs. Under uniform orbital coverage a sinusoidal delay error
+would need an amplitude of 0.30 ms to lose 20% of the power.
 
 The Pulsar Portal supplies a later check using 543 arrival times from 17
 MeerKAT Thousand Pulsar Array observations in O4b. With updated clocks and
@@ -177,12 +187,16 @@ conditional on the timing and noise model.
 
 ### Comparison with the narrowband selection rule
 
-The O4ab narrowband search reports maximum coherent spans ranging from 1 to
-90 days for the four excluded binaries, including J0437. Its selection rule
-estimates the largest residual Doppler frequency by adding signed
-contributions from individual orbital parameter errors. It omits secular
-derivatives such as $\dot\omega$ and does not use the fitted correlations
-([LVK 2026a, §4.1](#ref-lvk2026a), [Mirasola et al. 2024, eqs. 24–25](#ref-mirasola2024)).
+The O4ab narrowband search excluded four binaries, including J0437, and
+reported a range of 1 to 90 days for their maximum coherent spans. It
+gave no separate value for J0437 ([LVK 2026a, §4.1](#ref-lvk2026a)).
+The selection rule adds the signed changes in Doppler frequency produced
+by the quoted orbital errors. For a nearly circular orbit the epoch and
+longitude terms enter with opposite signs. They nearly cancel for the
+published J0437 errors, since $\sigma_{\omega_0}\simeq 2\pi\sigma_{T_0}/P_b$.
+The rule omits secular derivatives, so it misses the cancellation between
+period and periastron advance in this system
+([Mirasola et al. 2024, eqs. 23–25 and Appendix A](#ref-mirasola2024)).
 
 </div>
 
@@ -210,29 +224,48 @@ before the official start of O4a. Our 102 files span 15 May 2023 to
 CWInPy 1.5.0 reduces the strain to 26.37 million one-second complex
 samples using DE440 barycentering and a 0.25-Hz low-pass filter. We apply
 the full phase difference between the ELL1 model used for the original
-heterodyne and the T2 model used for the search. CWInPy filters in 3,600-s blocks.
-Power near the end of a block can reach thousands of times the usual noise
-power. We discard the last 60 s (3.1% of samples) and segments with fewer
-than 300 samples left (0.06%). Within each remaining segment we estimate
+heterodyne and the T2 model used for the search. We checked this step
+using six minutes of synthetic 4096-Hz strain for each detector. Rephasing
+the reduced strain and using T2 directly gave complex time series whose
+fractional root-mean-square difference over the central three minutes was below $2\times10^{-8}$.
+
+CWInPy filters in 3,600-s blocks. A transient near the end of a block
+can reach thousands of times the usual noise power. We discard the last
+60 s of each block (3.1% of samples) and segments with fewer than 300
+samples left (0.06%). Within each remaining segment we estimate
 the noise variance $\sigma^2(t)$ from a 301-s running median of sample power
 divided by $\ln 2$. We remove samples above 20 times this variance and the
 2 s on either side (0.25%). This leaves 25.48 million samples across both
-detectors
-([Pitkin 2022](#ref-pitkin2022)).
+detectors ([Pitkin 2022](#ref-pitkin2022)).
+
+We used the measured sample powers to estimate the signal-to-noise ratio
+for a constant-amplitude signal. Trimming the block ends and recomputing
+one variance per file improved this estimate by a factor of 3.75 relative
+to the untrimmed files. The full weighting procedure gave a factor of 5.89.
 
 ### Detection statistics
 
-Both statistics use the same orbit. For the primary filter we assume the
-pulsar's spin axis is perpendicular to the line of sight ($\cos\iota=0$)
-and set the wave polarization angle $\psi=0$. This gives a single
-linearly polarized detector response $m_1$ for unit strain amplitude. We
-fit its overall amplitude and initial phase with the matched-filter statistic
+Both statistics use the same orbit. To measure the cost of assuming
+one polarization, we use a reference filter with $\cos\iota=0$ and
+$\psi=0$. These angles give a single linearly polarized detector response
+$m_1$ for unit strain amplitude. The timing fit gives an orbital inclination
+of $137.51^\circ$ and a position angle of $208.04^\circ$ for the ascending
+node. These angles could be used to choose a polarization model if spin
+and orbit are aligned. A radio and $\gamma$-ray emission model gives a viewing
+angle of $136\pm5^\circ$ ([Pétri et al. 2026](#ref-petri2026)).
+
+<div style="break-inside: avoid">
+
+We fit the reference response's amplitude and initial phase with the
+matched-filter statistic
 
 $$
 2\mathcal G=\frac{2|\langle m_1,d\rangle_w|^2}{\langle m_1,m_1\rangle_w},
 \qquad
 \langle a,b\rangle_w=\sum_t w(t)\,a(t)^*b(t).
 $$
+
+</div>
 
 Here $d$ is the complex strain and the sum includes both detectors.
 The weight is $w(t)=B\Delta t/\sigma^2(t)$, with $\Delta t=1$ s and
@@ -264,17 +297,19 @@ $2\mathcal G$ averages 2.04, close to the expected value of 2, and 1.08%
 of bins exceed the Gaussian 99th percentile.
 
 Neither statistic shows a significant excess at J0437 (Table 2). To measure
-sensitivity we add 200 simulated
-signals to the observed data, drawing orbits from the fitted covariance,
-spin axes isotropically, and polarization angles and initial phases
-uniformly. We search each signal at the same best-fit orbit. For each
-statistic we count a recovery when the signal plus data exceeds the
-loudest control.
+sensitivity we inject 200 simulated signals into the reduced data, after
+filtering and noise estimation. We use the same waveform code for injection
+and recovery. We draw orbits from the fitted covariance, inclinations
+from an isotropic distribution, and polarization angles and initial phases
+uniformly. We search each signal at the best-fit orbit and count a recovery when the statistic exceeds its
+loudest control. We did not perform an end-to-end recovery of a hardware
+injection.
 
 <div style="break-inside: avoid">
 
 *Table 2. Search results at 347.376 Hz. The Gaussian tail probability refers
-to the target frequency alone.*
+to the target alone. Each strain amplitude gives 95% recovery of injections
+above the loudest of the 40 controls for that filter.*
 
 | Quantity | $2\mathcal G$ | $2\mathcal F$ |
 |---|---:|---:|
@@ -289,19 +324,26 @@ to the target frequency alone.*
 </div>
 
 The statistic is quadratic in injected amplitude. We solve for each signal’s
-threshold crossing and report the 95th percentile of those amplitudes. The intervals come from 20,000 bootstrap resamplings
-of the injections, using recovery curves on a 49-point amplitude grid.
+threshold crossing and report the 95th percentile of those amplitudes. The
+intervals come from 20,000 bootstrap resamplings of the injections, using
+recovery curves on a 49-point amplitude grid.
 They describe sampling uncertainty for this population at fixed data,
 calibration and thresholds.
 
-The primary filter captures a median 48% of the signal power recovered by
+The reference filter captures a median 48% of the signal power recovered by
 the $\mathcal F$-statistic, falling to 16% at the fifth percentile. Using
 the best-fit orbit for every injection costs the $\mathcal F$-statistic at
-most $3.7\times10^{-9}$ of the injected power. The two amplitudes in Table 2
-measure sensitivity to this simulated population. The published O4a
-analysis sets 95% upper limits on J0437 of $(7.2,9.0,5.8)\times10^{-27}$
-with the Bayesian, $\mathcal F$-statistic and 5n-vector methods,
-respectively ([LVK 2025](#ref-lvk2025)).
+most $3.7\times10^{-9}$ of the injected power.
+
+The amplitudes in Table 2 measure sensitivity at the loudest-control
+threshold. The loudest $2\mathcal G$ control was 15.58. Under independent Gaussian
+noise, the probability that at least one of 40 controls reaches that value
+is 1.6%. For $2\mathcal F$, using the observed target statistic as the
+recovery threshold lowers the 95%-recovery amplitude from
+$1.60\times10^{-26}$ to $1.20\times10^{-26}$. For comparison, the
+LVK search of the same O4a data set 95% upper limits on J0437 of
+$(7.2,9.0,5.8)\times10^{-27}$ with the Bayesian, $\mathcal F$-statistic
+and 5n-vector methods, respectively ([LVK 2025](#ref-lvk2025)).
 
 <div style="break-inside: avoid">
 
@@ -317,12 +359,14 @@ give the fraction of 200 injections above each statistic's loudest control
 
 ## 4. Conclusion
 
-A 16-ms shift in J0437's orbital period costs most of the coherent power
-when applied alone. The same shift has little effect when periastron
-advance varies with it as the timing fit predicts. Accounting for the
-joint orbital errors brings the predicted loss well within the 20%
-tolerance for a single template over 246.1 days. In the strain search,
-assuming a particular polarization has a much larger effect on recovery.
+At the later MeerKAT and InPTA observing times, a 16-ms increase in
+J0437's orbital period costs most of the coherent power when applied
+alone. The predicted change in periastron advance restores coherence in
+both datasets. Propagating the joint timing errors to the detector times
+supports using one orbital template for the 246.1-day O4a search. The
+same test of coherent power could be used to reassess J0437 for a
+narrowband search through O4b, over a range of frequencies and spin-down
+rates.
 
 ## Data and reproducibility
 
@@ -337,7 +381,7 @@ and `supporting_checks/`, respectively.
 The recorded search outputs are in `results/j0437_search/`.
 The inputs, weights and injected sources are documented with the run.
 Under `scripts/search/noise_weights/`, `summarize.py`
-reproduces Table 2 from the saved filter outputs. For the primary filter,
+reproduces Table 2 from the saved filter outputs. For the reference filter,
 the original `result.json` gives $3.59\times10^{-26}$ by interpolating on
 a 16-point amplitude grid. Table 2 uses the individual threshold crossings.
 The reduced strain is in a [public folder](https://drive.google.com/drive/folders/1GZsjyQHLniwpRwuOSjeJ_90WFVWtmRWF);
@@ -451,6 +495,10 @@ Miles, M. T.; Shannon, R. M.; Reardon, D. J.; et al. (2025). [The MeerKAT Pulsar
 <a id="ref-park2021"></a>
 
 Park, R. S.; Folkner, W. M.; Williams, J. G.; et al. (2021). [The JPL Planetary and Lunar Ephemerides DE440 and DE441](https://doi.org/10.3847/1538-3881/abd414). *The Astronomical Journal*, **161**, 105.
+
+<a id="ref-petri2026"></a>
+
+Pétri, J.; Stammler, P.; Guillemot, L.; et al. (2026). [Multi-wavelength emission modelling of PSR J0437−4715](https://doi.org/10.1051/0004-6361/202558077). *Astronomy & Astrophysics*, **708**, A328.
 
 <a id="ref-pitkin2017"></a>
 

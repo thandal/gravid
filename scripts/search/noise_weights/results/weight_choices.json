@@ -648,5 +648,11 @@
    "noise_power_per_unit_weight": 1.890420731660422
   },
   "both_gain_over_file_variance": 20.03870502985997
+ },
+ "trim block ends only, original file variance": {
+  "both_gain_over_file_variance": 11.564819140971801
+ },
+ "trim block ends only, trimmed file variance": {
+  "both_gain_over_file_variance": 14.060196310844619
  }
 }

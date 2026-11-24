@@ -12,11 +12,12 @@ import numpy as np
 from scipy.ndimage import median_filter
 
 from _common import HERE, LN2, files, load_chunk, segments
+from gravid.noise_weights import stride_end_mask
 
-STRIDE_END = 60
 table, totals = {}, {}
 for det in ("H1", "L1"):
     acc, base = {}, [0.0, 0.0]
+    trimmed = {"original file variance": np.zeros(2), "trimmed file variance": np.zeros(2)}
     for path in files(det):
         _, times, data, _ = load_chunk(path)
         power = np.abs(data) ** 2
@@ -24,11 +25,13 @@ for det in ("H1", "L1"):
         base[0] += power.size / v
         base[1] += float((power / v ** 2).sum())
         lo, hi = segments(times)
-        keep = np.ones(power.size, bool)
-        for a, b in zip(lo, hi):
-            keep[max(a, b - STRIDE_END):b] = False
-            if b - a > 3540:
-                keep[a + 3540 - STRIDE_END:a + 3540] = False
+        keep = stride_end_mask(times)
+        kept_power = power[keep]
+        if kept_power.size:
+            for name, variance in (("original file variance", v),
+                                   ("trimmed file variance", np.var(data[keep]))):
+                weight = 1 / variance
+                trimmed[name] += (kept_power.size * weight, kept_power.sum() * weight**2)
         for window in (61, 121, 301, 601, 1201):
             variance = np.full(power.size, np.nan)
             for a, b in zip(lo, hi):
@@ -48,7 +51,7 @@ for det in ("H1", "L1"):
                     e = acc.setdefault((window, cut, margin), [0.0, 0.0, 0])
                     e[0] += float(w.sum()); e[1] += float((w * w * power).sum())
                     e[2] += int(use.sum())
-    totals[det] = (base, acc)
+    totals[det] = (base, acc, trimmed)
     reference = base[0] ** 2 / base[1]
     for (window, cut, margin), e in sorted(acc.items()):
         table.setdefault(f"median {window} s, power cut {cut}, margin {margin} s", {})[det] = dict(
@@ -63,4 +66,8 @@ for key in sorted(totals["H1"][1]):
     table[name]["both_gain_over_file_variance"] = w * w / n / reference
     print(f"{name:44s} gain in signal-to-noise power {w*w/n/reference:6.2f}  "
           f"(amplitude {np.sqrt(w*w/n/reference):.2f})")
+for name in totals["H1"][2]:
+    sum_weights, noise = totals["H1"][2][name] + totals["L1"][2][name]
+    gain = sum_weights**2 / noise / reference
+    table[f"trim block ends only, {name}"] = {"both_gain_over_file_variance": float(gain)}
 (HERE / "results/weight_choices.json").write_text(json.dumps(table, indent=1) + "\n")

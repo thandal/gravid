@@ -39,19 +39,28 @@ with `scripts/j0437_upper_limit.py --noise-weights running-median`:
   equivalent noise bandwidth), so the statistic follows a chi-squared
   distribution in Gaussian noise.
 
-25,478,590 of 26,366,991 samples are kept. The sensitivity is insensitive to
-the choices. Relative to one plain variance per five-day file with no samples
-dropped, running medians of 61–1201 s and power cuts of 9–50 all give 5.6–6.0
-times the amplitude sensitivity (5.9 as adopted; 4.5–5.6 with no power cut;
-`results/weight_choices.json`).
+25,478,590 of 26,366,991 samples are kept. For a constant-amplitude signal,
+the estimated signal-to-noise ratio is the sum of the weights divided by
+the square root of the sum of squared weights times sample power. We
+combine both detectors before taking the ratio. The baseline weights are
+the inverse variances of the untrimmed five-day files.
 
-`scripts/j0437_f_statistic.py` computes the F-statistic (Jaranowski, Królak &
-Schutz 1998) on the same data, weights, controls and injections. The
-primary search uses a fixed-orientation filter (cos ι = 0, polarisation
-angle 0), which captures a median 48% of an injected signal's power and 16% at
-the fifth percentile of the injected population. The F-statistic fits both
-polarisation responses and captures all of it. It still uses one orbit: with
-injected orbits drawn from the timing covariance, the largest power loss is
+| Weights and cuts | Gain in estimated signal-to-noise ratio over baseline |
+|---|---:|
+| Drop the last 60 s of each filter block, keep the original file weights | 3.40 |
+| Apply the same cut and recompute each file variance | 3.75 |
+| Apply all cuts and use the 301-s running median | 5.89 |
+
+These values use the measured noise in the reduced strain. Table 2 in the
+article measures recovery by injecting signals with a range of amplitudes
+and orientations. Across median windows of 61–1201 s and power cuts of
+9–50, the gain on the constant-amplitude diagnostic ranges from 5.6 to 6.0.
+
+The two search statistics use the same orbit. The reference filter assumes
+one linear polarization (cos ι = 0, ψ = 0). It captures a median 48% of
+the signal power recovered by the F-statistic, which fits both polarization
+responses. At the fifth percentile the reference filter captures 16%.
+Across the injected orbits the largest power loss for the F-statistic is
 3.7e-9.
 
 ## Results
@@ -60,7 +69,7 @@ injected orbits drawn from the timing covariance, the largest power loss is
 from the saved sums. Spin-down limit 7.92e-27; published LVK O4a limits
 7.2e-27 (Bayesian), 9.0e-27 (F-statistic), 5.8e-27 (5n-vector).
 
-| | Fixed orientation | F-statistic |
+| | Reference filter (2𝒢) | F-statistic (2ℱ) |
 |---|---:|---:|
 | Target statistic | 2.52 | 9.85 |
 | Probability in Gaussian noise | 0.28 | 0.043 |
@@ -73,8 +82,8 @@ from the saved sums. Spin-down limit 7.92e-27; published LVK O4a limits
 | same, expected over noise realisations | 2.64e-26 | 1.42e-26 |
 | 95% recovery above the observed target | 1.42e-26 | 1.20e-26 |
 
-`scripts/j0437_upper_limit.py` itself reports 3.59e-26 for the fixed
-orientation because it interpolates on a 16-point amplitude grid.
+`scripts/j0437_upper_limit.py` itself reports 3.59e-26 for the reference
+filter because it interpolates on a 16-point amplitude grid.
 
 ## Checks
 
@@ -82,8 +91,9 @@ orientation because it interpolates on a 16-point amplitude grid.
   the 7.2 million bins of the control band the fixed-orientation statistic
   averages 2.04 (Hanford alone 2.01, Livingston alone 2.07); 1.08% exceed the
   1% point; the largest is 32.4 against about 31.6 expected. Means over
-  0.01-Hz bands stay within 2.01–2.05. There is no line or band feature, so
-  the two loud controls among the 40 are ordinary fluctuations.
+  0.01-Hz bands stay within 2.01–2.05. The scan shows no corresponding line or band feature. Under independent
+  Gaussian noise the chance that at least one of 40 controls reaches the
+  observed maximum of 15.58 is 1.64%.
 - The two search scripts give identical fixed-orientation target, controls
   and injection sums; `summarize.py` asserts this.
 - Expected recovery over noise realisations agrees with the realised one.

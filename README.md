@@ -7,7 +7,7 @@ binary pulsars, published article by article.
 
 | Article | Folder |
 |---|---|
-| One orbital template for a coherent continuous-wave search of PSR J0437−4715 | [`articles/j0437-one-orbital-template/`](articles/j0437-one-orbital-template/) |
+| Radio timing supports one orbital template for PSR J0437−4715 in LIGO O4a | [`articles/j0437-one-orbital-template/`](articles/j0437-one-orbital-template/) |
 
 Each article folder holds the text, the PDF, the figures and a README that
 maps every number in the article to the script that computes it and the

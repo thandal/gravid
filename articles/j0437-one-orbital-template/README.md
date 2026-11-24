@@ -29,35 +29,48 @@ Rerunning the searches needs the reduced strain; see Data below.
 
 ### What the two saved search outputs are
 
-`result.json` and `f_statistic.json` in `results/j0437_search/` are
-byte-for-byte what the two searches wrote on 20 November 2026. They were
-written before this code was published, under the project's working name
-"gravfold" and into a folder named `results/j0437_search_rerun_20261120/`;
-both names appear inside the files. The code in this repository is the code
-that ran, with names changed and comments edited. The searches have not been
-rerun from this repository.
+`result.json` and `f_statistic.json` in `results/j0437_search/` were written
+on 23 November 2026 by the two search scripts in this repository, with the
+commands in `scripts/search/noise_weights/README.md`. `result.json` names the
+commit it was run from (`run_capsule`, `git_commit`); `f_statistic.json` was
+made from the same commit straight afterwards. They replace the outputs of a
+run on 20 November 2026, made before the code was published, from which the
+article's numbers were first computed. The two runs agree to at least twelve
+significant figures in every statistic, saved sum and recovery amplitude.
 
-`result.json` carries a record of the run under `run_capsule`. What can be
-checked from here:
+`result.json` carries a record of the run under `run_capsule`. It can be
+checked from the repository root:
 
 ```python
 import hashlib, json
 from pathlib import Path
-from gravid.run_capsule import capsule_digest, chunk_manifest_digest
+from gravid.run_capsule import (capsule_digest, chunk_manifest_digest,
+                                source_bundle_sha256)
 
-sha = lambda path: hashlib.sha256(Path(path).read_bytes()).hexdigest()
+sha = lambda data: hashlib.sha256(data).hexdigest()
+file_sha = lambda path: sha(Path(path).read_bytes())
 result = json.loads(Path("results/j0437_search/result.json").read_text())
 record = result["run_capsule"]
+# the record itself, and its list of the 102 reduced strain files
 assert capsule_digest(record) == record["capsule_sha256"]
 assert chunk_manifest_digest(record["input_hashes"]) == record["chunk_manifest_sha256"]
-assert sha("gravid/resources/j0437_de440_search.par") == result["search_par_sha256"]
-assert sha("gravid/resources/j0437_de440_binary_covariance.json") == result["covariance_sha256"]
+# the timing model and its covariance
+assert file_sha("gravid/resources/j0437_de440_search.par") == result["search_par_sha256"]
+assert file_sha("gravid/resources/j0437_de440_binary_covariance.json") == result["covariance_sha256"]
+# the code: every .py and .C file under gravid/ and scripts/, and pyproject.toml
+assert source_bundle_sha256(".")[0] == record["source_bundle_sha256"]
+assert record["dirty_patch_sha256"] == sha(b"")    # nothing was uncommitted
+# the installed packages
+packages = Path("results/j0437_search/result.json.environment.txt").read_text()
+assert sha(packages.rstrip("\n").encode()) == record["builder_environment_lock_sha256"]
 ```
 
 `record["input_hashes"]` holds the SHA-256 of each of the 102 reduced strain
-files. The record's digests of the source tree, the commit and the
-uncommitted changes refer to the unpublished working repository and cannot
-be checked from here.
+files. The check of the code holds at the commit the record names and at any
+later commit that leaves those code files unchanged. `phase_plan_sha256` is
+the digest of a plan file the run writes beside its output, which is not
+kept; what it holds (the template, the control frequencies and the injected
+sources) is also in `result.json`.
 
 ## Sections 1 and 2: timing
 

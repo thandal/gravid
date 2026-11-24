@@ -43,42 +43,42 @@
  },
  "fixed_orientation": {
   "degrees_of_freedom": 2,
-  "target": 2.521968441617878,
-  "target_probability": 0.2833749856457828,
+  "target": 2.521968441617942,
+  "target_probability": 0.28337498564577374,
   "controls_at_or_above_target": 11,
-  "control_mean": 2.280457566870152,
-  "control_ks_probability": 0.6478559352920894,
-  "loudest_control": 15.577012546241376,
+  "control_mean": 2.280457566870157,
+  "control_ks_probability": 0.6478559352921043,
+  "loudest_control": 15.577012546241248,
   "probability_of_a_louder_maximum": 0.01644556835131028,
   "h0_95": {
-   "above_loudest_control": 3.464864504004917e-26,
+   "above_loudest_control": 3.4648645040049075e-26,
    "above_loudest_control_bootstrap_90pct": [
     2.7294644502385086e-26,
     3.979627784523644e-26
    ],
-   "at_1pct_false_alarm": 2.5535882564653995e-26,
-   "at_1pct_false_alarm_expected_over_noise": 2.639517917462196e-26,
-   "above_observed_target": 1.4236614457852332e-26
+   "at_1pct_false_alarm": 2.5535882564654096e-26,
+   "at_1pct_false_alarm_expected_over_noise": 2.639517917462195e-26,
+   "above_observed_target": 1.4236614457852536e-26
   }
  },
  "f_statistic": {
   "degrees_of_freedom": 4,
-  "target": 9.846621008076621,
-  "target_probability": 0.04309212536658253,
+  "target": 9.846621008076703,
+  "target_probability": 0.043092125366581045,
   "controls_at_or_above_target": 2,
-  "control_mean": 4.066128660003821,
-  "control_ks_probability": 0.7467559406538742,
-  "loudest_control": 16.89493136641083,
+  "control_mean": 4.066128660003827,
+  "control_ks_probability": 0.7467559406540326,
+  "loudest_control": 16.894931366410752,
   "probability_of_a_louder_maximum": 0.07791695486715189,
   "h0_95": {
-   "above_loudest_control": 1.5968381615058135e-26,
+   "above_loudest_control": 1.5968381615057997e-26,
    "above_loudest_control_bootstrap_90pct": [
     1.4918889860867575e-26,
     1.717699230412773e-26
    ],
-   "at_1pct_false_alarm": 1.4042830025021224e-26,
-   "at_1pct_false_alarm_expected_over_noise": 1.4190897390025132e-26,
-   "above_observed_target": 1.2046777132731683e-26
+   "at_1pct_false_alarm": 1.4042830025021195e-26,
+   "at_1pct_false_alarm_expected_over_noise": 1.4190897390025123e-26,
+   "above_observed_target": 1.2046777132731726e-26
   }
  },
  "fixed_orientation_search_as_reported": {
@@ -90,12 +90,12 @@
   "note": "first linear crossing on that search's 16-point amplitude grid"
  },
  "fixed_orientation_share_of_signal_power": {
-  "median": 0.4832110058088571,
-  "fifth_percentile": 0.1564612577239477
+  "median": 0.4832110058088547,
+  "fifth_percentile": 0.15646125772394592
  },
  "power_lost_with_one_orbit": {
-  "maximum": 3.6834910677185917e-09,
-  "median": 3.417194305299631e-10
+  "maximum": 3.6834790773099257e-09,
+  "median": 3.4171893092960204e-10
  },
  "spin_down_limit": 7.921780083898304e-27,
  "published_lvk_o4a": {

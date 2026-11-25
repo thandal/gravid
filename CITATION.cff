@@ -1,14 +1,20 @@
 cff-version: 1.2.0
-message: "If you use this code or these results, please cite the article."
+message: "If you use this code or these results, please cite the article for the analysis you use."
 title: "gravid: orbital-template analysis and coherent continuous-wave search code for binary pulsars"
 authors:
   - family-names: Fairfield
     given-names: Nathaniel
 license: BSD-3-Clause
-preferred-citation:
-  type: article
-  title: "Radio timing supports one orbital template for PSR J0437−4715 in LIGO O4a"
-  authors:
-    - family-names: Fairfield
-      given-names: Nathaniel
-  year: 2026
+references:
+  - type: article
+    title: "Radio timing supports one orbital template for PSR J0437−4715 in LIGO O4a"
+    authors:
+      - family-names: Fairfield
+        given-names: Nathaniel
+    year: 2026
+  - type: article
+    title: "Reassessing binary pulsars for the O4ab narrowband search"
+    authors:
+      - family-names: Fairfield
+        given-names: Nathaniel
+    year: 2026

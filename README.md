@@ -8,8 +8,9 @@ binary pulsars, published article by article.
 | Article | Folder |
 |---|---|
 | Radio timing supports one orbital template for PSR J0437−4715 in LIGO O4a | [`articles/j0437-one-orbital-template/`](articles/j0437-one-orbital-template/) |
+| Reassessing binary pulsars for the O4ab narrowband search | [`articles/o4ab-binary-targets/`](articles/o4ab-binary-targets/) |
 
-Each article folder holds the text, the PDF, the figures and a README that
+Each article folder holds the text, the PDF and a README that
 maps every number in the article to the script that computes it and the
 saved file that holds it.
 

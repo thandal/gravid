@@ -1,0 +1,482 @@
+{
+  "timing_splits": {
+    "J1045-4509": {
+      "frequency_halves_p": 0.6841777476025386,
+      "quarter_orbital_p": [
+        0.07233721359806813,
+        0.7331632508206551,
+        0.09194503675562916,
+        0.058362384265702685
+      ]
+    },
+    "J1737-0811": {
+      "frequency_halves_p": 0.49061801402615524,
+      "quarter_orbital_p": [
+        0.5901695975204,
+        0.15486637557666152,
+        0.8959419511199995,
+        0.7797050911666701
+      ]
+    },
+    "J1231-1411": {
+      "frequency_halves_p": 0.39080347412078953,
+      "quarter_orbital_p": [
+        0.48471905540266413,
+        0.7731881732996826,
+        0.7121025949345602,
+        0.7789210523838825
+      ]
+    }
+  },
+  "table_1": {
+    "J1045-4509": {
+      "orbital_loss_bound": 0.0014010162472182083,
+      "epochs": 17,
+      "TOAs": 544,
+      "radio_models": 1,
+      "min_radio_loss": 6.879454628061499e-05,
+      "max_radio_loss": 6.879454628061499e-05
+    },
+    "J1737-0811": {
+      "orbital_loss_bound": 0.009733107933775768,
+      "epochs": 16,
+      "TOAs": 512,
+      "radio_models": 1,
+      "min_radio_loss": 0.0006326766900240921,
+      "max_radio_loss": 0.0006326766900240921
+    },
+    "J1231-1411": {
+      "orbital_loss_bound": 0.017127512299149678,
+      "epochs": 17,
+      "TOAs": 544,
+      "radio_models": 25,
+      "min_radio_loss": 0.0008643394022563866,
+      "max_radio_loss": 0.0009352174658954215
+    }
+  },
+  "bootstrap": {
+    "J1045-4509": {
+      "replicates": 200,
+      "seed": 2026101701,
+      "generating_model": "fitted full-data EFAC + epoch jitter + 30-mode power-law red noise",
+      "noise_parameters_refitted": true,
+      "coverage_68_dominant_phase_direction": 0.735,
+      "coverage_95_dominant_phase_direction": 0.95,
+      "z_rms": 0.9279703252643899,
+      "joint_binary_95_coverage": 0.945,
+      "joint_binary_q95": 17.530097493893855,
+      "scope": "Conditional parametric coverage; not evidence against an unmodelled process; 200 replicates imply roughly 1.5 percentage-point binomial standard error near 95% coverage."
+    },
+    "J1737-0811": {
+      "replicates": 200,
+      "seed": 2026101701,
+      "generating_model": "fitted full-data EFAC + epoch jitter + 30-mode power-law red noise",
+      "noise_parameters_refitted": true,
+      "coverage_68_dominant_phase_direction": 0.705,
+      "coverage_95_dominant_phase_direction": 0.945,
+      "z_rms": 1.0045985051752302,
+      "joint_binary_95_coverage": 0.905,
+      "joint_binary_q95": 19.178084674321635,
+      "scope": "Conditional parametric coverage; not evidence against an unmodelled process; 200 replicates imply roughly 1.5 percentage-point binomial standard error near 95% coverage."
+    },
+    "J1231-1411": {
+      "replicates": 200,
+      "seed": 2026101701,
+      "generating_model": "fitted full-data EFAC + epoch jitter + 30-mode power-law red noise",
+      "noise_parameters_refitted": true,
+      "coverage_68_dominant_phase_direction": 0.72,
+      "coverage_95_dominant_phase_direction": 0.94,
+      "z_rms": 0.979041401295792,
+      "joint_binary_95_coverage": 0.93,
+      "joint_binary_q95": 17.754508880380254,
+      "scope": "Conditional parametric coverage; not evidence against an unmodelled process; 200 replicates imply roughly 1.5 percentage-point binomial standard error near 95% coverage."
+    }
+  },
+  "noise_grid": {
+    "J1045-4509": {
+      "critical_q": 19.485112041084403,
+      "bootstrap_upper_quantile_order": 196,
+      "bootstrap_replicates": 200,
+      "cases": 247,
+      "worst": {
+        "physical_case": "J1045-4509_ELL1",
+        "theta": [
+          0.09531017980432495,
+          0.0,
+          1.0986122886681096,
+          2.0
+        ],
+        "span_factor": 1,
+        "any_sampled_weight_loss_bound": 0.001400403099712474,
+        "phase_radius_rad": 0.03743069994015701,
+        "critical_q": 19.485112041084403
+      },
+      "one_template_sufficient_at_loss": {
+        "0.03": true,
+        "0.01": true,
+        "0.005": true,
+        "0.001": false
+      },
+      "scope": "Linearized binary phase ellipsoids, calibrated conditionally on fitted red-noise model; union over recorded noise grid (99%-chi4 REML sensitivity cutoff), two Fourier cutoffs, and all 24 physical J1231 cases. Fixed EFAC at least 1.1 is an explicit stress model. Any weights on 8192 O4ab times; continuum requires separate resolution/native checks, not an exact analytic continuum proof."
+    },
+    "J1737-0811": {
+      "critical_q": 22.132284489579312,
+      "bootstrap_upper_quantile_order": 196,
+      "bootstrap_replicates": 200,
+      "cases": 341,
+      "worst": {
+        "physical_case": "J1737-0811_ELL1",
+        "theta": [
+          0.09531017980432495,
+          -1.203972804325936,
+          1.0986122886681096,
+          0.0
+        ],
+        "span_factor": 1,
+        "any_sampled_weight_loss_bound": 0.009732800561770515,
+        "phase_radius_rad": 0.09881569359784462,
+        "critical_q": 22.132284489579312
+      },
+      "one_template_sufficient_at_loss": {
+        "0.03": true,
+        "0.01": true,
+        "0.005": false,
+        "0.001": false
+      },
+      "scope": "Linearized binary phase ellipsoids, calibrated conditionally on fitted red-noise model; union over recorded noise grid (99%-chi4 REML sensitivity cutoff), two Fourier cutoffs, and all 24 physical J1231 cases. Fixed EFAC at least 1.1 is an explicit stress model. Any weights on 8192 O4ab times; continuum requires separate resolution/native checks, not an exact analytic continuum proof."
+    },
+    "J1231-1411": {
+      "critical_q": 21.695099097923165,
+      "bootstrap_upper_quantile_order": 196,
+      "bootstrap_replicates": 200,
+      "cases": 6875,
+      "worst": {
+        "physical_case": "M1_0.8_S_0.2",
+        "theta": [
+          0.09531017980432495,
+          -0.3465635589726383,
+          2.3025850929940455,
+          2.0
+        ],
+        "span_factor": 2,
+        "any_sampled_weight_loss_bound": 0.01696444641532135,
+        "phase_radius_rad": 0.13061873818253159,
+        "critical_q": 21.695099097923165
+      },
+      "one_template_sufficient_at_loss": {
+        "0.03": true,
+        "0.01": false,
+        "0.005": false,
+        "0.001": false
+      },
+      "scope": "Linearized binary phase ellipsoids, calibrated conditionally on fitted red-noise model; union over recorded noise grid (99%-chi4 REML sensitivity cutoff), two Fourier cutoffs, and all 24 physical J1231 cases. Fixed EFAC at least 1.1 is an explicit stress model. Any weights on 8192 O4ab times; continuum requires separate resolution/native checks, not an exact analytic continuum proof."
+    }
+  },
+  "grid_and_nonlinear_checks": {
+    "J1045-4509": {
+      "8192": {
+        "phase_radius_rad": 0.0374308702741344,
+        "any_sampled_weight_loss_bound": 0.001400415839274406
+      },
+      "32768": {
+        "phase_radius_rad": 0.037436919569250174,
+        "any_sampled_weight_loss_bound": 0.0014008683136527427
+      },
+      "nonlinear": {
+        "boundary_draws": 258,
+        "max_phase_linearization_error_rad": 1.2774589335773877e-06,
+        "largest_exact_uniform_loss": 0.00020518494834920187,
+        "max_exact_phase_radius_rad": 0.03743721801643099
+      }
+    },
+    "J1737-0811": {
+      "8192": {
+        "phase_radius_rad": 0.09881612158359011,
+        "any_sampled_weight_loss_bound": 0.009732884595828821
+      },
+      "32768": {
+        "phase_radius_rad": 0.09881703829440432,
+        "any_sampled_weight_loss_bound": 0.009733064591186448
+      },
+      "nonlinear": {
+        "boundary_draws": 258,
+        "max_phase_linearization_error_rad": 3.966849701636521e-07,
+        "largest_exact_uniform_loss": 0.0019210805521874263,
+        "max_exact_phase_radius_rad": 0.09881685978187983
+      }
+    },
+    "J1231-1411": {
+      "8192": {
+        "phase_radius_rad": 0.1306151317711939,
+        "any_sampled_weight_loss_bound": 0.016963514977527877
+      },
+      "32768": {
+        "phase_radius_rad": 0.1312474938739691,
+        "any_sampled_weight_loss_bound": 0.017127220948507126
+      },
+      "nonlinear": {
+        "boundary_draws": 258,
+        "max_phase_linearization_error_rad": 5.507791821728059e-06,
+        "largest_exact_uniform_loss": 0.0020246518498577837,
+        "max_exact_phase_radius_rad": 0.13124734061030688
+      }
+    }
+  },
+  "extra_parameters": {
+    "J1045-4509": {
+      "free_extra_parameters": [
+        "PX",
+        "F2"
+      ],
+      "central_binary_uniform_loss": 2.228506463808344e-07,
+      "largest_profile_any_sampled_weight_bound": 0.001420028944104555,
+      "scope": "Model sensitivity at the reference physical case; same bootstrap critical radius and reference noise-profile grid, not a new coverage calibration or a cross with every J1231 mass/inclination case."
+    },
+    "J1737-0811": {
+      "free_extra_parameters": [
+        "PX",
+        "F2"
+      ],
+      "central_binary_uniform_loss": 1.2847883634758972e-07,
+      "largest_profile_any_sampled_weight_bound": 0.009717699205105214,
+      "scope": "Model sensitivity at the reference physical case; same bootstrap critical radius and reference noise-profile grid, not a new coverage calibration or a cross with every J1231 mass/inclination case."
+    },
+    "J1231-1411": {
+      "free_extra_parameters": [
+        "PX",
+        "F2"
+      ],
+      "central_binary_uniform_loss": 3.7777993188159442e-06,
+      "largest_profile_any_sampled_weight_bound": 0.0161255810862699,
+      "scope": "Model sensitivity at the reference physical case; same bootstrap critical radius and reference noise-profile grid, not a new coverage calibration or a cross with every J1231 mass/inclination case."
+    }
+  },
+  "radio_prediction_statistics": {
+    "J1045-4509": {
+      "white": {
+        "after_constant_and_spin_chi2": 16.4265963482992,
+        "after_constant_and_spin_dof": 14,
+        "after_constant_and_spin_nominal_p": 0.2880223880122355,
+        "sin_us": -1.1621579414654863,
+        "cos_us": 0.28384468290364034,
+        "sigma_us": [
+          1.3886365053545218,
+          2.1668687083442078
+        ],
+        "orbital_chi2": 0.7585407877971885,
+        "nominal_p": 0.6843605407315924,
+        "global_chi2": 70.98102651964177,
+        "n_epochs": 17
+      },
+      "jitter": {
+        "after_constant_and_spin_chi2": 13.300385877037684,
+        "after_constant_and_spin_dof": 14,
+        "after_constant_and_spin_nominal_p": 0.5030192778385143,
+        "sin_us": -0.9561234314573012,
+        "cos_us": 0.19919334453847137,
+        "sigma_us": [
+          1.5251600404426908,
+          2.4065314611316726
+        ],
+        "orbital_chi2": 0.41856228918334815,
+        "nominal_p": 0.8111671483254606,
+        "global_chi2": 57.72936190674775,
+        "n_epochs": 17
+      },
+      "red": {
+        "after_constant_and_spin_chi2": 10.893204609261176,
+        "after_constant_and_spin_dof": 14,
+        "after_constant_and_spin_nominal_p": 0.6944045596627303,
+        "sin_us": -1.155395221153744,
+        "cos_us": 0.3558143953678343,
+        "sigma_us": [
+          1.5141872791121305,
+          2.457455317380379
+        ],
+        "orbital_chi2": 0.6309567733857846,
+        "nominal_p": 0.7294398364771597,
+        "global_chi2": 49.670834199518886,
+        "n_epochs": 17
+      },
+      "exp": {
+        "after_constant_and_spin_chi2": 13.273665085740049,
+        "after_constant_and_spin_dof": 14,
+        "after_constant_and_spin_nominal_p": 0.5050972136299781,
+        "sin_us": -0.9702376933503548,
+        "cos_us": 0.19562996839568433,
+        "sigma_us": [
+          1.524470589581816,
+          2.409457143007606
+        ],
+        "orbital_chi2": 0.4304325787932275,
+        "nominal_p": 0.806367012679976,
+        "global_chi2": 55.26719761613019,
+        "n_epochs": 17
+      }
+    },
+    "J1737-0811": {
+      "white": {
+        "after_constant_and_spin_chi2": 11.613045332590364,
+        "after_constant_and_spin_dof": 13,
+        "after_constant_and_spin_nominal_p": 0.5596003488876995,
+        "sin_us": -2.8448937935711096,
+        "cos_us": 4.308339999484852,
+        "sigma_us": [
+          1.515343142887499,
+          3.0515624025028214
+        ],
+        "orbital_chi2": 5.3401107076366925,
+        "nominal_p": 0.06924839204034015,
+        "global_chi2": 32.52737380668582,
+        "n_epochs": 16
+      },
+      "jitter": {
+        "after_constant_and_spin_chi2": 9.105114577098291,
+        "after_constant_and_spin_dof": 13,
+        "after_constant_and_spin_nominal_p": 0.7649591509029037,
+        "sin_us": -2.5795686922948393,
+        "cos_us": 4.685446109902272,
+        "sigma_us": [
+          1.677627740692333,
+          3.4015216123427794
+        ],
+        "orbital_chi2": 4.164521121398424,
+        "nominal_p": 0.1246481188354551,
+        "global_chi2": 26.795809488602337,
+        "n_epochs": 16
+      },
+      "red": {
+        "after_constant_and_spin_chi2": 10.649952591944956,
+        "after_constant_and_spin_dof": 13,
+        "after_constant_and_spin_nominal_p": 0.6401159607681444,
+        "sin_us": -2.969317671397761,
+        "cos_us": 4.66275486056001,
+        "sigma_us": [
+          1.6253670218953749,
+          3.276777652200382
+        ],
+        "orbital_chi2": 5.216780732173187,
+        "nominal_p": 0.07365300277074657,
+        "global_chi2": 18.243364605301153,
+        "n_epochs": 16
+      },
+      "exp": {
+        "after_constant_and_spin_chi2": 10.541211670754366,
+        "after_constant_and_spin_dof": 13,
+        "after_constant_and_spin_nominal_p": 0.6491910994726495,
+        "sin_us": -2.949552614277685,
+        "cos_us": 4.668628132574351,
+        "sigma_us": [
+          1.6305562143111594,
+          3.284748136099559
+        ],
+        "orbital_chi2": 5.1460807127543475,
+        "nominal_p": 0.07630320347044761,
+        "global_chi2": 15.885462558034122,
+        "n_epochs": 16
+      }
+    }
+  },
+  "J0437": {
+    "gaussian": {
+      "orbits": 256,
+      "largest_uniform_loss": 7.119352884998875e-09
+    },
+    "corners": {
+      "orbits": 1024,
+      "largest_uniform_loss": 4.481034154846242e-08
+    }
+  },
+  "historical": {
+    "ell1_boxes": {
+      "J1400-1431": {
+        "3": {
+          "delay_seconds": 1.3269373797279833e-05,
+          "loss_bound": 0.0029259726386887223
+        },
+        "8": {
+          "delay_seconds": 3.538499799422383e-05,
+          "loss_bound": 0.020683052749418288
+        }
+      },
+      "J1745-0952": {
+        "3": {
+          "delay_seconds": 0.00023242071244712465,
+          "loss_bound": 0.022594222244468987
+        }
+      }
+    },
+    "J1745_historical": {
+      "labelled_TDB": {
+        "epochs": 8,
+        "sampled_loss": 0.9131771711916328
+      },
+      "numeric_TCB": {
+        "epochs": 8,
+        "sampled_loss": 0.003980832068464446
+      },
+      "converted_TDB": {
+        "epochs": 8,
+        "sampled_loss": 0.003980574448380847
+      },
+      "conversion_difference_ns": 17.25648566058539
+    },
+    "J1400_lofar": {
+      "lofar_fit_fixed_lvk": {
+        "F": 0.5347125622196223,
+        "dof": [
+          9,
+          1282
+        ],
+        "nominal_p": 0.8500017071010069
+      },
+      "lofar_fit_no_secular": {
+        "F": 0.573133881364749,
+        "dof": [
+          4,
+          1282
+        ],
+        "nominal_p": 0.6821760775007827
+      },
+      "period_drift_ms_per_year": {
+        "mean": -0.023999526573488784,
+        "sigma": 1.1897455918902833
+      }
+    },
+    "J1400_lwa_contrasts_us": [
+      298.358738257338,
+      -241.24066201565913
+    ]
+  },
+  "LOFAR_placement": {
+    "templates": 12,
+    "slabs": 8,
+    "slab_template_counts": [
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      1,
+      1
+    ],
+    "linear_exact_power_loss_upper_bound": 0.02996021118644971,
+    "with_reserved_nonlinearity_loss_upper_bound": 0.029994839222896884,
+    "reserved_nonlinear_phase_rad": 0.0001,
+    "uniform_times": 131072,
+    "critical_q": 17.966987022954473,
+    "placement_grid_points": 257,
+    "scope": "Complete nine-parameter older-TOA region, uniform time weights. Analytic convex endpoint certificate bounds phase variance and hence exact coherent loss in the linearized map. Native nonlinear checks separate. Minimum within the tested interval partition family, not a globally minimal waveform bank."
+  },
+  "LOFAR_native_checks": {
+    "templates": 12,
+    "tested_truths": 4151,
+    "times_per_truth": 8192,
+    "max_exact_native_uniform_loss": 0.02957837332904989,
+    "max_exact_native_any_sampled_weight_loss_bound": 0.15064713604821775,
+    "max_centered_native_linearization_error_rad": 1.6477544578161196e-05,
+    "seed": 2026101804,
+    "scope": "Native boundary, interior, axis and selected cell-extremum checks; complete region coverage comes from the separate linear certificate, with sampled support for the nonlinear reserve."
+  }
+}

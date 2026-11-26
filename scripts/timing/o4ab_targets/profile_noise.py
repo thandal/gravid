@@ -10,8 +10,43 @@ from paths import NAMES, OUT
 from scipy.optimize import minimize_scalar
 from scipy.stats import chi2
 
-results = {}
 threshold = chi2.ppf(0.99, 4)
+
+
+def amplitude_profiles(fit, base_objective, jitter, gamma, amplitudes):
+    """Keep accepted grid points and approach each bracketed cutoff from inside."""
+    def profile(amplitude):
+        theta = np.array([0.0, np.log(jitter), np.log(amplitude), gamma])
+        scale = minimize_scalar(
+            lambda x: fit.evaluate(np.r_[x, theta[1:]], "red"),
+            bounds=(np.log(0.6), np.log(1.6)),
+            method="bounded",
+            options={"xatol": 1e-6},
+        )
+        if not scale.success:
+            raise RuntimeError(scale.message)
+        theta[0] = scale.x
+        return theta, scale.fun - base_objective
+
+    grid = [(amp, profile(amp)) for amp in amplitudes]
+    retained = {amp: point for amp, point in grid if point[1] <= threshold}
+    for (a, left), (b, right) in zip(grid, grid[1:]):
+        if (left[1] <= threshold) == (right[1] <= threshold):
+            continue
+        inside, outside = (a, b) if left[1] <= threshold else (b, a)
+        point = retained[inside]
+        while abs(np.log(outside / inside)) > 1e-4:
+            mid = np.sqrt(inside * outside)
+            trial = profile(mid)
+            if trial[1] <= threshold:
+                inside, point = mid, trial
+            else:
+                outside = mid
+        retained[inside] = point
+    return retained.items()
+
+
+results = {}
 for name in NAMES:
     wd, data, M, meta = load(name)
     rows = [
@@ -44,38 +79,22 @@ for name in NAMES:
         base = fit.optimize("red")
         pos = [list(fit.cols).index(i) for i in indices]
         fac = np.array([float(r[4]) / float(r[5]) for r in rows]) / fit.scale[pos]
-        jittervals = sorted(
-            set([1e-4, 0.3, 1.0, 3.0, 10.0, float(np.exp(base["theta"][1]))])
-        )
-        ampvals = sorted(
-            set(
-                [
-                    1e-4,
-                    0.3,
-                    1.0,
-                    3.0,
-                    10.0,
-                    30.0,
-                    100.0,
-                    float(np.exp(base["theta"][2])),
-                ]
-            )
-        )
-        gammas = sorted(set([0.0, 2.0, 4.0, 6.0, 7.0, float(base["theta"][3])]))
-        for jitter in jittervals:
-            for amp in ampvals:
-                for gamma in gammas:
-                    th = np.array([0, np.log(jitter), np.log(amp), gamma])
-                    r = minimize_scalar(
-                        lambda x: fit.evaluate(np.r_[x, th[1:]], "red"),
-                        bounds=(np.log(0.6), np.log(1.6)),
-                        method="bounded",
-                        options={"xatol": 1e-6},
-                    )
-                    th[0] = r.x
-                    if r.fun - base["objective"] > threshold:
-                        continue
-                    obj, b, C, K = fit.evaluate(th, "red", True)
+        jittervals = sorted({
+            1e-4, 0.25, 0.3, *np.arange(0.5, 2.125, 0.125),
+            2.5, 3.0, 5.0, 10.0, float(np.exp(base["theta"][1])),
+        })
+        ampvals = sorted({
+            1e-4, 0.3, 1.0, 3.0, 10.0, 30.0, 100.0, float(np.exp(base["theta"][2])),
+        })
+        gammas = sorted({
+            *np.arange(0.0, 2.25, 0.25), 3.0, 4.0, 5.0, 6.0, 7.0,
+            float(base["theta"][3]),
+        })
+        for gamma in gammas:
+            for jitter in jittervals:
+                profiles = amplitude_profiles(fit, base["objective"], jitter, gamma, ampvals)
+                for amp, (th, delta_reml) in profiles:
+                    _, b, C, _ = fit.evaluate(th, "red", True)
                     Cb = C[np.ix_(pos, pos)] * np.outer(fac, fac)
                     mu = b[pos] * fac
                     W = Li @ Cb @ Li.T
@@ -94,7 +113,7 @@ for name in NAMES:
                             "jitter_us": jitter,
                             "red_rms_us": amp,
                             "gamma": gamma,
-                            "delta_REML": obj - base["objective"],
+                            "delta_REML": delta_reml,
                             "nominal95_linear_loss_bound": float(bound),
                         }
                     )

@@ -68,6 +68,8 @@ def epoch_predictions():
 
 def full_results():
     bank = LOFAR / "bank_efficiency"
+    lofar_fit = read(LOFAR / "lofar_fit/noise_covariance_results.json")
+    lofar_noise = np.exp(lofar_fit["noise_models"]["red"]["theta"][:3])
     fits = read(OUT / "noise_results.json")
     bands = read(OUT / "frequency_checks.json")
     return {
@@ -96,6 +98,11 @@ def full_results():
         ),
         "J0437": read(WORK / "j0437_comparison.json"),
         "historical": read(WORK / "historical/results.json"),
+        "LOFAR_noise": {
+            "TOA_error_scale": float(lofar_noise[0]),
+            "epoch_jitter_us": float(lofar_noise[1]),
+            "correlated_rms_us": float(lofar_noise[2]),
+        },
         "LOFAR_placement": read(bank / "uniform_slabs_bank_results.json"),
         "LOFAR_native_checks": read(bank / "uniform_slabs_native_validation.json"),
     }

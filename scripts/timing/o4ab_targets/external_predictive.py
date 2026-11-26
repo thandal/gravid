@@ -7,17 +7,17 @@ from pathlib import Path
 
 import numpy as np
 from gls import Fit, epoch_projection, load
-from paths import INPUT, TEMPO, TOOLS, WORK
+from paths import INPUT, NAMES, TEMPO, TOOLS, WORK
 from scipy.linalg import cho_factor, cho_solve
 from scipy.stats import chi2
 
 OUT = WORK / "radio"
-BASE = WORK / "fits"
 ENV = dict(os.environ, TEMPO2=str((TEMPO / "share/tempo2")))
 results = {}
-for name in ["J1045-4509", "J1737-0811"]:
+for name in NAMES:
     wd, data, M, meta = load(name)
-    testdir = OUT / "predictions" / name / "PTA/O4b"
+    stream = "RelBin" if name == "J1231-1411" else "PTA"
+    testdir = OUT / "predictions" / name / stream / "O4b"
     par = testdir / "earlier_ELL1.par"
     tim = testdir / "input.tim"
     path = testdir / "full_design.res"

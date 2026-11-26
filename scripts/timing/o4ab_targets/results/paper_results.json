@@ -30,7 +30,7 @@
   },
   "table_1": {
     "J1045-4509": {
-      "orbital_loss_bound": 0.0014010162472182083,
+      "orbital_loss_bound": 0.0019190608863623938,
       "epochs": 17,
       "TOAs": 544,
       "radio_models": 1,
@@ -38,7 +38,7 @@
       "max_radio_loss": 6.879454628061499e-05
     },
     "J1737-0811": {
-      "orbital_loss_bound": 0.009733107933775768,
+      "orbital_loss_bound": 0.009916614803314872,
       "epochs": 16,
       "TOAs": 512,
       "radio_models": 1,
@@ -46,7 +46,7 @@
       "max_radio_loss": 0.0006326766900240921
     },
     "J1231-1411": {
-      "orbital_loss_bound": 0.017127512299149678,
+      "orbital_loss_bound": 0.0192276814785165,
       "epochs": 17,
       "TOAs": 544,
       "radio_models": 25,
@@ -97,18 +97,18 @@
       "critical_q": 19.485112041084403,
       "bootstrap_upper_quantile_order": 196,
       "bootstrap_replicates": 200,
-      "cases": 247,
+      "cases": 2880,
       "worst": {
         "physical_case": "J1045-4509_ELL1",
         "theta": [
           0.09531017980432495,
-          0.0,
-          1.0986122886681096,
-          2.0
+          0.11778303565638346,
+          0.7826539693197128,
+          0.25
         ],
         "span_factor": 1,
-        "any_sampled_weight_loss_bound": 0.001400403099712474,
-        "phase_radius_rad": 0.03743069994015701,
+        "any_sampled_weight_loss_bound": 0.0019190951920268428,
+        "phase_radius_rad": 0.0438215026238367,
         "critical_q": 19.485112041084403
       },
       "one_template_sufficient_at_loss": {
@@ -123,18 +123,18 @@
       "critical_q": 22.132284489579312,
       "bootstrap_upper_quantile_order": 196,
       "bootstrap_replicates": 200,
-      "cases": 341,
+      "cases": 3600,
       "worst": {
         "physical_case": "J1737-0811_ELL1",
         "theta": [
           0.09531017980432495,
-          -1.203972804325936,
-          1.0986122886681096,
+          0.11778303565638346,
+          1.0650452403396602,
           0.0
         ],
         "span_factor": 1,
-        "any_sampled_weight_loss_bound": 0.009732800561770515,
-        "phase_radius_rad": 0.09881569359784462,
+        "any_sampled_weight_loss_bound": 0.00991635472834374,
+        "phase_radius_rad": 0.09974621409138998,
         "critical_q": 22.132284489579312
       },
       "one_template_sufficient_at_loss": {
@@ -149,18 +149,18 @@
       "critical_q": 21.695099097923165,
       "bootstrap_upper_quantile_order": 196,
       "bootstrap_replicates": 200,
-      "cases": 6875,
+      "cases": 80200,
       "worst": {
         "physical_case": "M1_0.8_S_0.2",
         "theta": [
           0.09531017980432495,
-          -0.3465635589726383,
-          2.3025850929940455,
-          2.0
+          0.48550781578170077,
+          1.4497220334843524,
+          1.25
         ],
         "span_factor": 2,
-        "any_sampled_weight_loss_bound": 0.01696444641532135,
-        "phase_radius_rad": 0.13061873818253159,
+        "any_sampled_weight_loss_bound": 0.01922693743580413,
+        "phase_radius_rad": 0.13910946016197717,
         "critical_q": 21.695099097923165
       },
       "one_template_sufficient_at_loss": {
@@ -175,50 +175,50 @@
   "grid_and_nonlinear_checks": {
     "J1045-4509": {
       "8192": {
-        "phase_radius_rad": 0.0374308702741344,
-        "any_sampled_weight_loss_bound": 0.001400415839274406
+        "phase_radius_rad": 0.04382137603566754,
+        "any_sampled_weight_loss_bound": 0.0019190841116732214
       },
       "32768": {
-        "phase_radius_rad": 0.037436919569250174,
-        "any_sampled_weight_loss_bound": 0.0014008683136527427
+        "phase_radius_rad": 0.04382195093413146,
+        "any_sampled_weight_loss_bound": 0.0019191344332065811
       },
       "nonlinear": {
         "boundary_draws": 258,
-        "max_phase_linearization_error_rad": 1.2774589335773877e-06,
-        "largest_exact_uniform_loss": 0.00020518494834920187,
-        "max_exact_phase_radius_rad": 0.03743721801643099
+        "max_phase_linearization_error_rad": 1.50520228417916e-06,
+        "largest_exact_uniform_loss": 0.00027549002518889587,
+        "max_exact_phase_radius_rad": 0.043822033943383853
       }
     },
     "J1737-0811": {
       "8192": {
-        "phase_radius_rad": 0.09881612158359011,
-        "any_sampled_weight_loss_bound": 0.009732884595828821
+        "phase_radius_rad": 0.09974639756685355,
+        "any_sampled_weight_loss_bound": 0.009916391088048974
       },
       "32768": {
-        "phase_radius_rad": 0.09881703829440432,
-        "any_sampled_weight_loss_bound": 0.009733064591186448
+        "phase_radius_rad": 0.09974730608588894,
+        "any_sampled_weight_loss_bound": 0.00991657113208374
       },
       "nonlinear": {
         "boundary_draws": 258,
-        "max_phase_linearization_error_rad": 3.966849701636521e-07,
-        "largest_exact_uniform_loss": 0.0019210805521874263,
-        "max_exact_phase_radius_rad": 0.09881685978187983
+        "max_phase_linearization_error_rad": 2.7848272856137446e-07,
+        "largest_exact_uniform_loss": 0.0019550208403071867,
+        "max_exact_phase_radius_rad": 0.09974731653946392
       }
     },
     "J1231-1411": {
       "8192": {
-        "phase_radius_rad": 0.1306151317711939,
-        "any_sampled_weight_loss_bound": 0.016963514977527877
+        "phase_radius_rad": 0.13910579463418088,
+        "any_sampled_weight_loss_bound": 0.019225930735359206
       },
       "32768": {
-        "phase_radius_rad": 0.1312474938739691,
-        "any_sampled_weight_loss_bound": 0.017127220948507126
+        "phase_radius_rad": 0.13911032027785125,
+        "any_sampled_weight_loss_bound": 0.01922717366174509
       },
       "nonlinear": {
         "boundary_draws": 258,
-        "max_phase_linearization_error_rad": 5.507791821728059e-06,
-        "largest_exact_uniform_loss": 0.0020246518498577837,
-        "max_exact_phase_radius_rad": 0.13124734061030688
+        "max_phase_linearization_error_rad": 5.534539238613578e-06,
+        "largest_exact_uniform_loss": 0.002263080695465214,
+        "max_exact_phase_radius_rad": 0.13911037609956173
       }
     }
   },
@@ -229,7 +229,7 @@
         "F2"
       ],
       "central_binary_uniform_loss": 2.228506463808344e-07,
-      "largest_profile_any_sampled_weight_bound": 0.001420028944104555,
+      "largest_profile_any_sampled_weight_bound": 0.0020759019365253536,
       "scope": "Model sensitivity at the reference physical case; same bootstrap critical radius and reference noise-profile grid, not a new coverage calibration or a cross with every J1231 mass/inclination case."
     },
     "J1737-0811": {
@@ -238,7 +238,7 @@
         "F2"
       ],
       "central_binary_uniform_loss": 1.2847883634758972e-07,
-      "largest_profile_any_sampled_weight_bound": 0.009717699205105214,
+      "largest_profile_any_sampled_weight_bound": 0.009905388377829786,
       "scope": "Model sensitivity at the reference physical case; same bootstrap critical radius and reference noise-profile grid, not a new coverage calibration or a cross with every J1231 mass/inclination case."
     },
     "J1231-1411": {
@@ -247,7 +247,7 @@
         "F2"
       ],
       "central_binary_uniform_loss": 3.7777993188159442e-06,
-      "largest_profile_any_sampled_weight_bound": 0.0161255810862699,
+      "largest_profile_any_sampled_weight_bound": 0.018631361261373686,
       "scope": "Model sensitivity at the reference physical case; same bootstrap critical radius and reference noise-profile grid, not a new coverage calibration or a cross with every J1231 mass/inclination case."
     }
   },
@@ -375,6 +375,68 @@
         "global_chi2": 15.885462558034122,
         "n_epochs": 16
       }
+    },
+    "J1231-1411": {
+      "white": {
+        "after_constant_and_spin_chi2": 9.393403213781426,
+        "after_constant_and_spin_dof": 14,
+        "after_constant_and_spin_nominal_p": 0.8050540089474181,
+        "sin_us": 0.5605924145191457,
+        "cos_us": -0.5129338173621586,
+        "sigma_us": [
+          2.1715075509363464,
+          2.508858216910174
+        ],
+        "orbital_chi2": 0.09897718915223047,
+        "nominal_p": 0.9517160127991049,
+        "global_chi2": 105.85337287472169,
+        "n_epochs": 17
+      },
+      "jitter": {
+        "after_constant_and_spin_chi2": 8.726887368445148,
+        "after_constant_and_spin_dof": 14,
+        "after_constant_and_spin_nominal_p": 0.8481381798016199,
+        "sin_us": 0.4395922564420661,
+        "cos_us": -0.3668627109241033,
+        "sigma_us": [
+          2.29579485647751,
+          2.696869587763778
+        ],
+        "orbital_chi2": 0.050348335131165683,
+        "nominal_p": 0.9751400594670988,
+        "global_chi2": 90.52482958914318,
+        "n_epochs": 17
+      },
+      "red": {
+        "after_constant_and_spin_chi2": 9.421474907143505,
+        "after_constant_and_spin_dof": 14,
+        "after_constant_and_spin_nominal_p": 0.8031408348374959,
+        "sin_us": 0.3251760059866672,
+        "cos_us": -0.22312030247725168,
+        "sigma_us": [
+          2.3070928686748684,
+          2.766972126262818
+        ],
+        "orbital_chi2": 0.02482856547742463,
+        "nominal_p": 0.9876624565864407,
+        "global_chi2": 79.82812883867494,
+        "n_epochs": 17
+      },
+      "exp": {
+        "after_constant_and_spin_chi2": 8.726869147166923,
+        "after_constant_and_spin_dof": 14,
+        "after_constant_and_spin_nominal_p": 0.8481392919746071,
+        "sin_us": 0.43959035011753955,
+        "cos_us": -0.36686015135643646,
+        "sigma_us": [
+          2.295798231576727,
+          2.6968748494932044
+        ],
+        "orbital_chi2": 0.050347648277452,
+        "nominal_p": 0.9751403943564418,
+        "global_chi2": 90.52444571708818,
+        "n_epochs": 17
+      }
     }
   },
   "J0437": {
@@ -447,6 +509,11 @@
       298.358738257338,
       -241.24066201565913
     ]
+  },
+  "LOFAR_noise": {
+    "TOA_error_scale": 1.5027957512410035,
+    "epoch_jitter_us": 0.0004338740116999991,
+    "correlated_rms_us": 0.00010000000000000009
   },
   "LOFAR_placement": {
     "templates": 12,

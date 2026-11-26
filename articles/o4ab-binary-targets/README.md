@@ -4,8 +4,8 @@
 
 The three MeerKAT results use two independent sets of observations. The earlier
 TOAs determine how far the orbit can move within the timing errors. The O4b
-TOAs test the predicted pulse phases at later dates. Both columns of Table 1
-are fractions of coherent power lost. No detector strain enters this calculation.
+TOAs test the predicted pulse phases at later dates. Both loss columns in
+Table 1 report percentages. No detector strain enters this calculation.
 
 ## Reproduce Table 1 from this repository
 
@@ -24,25 +24,26 @@ This calculation reads the fitted reference and limiting orbits, evaluates
 fresh TEMPO2 delays at 131,072 times and finds the largest allowed phase
 excursion. It also averages the saved complex phase measurements from the
 O4b epochs. The reference entry lists the mean UTC MJD and channel count
-for each epoch in the order used by all predictions for that pulsar. For J1231 it takes the range over 25 predictions. It compares
+for each epoch in the order used by all predictions for that pulsar. For
+J1231 the calculation takes the range over 25 predictions. It compares
 the recomputed values with the saved table and exits with an error on a
 discrepancy. The three unrounded orbital bounds, in percent to four decimal
-places, are **0.1401, 0.9733 and 1.7128**. The table rounds these upwards.
+places, are **0.1919, 0.9917 and 1.9228**. The table rounds these upwards.
 [Orbital regions](../../scripts/timing/o4ab_targets/results/limiting_orbits.json) ·
 [O4b epoch measurements](../../scripts/timing/o4ab_targets/results/epoch_predictions.json) ·
 [Table and supporting results](../../scripts/timing/o4ab_targets/results/paper_results.json).
 
 ## Refit from the arrival times
 
-On 25 November 2026 the full driver rebuilt the fits in an empty working
+On 26 November 2026 the full driver rebuilt the fits in an empty working
 directory from 161 verified inputs. The comparison passed for the reported
 bounds, O4b predictions, LOFAR template count and historical checks. An
 independent run of the Table 1 calculation used only files in this repository.
 
 The full calculation starts with TOAs, clock corrections and the initial
 timing models in `scripts/timing/o4ab_targets/models/`. Bulk timing inputs
-are stored outside Git. With the archived `results/timing` tree alongside
-this checkout, the following commands copy the inputs, check their SHA-256
+are stored outside Git. Given a copy of the archived `results/timing`
+tree, the following commands copy the inputs, check their SHA-256
 hashes, run all fits and compare the results with the publication files.
 The starter models include the fitted daily dispersion terms and the
 J1737 conversion to ELL1. TEMPO2 refits the parameters flagged in each
@@ -50,8 +51,8 @@ starter model. It exports a fresh design matrix and covariance.
 
 ```bash
 .conda/bin/python scripts/timing/o4ab_targets/prepare_inputs.py \
-    --archive ../gravfold/results/timing \
-    --partim ../gravfold/results/timing/j0437_external_validation/meerkat/partim.tar.gz
+    --archive /path/to/archived/results/timing \
+    --partim /path/to/partim.tar.gz
 bash scripts/timing/o4ab_targets/reproduce.sh
 ```
 
@@ -71,7 +72,7 @@ BLAS and OpenMP threads at one. [Input filenames and hashes](../../scripts/timin
 
 | Input | Selection |
 |---|---|
-| MeerKAT training TOAs | The three `.tim` files in the 4.5-year release give 3,231 J1045, 3,258 J1737 and 2,129 J1231 TOAs. The last training observation is at MJD 60157 to the nearest day. [Release tarball](https://docs.datacentral.org.au/documents/52/partim.tar.gz) · [Miles et al.](https://doi.org/10.1093/mnras/stae2572) |
+| MeerKAT training TOAs | The three `.tim` files in the 4.5-year release give 3,231 J1045, 3,258 J1737 and 2,129 J1231 TOAs. The last training MJDs, rounded to the nearest day, are 60157, 60155 and 60157, respectively. [Release tarball](https://docs.datacentral.org.au/documents/52/partim.tar.gz) · [Miles et al.](https://doi.org/10.1093/mnras/stae2572) |
 | MeerKAT O4b TOAs | Retain MJD 60410.625 through 60703.70833. J1045 and J1737 use the public PTA stream with 32 channels, total intensity, one integration and no DM correction. The PTA2 stream duplicates these rows. J1231 uses the RelBin timing download. Preserve the decimal MJD strings. [Pulsar Portal](https://pulsars.org.au/) · [Data-use policy](https://pulsars.org.au/data-usage/) |
 | J1400 Nançay and LOFAR | The Nançay model is the J1400 member of the LVK ephemeris bundle. The Donner release uses J1400−1438. The input is its eight-channel TOA file with author-rejected outliers removed. The appended station flags allow the fit to use one offset per station relative to the first. [LVK release](https://dcc.ligo.org/LIGO-T2600052/public) · [LOFAR release](https://doi.org/10.5281/zenodo.4290012) |
 | J1400 LWA | Three reduced 49.8-MHz TOAs at MJDs 58628, 60111 and 60592, plus dispersion measured from the profiles. This replay starts at those measurements. The native residuals assume GPS-referenced station times. [LWA archive](https://lda10g.alliance.unm.edu/PulsarArchive/) · [Kumar et al.](https://doi.org/10.3847/1538-4357/adb97a) |
@@ -82,12 +83,21 @@ You can also rebuild the eight timing files for MeerKAT and LOFAR from the
 original releases. Place `partim.tar.gz`, `dvt+20.tar`, the Portal timing
 downloads `J1231-1411_toas.zip` and `J1745-0952_toas.zip`, and the two
 public observation exports `J1045-4509_api_toas.json` and
-`J1737-0811_api_toas.json` in one directory. The export script records
-the original Portal fields and selection. The conversion checks that PTA
-and PTA2 agree, then verifies the eight resulting files byte for byte.
-The ninth input contains the three LWA measurements reduced from the archived
-profiles. It ships with the article.
-[Original Portal export script](https://github.com/thandal/gravfold/blob/39af6625296b268eba17c061bd6406ab83db5624/scripts/timing/gap_closure_20261017/fetch_public_toas.py).
+`J1737-0811_api_toas.json` in one directory. The conversion checks that
+PTA and PTA2 give the same arrival times, then verifies all eight files
+byte for byte against the input manifest. The ninth timing file contains
+the three LWA measurements and ships with the article.
+[Selection and conversion code](../../scripts/timing/o4ab_targets/release_toas.py).
+
+The J1045 and J1737 exports use the [Pulsar Portal](https://pulsars.org.au/).
+For each pulsar, select public O4b observations by UTC start and beam.
+For each observation, the arrival-time selection used 32 frequency
+channels (`obsNchan=32`), total intensity (`obsNpol=1`), one integration
+(`nsubType="1"`) and `dmCorrected=false`. Collect all pages, keeping the
+project label, observation start, beam and public status with each row.
+Preserve the decimal MJD strings. Keep both PTA and PTA2 for the duplication
+check. The conversion reads the TOA fields, applies the MJD cut and writes
+the TEMPO2 flags used in the fits.
 
 ```bash
 .conda/bin/python scripts/timing/o4ab_targets/release_toas.py /path/to/release-products
@@ -116,23 +126,34 @@ Power losses in JSON are fractions. Multiply by 100 for percent.
 | Joint errors and Table 1 bounds | `fit_orbits.py`, `phase_axes.py`, `bootstrap.py`, `profile_noise.py`, `physical_grid.py`, `bank_envelope.py`, `native_bank_check.py` | `bootstrap`, `noise_grid`, `grid_and_nonlinear_checks`, `table_1` |
 | Additional fitted parameters | `fixed_parameter_sensitivity.py` refits parallax and the second spin-frequency derivative | `extra_parameters` |
 | O4b epochs, sampled losses and 0.3-ms controls | `radio_predictions.py` evaluates the full earlier timing models at the later TOAs. Each complex number is an inverse-variance mean over the channels at one epoch | `table_1`, [epoch predictions and controls](../../scripts/timing/o4ab_targets/results/epoch_predictions.json) |
-| O4b trend and orbital tests | `external_predictive.py` includes training-fit uncertainty and cross-epoch noise | `radio_prediction_statistics` |
+| Table 2, O4b spin trends and orbital tests | `external_predictive.py` fits a constant and a dispersion term across the channels at each epoch for all three reference fits. It uses the infinite-frequency residual and propagates training-fit uncertainty and noise correlations between epochs. | `radio_prediction_statistics` |
 | Five published errors for J1400 and J1745, LOFAR drift, LWA and historical J1745 predictions | `historical.py` and the three LOFAR fits in `fit_orbits.py` | `historical` |
-| LOFAR bank | `lofar_covariance.py`, `bootstrap_lofar.py`, `lofar_metric.py`, `bank_uniform_slabs.py`, `validate_efficient_bank.py` | `LOFAR_placement`, `LOFAR_native_checks` |
+| LOFAR bank | `lofar_covariance.py`, `bootstrap_lofar.py`, `lofar_metric.py`, `bank_uniform_slabs.py`, `validate_efficient_bank.py` | `LOFAR_noise`, `LOFAR_placement`, `LOFAR_native_checks` |
 
 The MeerKAT error regions use the 196th ordered joint-error statistic from
-200 trials, giving squared radii of 19.485, 22.132 and 21.695. The noise
-grid retains 247, 341 and 275 profiles within 13.277 of the minimum in
-minus twice restricted log likelihood. The J1231 run crosses the 275
-profiles with the reference fit and all 24 mass and inclination choices
-(6,875 combinations). The dense-grid check uses the limiting combination
-for each pulsar. `noise_fits.py` and `frequency_checks.py` also write the
+200 trials, giving squared radii of 19.485, 22.132 and 21.695. The fitted
+power-law slopes are 0 for J1045, 2.36 for J1737 and 0 for J1231. The
+noise grid tests slopes from 0 to 7 for each pulsar. It retains
+2,880, 3,600 and 3,208 profiles within 13.277 of the minimum
+in minus twice restricted log likelihood for each of two Fourier cutoffs.
+At each grid value of jitter and spectral slope, we fit the TOA error
+scale for each correlated-noise amplitude. Where adjacent amplitudes fall
+on opposite sides of the cutoff, we bisect in log amplitude until the
+log amplitudes differ by at most 0.0001, and retain the inside endpoint.
+The loss calculation then applies the floor of 1.1 to the TOA error scale.
+J1231 uses all 3,208 profiles with each of its 25 fits (80,200 combinations).
+The binary delays use equally spaced barycentric MJDs from 60088.625 to
+60703.70833, the numerical UTC endpoints of O4ab. The dense time-grid
+check uses the limiting combination for each pulsar. `noise_fits.py` and
+`frequency_checks.py` also write the
 quarter-span and radio-frequency split diagnostics in the working directory.
 Their nominal $p$-values are saved under `timing_splits`.
 
 The LOFAR offsets are in the native TEMPO2 units of the named columns.
-Add each row to the free LOFAR timing fit. The count of 12 applies to
-uniform weights on the O4ab grid and is a sufficient count. The linear
+Add each row to the free LOFAR timing fit. The fit scales the TOA errors
+by 1.50, with fitted epoch jitter below 0.5 ns and correlated rms noise
+of 0.1 ns. The 12 templates suffice for that covariance and uniform
+weights on the O4ab grid. The linear
 variance bound is 2.9961%. Allowing an additional 0.0001 rad of phase error
 gives 2.9995%. Full TEMPO2 trials tested the nonlinear allowance.
 [Reference fit](../../scripts/timing/o4ab_targets/results/orbits/J1400-1431_lofar.par) ·
@@ -163,3 +184,10 @@ power-loss bounds and the O4b radio checks in Table 1.
 - LIGO reported S3/S4 targeted upper limits for J1045 and J1745. Its S5 search included J1045 and estimated power loss from correlated timing errors. The 16 filters estimated for J1045 in 2001 used the radio errors available then. [S3/S4 results](https://arxiv.org/pdf/gr-qc/0702039) · [S5, §3 and Table 1](https://arxiv.org/pdf/0909.3583) · [Dhurandhar & Vecchio, Table III](https://arxiv.org/pdf/gr-qc/0011085).
 - The O4a targeted search used Nançay timing for J1231 and J1745. The public data products give upper limits. They do not include the J1745 arrival times needed to test our extrapolation. [LVK, §4.2 and Tables 2–3](https://arxiv.org/pdf/2501.01495) · [O4a data products](https://dcc.ligo.org/G2402400/public).
 - Cromartie et al. give an independent J1231 orbit through MJD 60408. Their companion data release contains posterior samples for the two masses, inclination and parallax. Our 25 MeerKAT fits test sensitivity to fixed masses and inclinations. [Timing solution and Shapiro measurement](https://arxiv.org/html/2511.10529v2) · [Posterior samples](https://doi.org/10.5281/zenodo.17596801).
+
+We checked three additional target lists on 26 November. J1745 is absent
+from EPTA DR1 and IPTA DR2. The J1745 entry in EPTA Table 15 credits
+Janssen et al. (2010) for the proper motion. Parkes DR3 includes J1045
+and omits J1737. [EPTA DR1, Tables 1 and 15](https://arxiv.org/pdf/1602.08511) ·
+[IPTA DR2](https://doi.org/10.1093/mnras/stz2857) ·
+[Parkes DR3, Table 1](https://doi.org/10.1017/pasa.2023.36).
